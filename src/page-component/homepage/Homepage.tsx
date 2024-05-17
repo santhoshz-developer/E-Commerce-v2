@@ -1,0 +1,30 @@
+import React from "react";
+
+import { useQuery } from "@apollo/client";
+import { QUERY } from "@/service/query";
+import Brand from "./helper-component/brand/Brand";
+import Intro from "./helper-component/IntroPage/IntroPage";
+import Products from "./helper-component/products/Products";
+import { Banner } from "./helper-component/banner/Banner";
+import Seller from "./helper-component/seller/Seller";
+import { Follow } from "./helper-component/follow/Follow";
+
+const HomePage = () => {
+  const { data, loading } = useQuery(QUERY);
+
+  const { homes } = data || {};
+  const { topmain } = homes?.data?.[0]?.attributes || {};
+
+  return (
+    <div>
+      <Intro topmain={topmain} />
+      <Brand />
+      <Products />
+      <Banner />
+      <Seller />
+      <Follow />
+    </div>
+  );
+};
+
+export default HomePage;
