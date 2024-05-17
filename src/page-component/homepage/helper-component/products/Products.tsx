@@ -77,8 +77,8 @@ const Products = () => {
           <FirstDiv>
             <CustomCard>
               <CardContent>
-                <Link href="/productDetails/pants">
-                  <img
+                <Link href="/productDetails/1">
+                  {/* <img
                     src={
                       api +
                       productData?.Cards?.[0]?.cargdimage?.[0]?.image?.data?.[0]
@@ -86,7 +86,8 @@ const Products = () => {
                     }
                     alt="Brand 1"
                     style={{ width: "95%", marginBottom: "10px" }}
-                  />
+                  /> */}
+                  Pants
                 </Link>
                 <DetailDiv bgcolor={hoverBg}>
                   <FavoriteIcon />
@@ -120,8 +121,8 @@ const Products = () => {
 
             <CustomCard>
               <CardContent>
-                <Link href="/productDetails/bags">
-                  <img
+                <Link href="/productDetails/2">
+                  {/* <img
                     src={
                       api +
                       productData?.Cards?.[1]?.cargdimage?.[0]?.image?.data?.[0]
@@ -133,7 +134,8 @@ const Products = () => {
                       marginBottom: "10px",
                       position: "relative",
                     }}
-                  />
+                  /> */}
+                  bags
                 </Link>
                 <DetailDiv bgcolor={hoverBg}>
                   <FavoriteIcon />
@@ -169,8 +171,8 @@ const Products = () => {
 
             <CustomCard>
               <CardContent>
-                <Link href="/productDetails/scraf">
-                  <img
+                <Link href="/productDetails/3">
+                  {/* <img
                     src={
                       api +
                       productData?.Cards?.[2]?.cargdimage?.[0]?.image?.data?.[0]
@@ -182,7 +184,8 @@ const Products = () => {
                       marginBottom: "10px",
                       position: "relative",
                     }}
-                  />
+                  /> */}
+                  scraf
                 </Link>
                 <DetailDiv bgcolor={hoverBg}>
                   <FavoriteIcon />

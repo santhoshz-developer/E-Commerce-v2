@@ -4,12 +4,12 @@ import { useParams } from "next/navigation";
 import React from "react";
 
 const Product = () => {
-  const id = useParams();
-  console.log("productId", id);
+  const { productId } = useParams();
+  console.log("productId", productId);
 
   return (
     <div>
-      <ProductDetails />
+      <ProductDetails productId={productId} />
     </div>
   );
 };
