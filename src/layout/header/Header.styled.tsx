@@ -1,126 +1,174 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Button, Link, Typography } from "@mui/material";
 import DehazeIcon from "@mui/icons-material/Dehaze";
-import styled from "@emotion/styled";
+import { styled } from "@mui/system";
+import SearchIcon from "@/component/icon/SearchIcon";
 
-export const BoxStyled = styled(Box)`
-  background-color: rgba(30, 40, 50, 0.05);
-  height: 120px;
-  margin: 0 auto;
-  width: 100%;
-  @media (min-width: 390px) and (max-width: 767px) {
-    background-color: transparent;
-  }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    background-color: transparent;
-    position: relative;
-    z-index: 999;
+export const BoxStyled = styled(Box)(({ theme }) => ({
+  backgroundColor: "rgba(30, 40, 50, 0.05)",
+  height: "120px",
+  margin: "0 auto",
+  width: "100%",
+  [theme.breakpoints.down('sm')]: {
+    backgroundColor: "transparent"
+  },
+  [theme.breakpoints.down("md")]: {
+    backgroundColor: "transparent",
+    position: "relative",
+    zIndex: 999,
   }
+}));
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
+export const AppBarStyled = styled(Box)(({ theme }) => ({
+  height: "90px",
+  margin: "0 auto",
+  width: "72%",
+  [theme.breakpoints.up('sm')]:{
+    width: "90%",
+  },
+  [theme.breakpoints.up('lg')]:{
+    width: "90%",
   }
-`;
-export const AppBarStyled = styled(Box)`
-  height: 90px;
-  margin: 0 auto;
-  width: 72%;
-  @media (min-width: 1200px) and (max-width: 1440px) {
-    width: 80%;
-  }
-`;
-export const HeadLineStyled = styled("div")`
-  display: flex;
-  @media (min-width: 390px) and (max-width: 767px) {
-    font-size: 17px;
-    position: relative;
-    bottom: 10px;
-  }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    font-size: 16px;
-    position: relative;
-    right: 190px;
-  }
-  @media (min-width: 1024px) and (max-width: 1440px) {
-    font-size: 16px;
-    position: relative;
-    left: -100px;
-  }
-`;
-export const FirstTypography = styled(Typography)`
-  font-size: 35px;
-  position: relative;
-  left: 350px;
-  @media (min-width: 390px) and (max-width: 767px) {
-    font-size: 16px;
-    position: relative;
-    top: 10px;
-    left: 60px;
-    font-weight: 100;
-  }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 27px;
-    position: relative;
-    left: 280px;
-  }
-  @media (min-width: 1024px) and (max-width: 1199px) {
-    font-size: 28px;
-    position: relative;
-  }
-  @media (min-width: 1200px) {
-    left: 450px;
-  }
-  @media (min-width: 1440px) {
-    left: 550px;
-  }
-  @media (min-width: 1450px) {
-    left: 350px;
-  }
-`;
-export const IconBtn = styled(Box)`
-  margin-left: 400px;
-  font-size: 28px;
-  @media (min-width: 320px) {
-    display: none;
-  }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    display: block;
-    position: relative;
-    left: 50px;
-    z-index: 999;
-  }
-  @media (min-width: 1240px) {
-    display: block;
-  }
-`;
-export const DehazeIconStyled = styled(DehazeIcon)`
-  display: none;
-  @media (min-width: 390px) and (max-width: 767px) {
-    position: relative;
-    left: 170px;
-    display: block;
-  }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    display: none;
-  }
-`;
-export const LinkStyled = styled(Link)`
-  color: black;
-  text-decoration: none !important;
-  cursor: pointer;
-  &:hover {
-    color: #ff6f61;
-  }
-  @media (min-width: 390px) and (max-width: 767px) {
-    position: relative;
-    z-index: 999;
-    left: 20px;
-    display: block;
-    cursor: pointer;
+}));
 
-    padding-top: 20px;
+export const SearchStyle = styled(SearchIcon)(({theme}) => ({
+   [theme.breakpoints.down('sm')]:{
+        marginLeft:"-30px"
+   }
+}))
+
+export const HeadLineStyled = styled("div")(({theme}) => ({
+  display: "flex",
+  [theme.breakpoints.down('sm')]:{
+    fontSize: "14px",
+    position: "absolute",
+    bottom: "10px",
+  },
+  [theme.breakpoints.up('sm')]:{
+    fontSize: "14px",
+    position: "absolute",
+    marginLeft:"-90px",
+  },
+  [theme.breakpoints.down('md')]: {
+    fontSize: "16px",
+    position: "absolute",
+    right: "190px"
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: "16px",
+    position: "absolute",
+    right: "190px",
+    marginLeft:"150px"
+  },
+  [theme.breakpoints.down('lg')]:{
+    fontSize: "16px",
+    left: "-100px",
+  },
+  [theme.breakpoints.down('xl')]:{
+    position: "relative",
+    left: "-100px",
   }
-`;
-export const LinkContainer: any = styled("div")<{ isClick?: boolean }>`
+}))
+export const FirstTypography = styled(Typography)(({theme}) => ({
+  fontSize: "35px",
+  position: "relative",
+  left: "350px",
+  [theme.breakpoints.down('sm')]:{
+    fontSize: "14px",
+    position: "relative",
+    top: "10px",
+    marginLeft: "-300px",
+    fontWeight: "100",
+  },
+  [theme.breakpoints.up('sm')]:{
+    fontSize: "14px",
+    position: "relative",
+    marginLeft: "-180px",
+    fontWeight: "100",
+  },
+  [theme.breakpoints.down('md')] :{
+    fontSize: "27px",
+    position: "relative",
+    left: "280px",
+  },
+  [theme.breakpoints.up('md')] :{
+    fontSize: "27px",
+    position: "relative",
+    marginLeft: "-300px",
+  },
+  [theme.breakpoints.down('lg')]:{
+       left: "450px",
+  },
+  [theme.breakpoints.down('xl')]:{
+    left: "700px",
+  }
+}));
+
+export const IconBtn = styled(Box)(({theme}) => ({
+  marginLeft: "400px",
+  fontSize: "28px",
+  position:"relative",
+  left:"170px",
+  [theme.breakpoints.down('sm')]: {
+    display: "none"
+  },
+  [theme.breakpoints.down('md')]:{
+    display: "block",
+    position: "relative",
+    left: "100px",
+    zIndex: "999",
+  },
+  [theme.breakpoints.up('md')]:{
+    display: "block",
+    position: "relative",
+    left: "100px",
+    zIndex: "999",
+  },
+  [theme.breakpoints.up('lg')]:{
+    left: "290px",
+  },
+  [theme.breakpoints.down('xl')]:{
+    left: "450px",
+  }
+}))
+
+export const ButtonStyle = styled(Button)(({theme}) => ({
+      color:"inherit",
+      gap:"8px",
+      "&:hover" : {
+         color:"#FF6F61",
+      }
+}));
+
+export const DehazeIconStyled = styled(DehazeIcon)(({theme}) => ({
+  display: "none",
+  [theme.breakpoints.down('sm')]:{
+    position: "absolute",
+    left: "270px",
+    display: "block"
+  }
+}));
+
+export const LinkStyled = styled(Link)(({theme}) => ({
+  color: "black",
+  textDecoration: "none !important",
+  cursor: "pointer",
+  marginRight:"20px",
+  marginTop:"20px",
+  "&:hover" :{
+    color: "#ff6f61"
+  },
+  [theme.breakpoints.down('sm')]: {
+    position: "relative",
+    zIndex: "999",
+    left: "20px",
+    display: "block",
+    cursor: "pointer",
+    paddingTop: "20px"
+  }
+}));
+
+export const LinkContainer: any = styled("div") <{ isClick?: boolean }>`
   margin-right: 110px;
   font-family: "Open Sans", sans-serif;
   .icon-acc {
