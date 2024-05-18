@@ -4,12 +4,14 @@ import Button from "@mui/material/Button";
 import {
   AppBarStyled,
   BoxStyled,
+  ButtonStyle,
   DehazeIconStyled,
   FirstTypography,
   HeadLineStyled,
   IconBtn,
   LinkContainer,
   LinkStyled,
+  SearchStyle,
 } from "./Header.styled";
 
 import { useQuery } from "@apollo/client";
@@ -32,7 +34,7 @@ export const Header = () => {
     return (
       <>
         {navbar?.map((item: any, index: any) => (
-          <LinkStyled key={index} href={item.link} style={{ marginRight: "20px" ,marginTop:'20px'}}>
+          <LinkStyled key={index} href={item.link}>
             {item.title}
           </LinkStyled>
         ))}
@@ -45,30 +47,21 @@ export const Header = () => {
     <BoxStyled>
       <AppBarStyled position="static">
         <Toolbar>
-          <SearchIcon />
+          <SearchStyle />
           <HeadLineStyled>
             <FirstTypography>{header?.[0]?.title}</FirstTypography>
           </HeadLineStyled>
-          <DehazeIconStyled
-            style={{ position: "relative", right: "20px", zIndex: "999" }}
-            onClick={toggleBar}
-          />
-          <IconBtn className="btn-icon" sx={{position:'relative',left:'170px'}}>
-            <Button
-              color="inherit"
-              sx={{ gap: "8px", ":hover": { color: "#FF6F61" } }}
-            >
+          <DehazeIconStyled onClick={toggleBar}/>
+          <IconBtn className="btn-icon">
+            <ButtonStyle>
               <UserIcon/>
               {header?.[0]?.headerbutton?.[0]?.title}
-            </Button>
-            <Button
-              color="inherit"
-              sx={{ gap: "8px", ":hover": { color: "#FF6F61" } }}
-            >
+            </ButtonStyle>
+            <ButtonStyle>
               {" "}
               <ShoppingBagIcon />
               {header?.[0]?.headerbutton?.[1]?.title}
-            </Button>
+            </ButtonStyle>
           </IconBtn>
         </Toolbar>
         <hr />
