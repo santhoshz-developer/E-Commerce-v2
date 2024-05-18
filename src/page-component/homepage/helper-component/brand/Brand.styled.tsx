@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const MainDiv = styled("div")`
   overflow: hidden;
-
+  height: 690px;
   position: relative;
   left: 130px;
   @media (min-width: 390px) and (max-width: 767px) {
@@ -306,7 +306,7 @@ export const StyledTypography = styled(Typography)`
 export const SaleTypography = styled(Typography)`
   position: absolute;
   top: 20px;
-  margin-left:128px;
+  margin-left: 128px;
   background-color: black;
   color: white;
   width: 60px;

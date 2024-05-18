@@ -21,7 +21,8 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { api } from "@/service/backend-api";
-import { ShoppingBagBtnIconStyled } from "../products/Product.styled";
+import { ShoppingBagBtnIconStyled } from "./Seller.styled";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
 
 const Seller = (props: any) => {
   const silderproduct = props;
@@ -54,6 +55,7 @@ const Seller = (props: any) => {
             bgcolor={sellerButton}
             textcolor={sellerText}
           >
+             <FilterAltIcon />
             {silderproduct?.[0]?.sellerbutton?.[0]?.title}
           </StyledButton>
         </Box>
@@ -75,7 +77,7 @@ const Seller = (props: any) => {
                 </Link>
                 <DetailDiv bgcolor={hoverBg}>
                   <FavoriteIcon />
-                  <div style={{ position: "relative", left: "20px" }}>
+                  <div style={{ position: "relative", left: "10px",fontSize:'10px' }}>
                     <SearchIcon />
                   </div>
                   <TypographyIcon href="#" textcolor={hoverText}>
