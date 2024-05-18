@@ -34,7 +34,7 @@ export const TopTypography = styled(Typography)`
 export const ShoppingBagBtnIconStyled = styled(ShoppingBagBtnIcon)`
   font-size: 20px;
   position: relative;
-  top: 5px;
+  top: 3px;
 `;
 
 export const BoxStyled = styled(Box)`
@@ -279,10 +279,9 @@ export const DetailDiv = styled("div")<{ bgcolor: string }>`
 export const TypographyIcon = styled(Link)<{ textcolor: string }>`
   margin-left: 30%;
   position: relative;
-
+  top:2px;
   color: #fff;
   text-decoration: none;
-
   &:hover {
     color: ${({ textcolor }) => textcolor || appColors["black"]};
   }

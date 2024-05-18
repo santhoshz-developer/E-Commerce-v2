@@ -20,7 +20,8 @@ import { api } from "@/service/backend-api";
 
 const Brand = (props: any) => {
   const { brands, categorey } = props;
-  const hoverBg = categorey?.[0]?.images?.[0]?.colors?.color?.[0]?.background;
+  const hoverBg = categorey?.[0]?.images?.[0]?.color?.color?.[0]?.background;
+
   return (
     <>
       <StyledTypography variant="h5">{categorey?.[0]?.title}</StyledTypography>
@@ -107,6 +108,7 @@ const Brand = (props: any) => {
                     width: "100%",
                     maxWidth: "250px",
                     height: "auto",
+                    marginBottom: "5px",
                   }}
                 />
 
