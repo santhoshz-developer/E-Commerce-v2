@@ -1,4 +1,3 @@
-"use client";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import {
@@ -11,17 +10,18 @@ import {
   LinkContainer,
   LinkStyled,
 } from "./Header.styled";
+
 import { useState } from "react";
 import { ShoppingBagIcon } from "@/component/icon/ShoppingBagIcon";
 import UserIcon from "@/component/icon/UserIcon";
 import SearchIcon from "@/component/icon/SearchIcon";
+  
 export const Header = ( props: any) => {
   const { header,navbar} = props;
   const [isClick, setClick] = useState(false);
   const toggleBar = () => {
     setClick(!isClick);
   };
-
   const renderList = () => {
     return (
       <>
@@ -33,8 +33,6 @@ export const Header = ( props: any) => {
       </>
     );
   };
-  
- console.log("mano",header?.[0]?.title);
   return (
     <BoxStyled>
       <AppBarStyled position="static">
@@ -76,7 +74,6 @@ export const Header = ( props: any) => {
           }}
         >
           {renderList()}
-
           <Button variant="text" color="inherit" className="icon-acc1">
             <ShoppingBagIcon style={{ marginRight: "10px" }} />
             {header?.[0]?.headerbutton?.[1]?.title}

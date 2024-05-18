@@ -70,8 +70,8 @@ const Products = (props: any) => {
           <FirstDiv>
             <CustomCard>
               <CardContent>
-                <Link href="/productDetails/pants">
-                  <img
+                <Link href="/productDetails/1">
+                  {/* <img
                     src={
                       api +
                       productitems?.[0]?.cardimage?.[0]?.image?.data?.[0]
@@ -79,7 +79,8 @@ const Products = (props: any) => {
                     }
                     alt="Brand 1"
                     style={{ width: "95%", marginBottom: "10px" }}
-                  />
+                  /> */}
+                  Pants
                 </Link>
                 <DetailDiv bgcolor={hoverBg}>
                   <FavoriteIcon />
@@ -114,8 +115,8 @@ const Products = (props: any) => {
 
             <CustomCard>
               <CardContent>
-                <Link href="/productDetails/bags">
-                  <img
+                <Link href="/productDetails/2">
+                  {/* <img
                     src={
                       api +
                       productitems?.[0]?.cardimage?.[1]?.image?.data?.[0]
@@ -127,7 +128,8 @@ const Products = (props: any) => {
                       marginBottom: "10px",
                       position: "relative",
                     }}
-                  />
+                  /> */}
+                  bags
                 </Link>
                 <DetailDiv bgcolor={hoverBg}>
                   <FavoriteIcon />
@@ -163,8 +165,8 @@ const Products = (props: any) => {
 
             <CustomCard>
               <CardContent>
-                <Link href="/productDetails/scraf">
-                  <img
+                <Link href="/productDetails/3">
+                  {/* <img
                     src={
                       api +
                       productitems?.[0]?.cardimage?.[2]?.image?.data?.[0]
@@ -176,7 +178,8 @@ const Products = (props: any) => {
                       marginBottom: "10px",
                       position: "relative",
                     }}
-                  />
+                  /> */}
+                  scraf
                 </Link>
                 <DetailDiv bgcolor={hoverBg}>
                   <FavoriteIcon />

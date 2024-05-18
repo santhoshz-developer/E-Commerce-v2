@@ -73,15 +73,11 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useQuery } from "@apollo/client";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { api } from "@/service/backend-api";
-import { GET_PRODUCT } from "@/service/query";
+import { GET_ID_PRODUCT, GET_PRODUCT_HEADER } from "@/service/query";
 import { useParams } from "next/navigation";
 
-const ProductDetails = ({ id }: any) => {
-  console.log('ck',id);
-  
-  const [products, setProducts] = useState([]) as any;
-
-  const productData = products?.data?.attributes;
+const ProductDetails = ({ productId }: any) => {
+  console.log("idck", productId);
 
   const [count, setCount] = useState(1);
 
@@ -94,12 +90,26 @@ const ProductDetails = ({ id }: any) => {
   const {
     loading,
     error,
-    data: productDatass,
-  } = useQuery(GET_PRODUCT, {
-    variables: { slug: id },
+    data: productQuery,
+  } = useQuery(GET_ID_PRODUCT, {
+    variables: { id: productId },
   });
 
-  console.log("apicall", productDatass);
+  const { data: headers } = useQuery(GET_PRODUCT_HEADER);
+  const headerData = headers?.productheaders?.data?.[0]?.attributes;
+
+  const productData = productQuery?.product?.data?.attributes;
+  console.log("headerData", productData);
+
+  // productData?.[0]?.rightdetail?.[0]?.sideimage?.[0]?.image
+  // ?.data?.[0]?.attributes?.url
+
+  console.log(
+    "productData-check",
+    api +
+      productData?.[0]?.rightdetail?.[0]?.sideimage?.[0]?.image?.data?.[0]
+        ?.attributes?.url
+  );
 
   const buttonBg =
     productData?.leftdetail?.[0]?.buy?.[0]?.color?.button?.[0]?.color
@@ -112,6 +122,7 @@ const ProductDetails = ({ id }: any) => {
       ?.background;
   const cardText =
     productData?.cards?.[0]?.cardbutton?.[0]?.color?.button?.[0]?.color?.text;
+  //new one
 
   return (
     <>
@@ -125,7 +136,7 @@ const ProductDetails = ({ id }: any) => {
               marginRight: "8px",
             }}
           />
-          {productData?.nav}
+          {headerData?.categories?.[0]?.title}
           <KeyboardArrowDownIcon
             sx={{
               position: "relative",
@@ -138,7 +149,7 @@ const ProductDetails = ({ id }: any) => {
       </SetIcon>
       <BoxContainer>
         <TypographyContent variant="h4">
-          {productData?.breadcrum?.[0]?.title}
+          {headerData?.header?.[0]?.title}
         </TypographyContent>
         <BreadcrumbsStyle>
           <Link
@@ -150,7 +161,7 @@ const ProductDetails = ({ id }: any) => {
               color: "inherit",
             }}
           >
-            {productData?.breadcrum?.[0]?.links?.[0]?.link}
+            {headerData?.header?.[0]?.breadcrum?.[0]?.title}
           </Link>
           <Link
             href="/"
@@ -161,7 +172,7 @@ const ProductDetails = ({ id }: any) => {
               color: "inherit",
             }}
           >
-            {productData?.breadcrum?.[0]?.links?.[1]?.link}
+            {headerData?.header?.[0]?.breadcrum?.[1]?.title}
           </Link>
           <Link
             href="#"
@@ -172,18 +183,20 @@ const ProductDetails = ({ id }: any) => {
               color: "inherit",
             }}
           >
-            {productData?.breadcrum?.[0]?.links?.[2]?.link}
+            {headerData?.header?.[0]?.breadcrum?.[2]?.title}
           </Link>
         </BreadcrumbsStyle>
       </BoxContainer>
+
+      {/* productData body */}
       <StyledDiv>
         <StyledBox>
           <ImageStyled1>
             <img
               src={
                 api +
-                productData?.rightdetail?.[0]?.sideimage?.[0]?.image?.data?.[0]
-                  ?.attributes?.url
+                productData?.rightdetail?.[0]?.sideimage?.[0]?.image
+                  ?.data?.[0]?.attributes?.url
               }
               alt={"No img"}
               style={{ height: "89px", width: "108px", marginLeft: "20px" }}

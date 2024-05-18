@@ -2,6 +2,7 @@ import { Box, Link, Typography } from "@mui/material";
 import DehazeIcon from "@mui/icons-material/Dehaze";
 import styled from "@emotion/styled";
 
+
 export const BoxStyled = styled(Box)`
   background-color: rgba(30, 40, 50, 0.05);
   height: 120px;
@@ -10,13 +11,11 @@ export const BoxStyled = styled(Box)`
   @media (min-width: 390px) and (max-width: 767px) {
     background-color: transparent;
   }
-
   @media (min-width: 768px) and (max-width: 1023px) {
     background-color: transparent;
     position: relative;
     z-index: 999;
   }
-
   @media (min-width: 1024px) and (max-width: 1440px) {
   }
 `;
@@ -108,7 +107,7 @@ export const LinkStyled = styled(Link)`
   text-decoration: none !important;
   cursor: pointer;
   &:hover {
-    color: #ff6f61;
+    color: #FF6F61;
   }
   @media (min-width: 390px) and (max-width: 767px) {
     position: relative;
@@ -116,7 +115,6 @@ export const LinkStyled = styled(Link)`
     left: 20px;
     display: block;
     cursor: pointer;
-
     padding-top: 20px;
   }
 `;
@@ -133,7 +131,6 @@ export const LinkContainer: any = styled("div")<{ isClick?: boolean }>`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-
   @media (min-width: 390px) and (max-width: 767px) {
     background-color: white;
     flex-direction: column;
@@ -170,7 +167,6 @@ export const LinkContainer: any = styled("div")<{ isClick?: boolean }>`
       margin-bottom: 10px;
     }
   }
-
   @media (min-width: 1024px) and (max-width: 1440px) {
     font-size: 16px;
     color: black;
@@ -186,4 +182,4 @@ export const LinkContainer: any = styled("div")<{ isClick?: boolean }>`
       margin-bottom: 11px;
     }
   }
-`;
+`
