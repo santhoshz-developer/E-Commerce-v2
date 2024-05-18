@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 import { api } from "@/service/backend-api";
 import {
@@ -21,21 +21,10 @@ import {
   ToppDiv,
   TwitterIconStyled,
 } from "./Footer.Styled";
-import { QUERY } from "@/service/query";
-import { useQuery } from "@apollo/client";
-import { FacebookIcon } from "@/component/icon/FaceBookIcon";
-import { InstraGramIcon } from "@/component/icon/InstrgramIcon";
-import { LinkedInIcon } from "@/component/icon/LinkedInIcon";
-import { TwitterIcon } from "@/component/icon/TwitterIcon";
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
-export const Footer = () => {
-  const { data } = useQuery(QUERY);
-  const { homes } = data || {};
-  const { footer, bottom } = homes?.data?.[0]?.attributes || {};
-  console.log("footer");
-  console.log("bottom", bottom);
-
+export const Footer = (props: any) => {
+  const { footer, bottom } = props;
   const bottomBg = bottom?.[0]?.colors?.bottom?.[0]?.color?.backgroundcolor;
   const bottomText = bottom?.[0]?.colors?.bottom?.[0]?.color?.text;
   return (
@@ -240,8 +229,8 @@ export const Footer = () => {
             />
           </LogDiv>
           <StyledButton variant="text">
-            {bottom?.[0]?.button?.[0]?.title} {" "}
-            <ArrowUpwardIcon  style={{ marginLeft: "10px" }} />
+            {bottom?.[0]?.button?.[0]?.title}{" "}
+            <ArrowUpwardIcon style={{ marginLeft: "10px" }} />
           </StyledButton>
         </BottomContainer>
       </ToppDiv>

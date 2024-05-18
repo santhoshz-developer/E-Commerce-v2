@@ -1,6 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { useQuery } from "@apollo/client";
-
 import { api } from "@/service/backend-api";
 import {
   ContentTypography,
@@ -18,29 +16,20 @@ import {
   TopDiv,
   TopTypography,
 } from "./Follow.styled";
-import { QUERY } from "@/service/query";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
-export const Follow = () => {
-  const { data } = useQuery(QUERY);
-  const { homes } = data || {};
-  const feedback = homes?.data?.[0]?.attributes || {};
-
-  const feedbackData = feedback?.feedback?.[0];
-  console.log("feedback", feedbackData);
-  console.log("feedback1", feedbackData?.button?.[0]?.title);
-
+export const Follow = (props: any) => {
+  const feedback = props;
   return (
     <TopDiv>
       <StyledBox>
-        <TopTypography variant="h4">{feedbackData?.title}</TopTypography>
-
+        <TopTypography variant="h4">{feedback?.[0]?.title}</TopTypography>
         <MainDiv>
           <ImgBox>
             <img
               src={
                 api +
-                feedbackData?.cardItems?.[0]?.brandlogo?.data?.[0]?.attributes
+                feedback?.[0]?.cardItems?.[0]?.brandlogo?.data?.[0]?.attributes
                   ?.url
               }
               alt="Brand 1"
@@ -59,7 +48,7 @@ export const Follow = () => {
             <img
               src={
                 api +
-                feedbackData?.cardItems?.[1]?.brandlogo?.data?.[0]?.attributes
+                feedback?.[0]?.cardItems?.[1]?.brandlogo?.data?.[0]?.attributes
                   ?.url
               }
               alt="Brand 2"
@@ -73,7 +62,7 @@ export const Follow = () => {
             <img
               src={
                 api +
-                feedbackData?.cardItems?.[2]?.brandlogo?.data?.[0]?.attributes
+                feedback?.[0]?.cardItems?.[2]?.brandlogo?.data?.[0]?.attributes
                   ?.url
               }
               alt="Brand 3"
@@ -87,7 +76,7 @@ export const Follow = () => {
             <img
               src={
                 api +
-                feedbackData?.cardItems?.[3]?.brandlogo?.data?.[0]?.attributes
+                feedback?.[0]?.cardItems?.[3]?.brandlogo?.data?.[0]?.attributes
                   ?.url
               }
               alt="Brand 4"
@@ -101,7 +90,7 @@ export const Follow = () => {
             <img
               src={
                 api +
-                feedbackData?.cardItems?.[4]?.brandlogo?.data?.[0]?.attributes
+                feedback?.[0]?.cardItems?.[4]?.brandlogo?.data?.[0]?.attributes
                   ?.url
               }
               alt="Brand 5"
@@ -115,7 +104,7 @@ export const Follow = () => {
             <img
               src={
                 api +
-                feedbackData?.cardItems?.[5]?.brandlogo?.data?.[0]?.attributes
+                feedback?.[0]?.cardItems?.[5]?.brandlogo?.data?.[0]?.attributes
                   ?.url
               }
               alt="Brand 6"
@@ -127,7 +116,9 @@ export const Follow = () => {
           </ImgBox>
         </MainDiv>
 
-        <ContentTypography variant="h4">{feedbackData?.heading}</ContentTypography>
+        <ContentTypography variant="h4">
+          {feedback?.[0]?.heading}
+        </ContentTypography>
 
         <StyledText
           id="standard-basic"
@@ -135,7 +126,7 @@ export const Follow = () => {
           variant="standard"
         />
         <StyledButton variant="outlined">
-          {feedbackData?.button?.[0]?.title}
+          {feedback?.[0]?.button?.[0]?.title}
         </StyledButton>
       </StyledBox>
     </TopDiv>

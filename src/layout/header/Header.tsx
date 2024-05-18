@@ -11,18 +11,12 @@ import {
   LinkContainer,
   LinkStyled,
 } from "./Header.styled";
-
-import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import { ShoppingBagIcon } from "@/component/icon/ShoppingBagIcon";
 import UserIcon from "@/component/icon/UserIcon";
 import SearchIcon from "@/component/icon/SearchIcon";
-import { QUERY } from "@/service/query";
-
-export const Header = () => {
-  const { data } = useQuery(QUERY);
-  const { homes } = data || {};
-  const { header, navbar } = homes?.data?.[0].attributes || {};
+export const Header = ( props: any) => {
+  const { header,navbar} = props;
   const [isClick, setClick] = useState(false);
   const toggleBar = () => {
     setClick(!isClick);
@@ -40,7 +34,7 @@ export const Header = () => {
     );
   };
   
-
+ console.log("mano",header?.[0]?.title);
   return (
     <BoxStyled>
       <AppBarStyled position="static">

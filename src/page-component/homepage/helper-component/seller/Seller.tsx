@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { Box, Button, CardContent, Link, Typography } from "@mui/material";
+import { Box, CardContent, Link, Typography } from "@mui/material";
 import {
   BoxContainer,
   BoxStyled,
@@ -18,53 +18,43 @@ import {
   TypographyIcon,
   TypographySale,
 } from "./Seller.styled";
-import { useQuery } from "@apollo/client";
-
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-
 import { api } from "@/service/backend-api";
-import { QUERY } from "@/service/query";
 import { ShoppingBagBtnIconStyled } from "../products/Product.styled";
 
-const Seller = () => {
-  const { data } = useQuery(QUERY);
-  const { homes } = data || {};
-  const silderProduct = homes?.data?.[0]?.attributes || {};
-  const silderProductData = silderProduct?.silderproduct;
-  console.log("silderProduct", silderProductData);
-
+const Seller = (props: any) => {
+  const silderproduct = props;
   const sellerButton =
-    silderProduct?.[0]?.filterbutton?.[0]?.color?.navbutton?.[0]?.background;
+    silderproduct?.[0]?.sellerbutton?.[0]?.color?.button?.[0]?.backgroundColor;
   const sellerText =
-    silderProduct?.[0]?.filterbutton?.[0]?.color?.navbutton?.[0]?.text;
+    silderproduct?.[0]?.sellerbutton?.[0]?.color?.button?.[0]?.color;
   const hoverBg =
-    silderProduct?.[0]?.cards?.[0]?.colors?.color?.[0]?.background;
-  const hoverText =
-    silderProduct?.[0]?.cards?.[0]?.colors?.color?.[1]?.hover?.text;
+    silderproduct?.[0]?.cards?.[0]?.color?.hover?.[0]?.backgroundColor;
+  const hoverText = silderproduct?.[0]?.cards?.[0]?.color?.hover?.[0]?.color;
   return (
     <BoxContainer>
-      <TopTypography variant="h4">{silderProduct?.[0]?.title}</TopTypography>
+      <TopTypography variant="h4">{silderproduct?.[0]?.title}</TopTypography>
       <BoxStyled sx={{ position: "relative" }}>
         <Box sx={{ marginLeft: "20px", marginTop: "25px" }}>
           <StyledLink href={"#"}>
-            <b>{silderProduct?.[0]?.navbar?.[0]?.title}</b>
+            <b>{silderproduct?.[0]?.navbar?.[0]?.title}</b>
           </StyledLink>
           <StyledLink1 href={"#"}>
-            {silderProduct?.[0]?.navbar?.[1]?.title}
+            {silderproduct?.[0]?.navbar?.[1]?.title}
           </StyledLink1>
           <StyledLink1 href={"#"}>
-            {silderProduct?.[0]?.navbar?.[2]?.title}
+            {silderproduct?.[0]?.navbar?.[2]?.title}
           </StyledLink1>
           <StyledLink1 href={"#"}>
-            {silderProduct?.[0]?.navbar?.[3]?.title}
+            {silderproduct?.[0]?.navbar?.[3]?.title}
           </StyledLink1>
           <StyledButton
             variant="contained"
             bgcolor={sellerButton}
             textcolor={sellerText}
           >
-            {silderProduct?.[0]?.filterbutton?.[0]?.title}
+            {silderproduct?.[0]?.sellerbutton?.[0]?.title}
           </StyledButton>
         </Box>
 
@@ -76,7 +66,7 @@ const Seller = () => {
                   <img
                     src={
                       api +
-                      silderProduct?.[0]?.cards?.[0]?.cardimages?.data?.[0]
+                      silderproduct?.[0]?.cardimage?.[0]?.image?.data?.[0]
                         ?.attributes?.url
                     }
                     alt="Brand 5"
@@ -90,26 +80,26 @@ const Seller = () => {
                   </div>
                   <TypographyIcon href="#" textcolor={hoverText}>
                     <ShoppingBagBtnIconStyled />{" "}
-                    {silderProduct?.[0]?.cards?.[0]?.link}
+                    {silderproduct?.[0]?.cards?.[0]?.link}
                   </TypographyIcon>
                 </DetailDiv>
                 <HotTypography> HOT</HotTypography>
                 <StyledTypography variant="h6">
-                  {silderProduct?.[0]?.cards?.[0]?.title}
+                  {silderproduct?.[0]?.cards?.[0]?.title}
                 </StyledTypography>
                 <ProductContent>
                   <Typography
                     variant="body2"
                     style={{ color: "rgba(0, 0, 0, 0.5)" }}
                   >
-                    {silderProduct?.[0]?.cards?.[0]?.content}
+                    {silderproduct?.[0]?.cards?.[0]?.content}
                   </Typography>
                   <Typography
                     variant="body2"
                     sx={{ marginRight: "20px" }}
                     style={{ fontWeight: "bold" }}
                   >
-                    {silderProduct?.[0]?.cards?.[0]?.prize}
+                    {silderproduct?.[0]?.cards?.[0]?.prize}
                   </Typography>
                 </ProductContent>
               </CardContent>
@@ -121,7 +111,7 @@ const Seller = () => {
                   <img
                     src={
                       api +
-                      silderProduct?.[0]?.cards?.[1]?.cardimages?.data?.[0]
+                      silderproduct?.[0]?.cardimage?.[1]?.image?.data?.[0]
                         ?.attributes?.url
                     }
                     alt="Brand 2"
@@ -139,25 +129,25 @@ const Seller = () => {
                   </div>
                   <TypographyIcon href="#" textcolor={hoverText}>
                     <ShoppingBagBtnIconStyled />{" "}
-                    {silderProduct?.[0]?.cards?.[0]?.link}
+                    {silderproduct?.[0]?.cards?.[0]?.link}
                   </TypographyIcon>
                 </DetailDiv>
                 <StyledTypography variant="h6">
-                  {silderProduct?.[0]?.cards?.[1]?.title}
+                  {silderproduct?.[0]?.cards?.[1]?.title}
                 </StyledTypography>
                 <ProductContent>
                   <Typography
                     variant="body2"
                     style={{ color: "rgba(0, 0, 0, 0.5)" }}
                   >
-                    {silderProduct?.[0]?.cards?.[1]?.content}
+                    {silderproduct?.[0]?.cards?.[1]?.content}
                   </Typography>
                   <Typography
                     variant="body2"
                     sx={{ marginRight: "30px" }}
                     style={{ fontWeight: "bold" }}
                   >
-                    {silderProduct?.[0]?.cards?.[1]?.prize}
+                    {silderproduct?.[0]?.cards?.[1]?.prize}
                   </Typography>
                 </ProductContent>
               </CardContent>
@@ -169,7 +159,7 @@ const Seller = () => {
                   <img
                     src={
                       api +
-                      silderProduct?.[0]?.cards?.[2]?.cardimages?.data?.[0]
+                      silderproduct?.[0]?.cardimage?.[2]?.image?.data?.[0]
                         ?.attributes?.url
                     }
                     alt="Brand 4"
@@ -187,26 +177,26 @@ const Seller = () => {
                   </div>
                   <TypographyIcon href="#" textcolor={hoverText}>
                     <ShoppingBagBtnIconStyled />{" "}
-                    {silderProduct?.[0]?.cards?.[0]?.link}
+                    {silderproduct?.[0]?.cards?.[0]?.link}
                   </TypographyIcon>
                 </DetailDiv>
                 <SaleTypography> SALE </SaleTypography>
                 <StyledTypography variant="h6">
-                  {silderProduct?.[0]?.cards?.[2]?.title}
+                  {silderproduct?.[0]?.cards?.[2]?.title}
                 </StyledTypography>
                 <ProductContent>
                   <Typography
                     variant="body2"
                     style={{ color: "rgba(0, 0, 0, 0.5)" }}
                   >
-                    {silderProduct?.[0]?.cards?.[2]?.content}
+                    {silderproduct?.[0]?.cards?.[2]?.content}
                   </Typography>
                   <Typography
                     variant="body2"
                     sx={{ marginRight: "55px" }}
                     style={{ fontWeight: "bold" }}
                   >
-                    {silderProduct?.[0]?.cards?.[2]?.prize}
+                    {silderproduct?.[0]?.cards?.[2]?.prize}
                   </Typography>
                 </ProductContent>
               </CardContent>
@@ -218,7 +208,7 @@ const Seller = () => {
                   <img
                     src={
                       api +
-                      silderProduct?.[0]?.cards?.[3]?.cardimages?.data?.[0]
+                      silderproduct?.[0]?.cardimage?.[3]?.image?.data?.[0]
                         ?.attributes?.url
                     }
                     alt="Brand 6"
@@ -236,13 +226,13 @@ const Seller = () => {
                   </div>
                   <TypographyIcon href="#" textcolor={hoverText}>
                     <ShoppingBagBtnIconStyled />{" "}
-                    {silderProduct?.[0]?.cards?.[0]?.link}
+                    {silderproduct?.[0]?.cards?.[0]?.link}
                   </TypographyIcon>
                 </DetailDiv>
                 <TypographySale> SALE</TypographySale>
                 <div style={{ position: "relative" }}>
                   <StyledTypography variant="h6">
-                    {silderProduct?.[0]?.cards?.[3]?.title}
+                    {silderproduct?.[0]?.cards?.[3]?.title}
                   </StyledTypography>
                   <ProductContent>
                     <Typography
@@ -250,14 +240,14 @@ const Seller = () => {
                       style={{ color: "rgba(0, 0, 0, 0.5)" }}
                     >
                       {" "}
-                      {silderProduct?.[0]?.cards?.[3]?.content}
+                      {silderproduct?.[0]?.cards?.[3]?.content}
                     </Typography>
                     <Typography
                       variant="body2"
                       sx={{ marginRight: "30px" }}
                       style={{ fontWeight: "bold" }}
                     >
-                      {silderProduct?.[0]?.cards?.[3]?.prize}
+                      {silderproduct?.[0]?.cards?.[3]?.prize}
                     </Typography>
                   </ProductContent>
                 </div>

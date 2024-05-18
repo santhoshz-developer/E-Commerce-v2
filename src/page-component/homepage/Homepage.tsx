@@ -10,19 +10,26 @@ import Seller from "./helper-component/seller/Seller";
 import { Follow } from "./helper-component/follow/Follow";
 
 const HomePage = () => {
-  const { data, loading } = useQuery(QUERY);
-
+  const { data } = useQuery(QUERY);
   const { homes } = data || {};
-  const { topmain } = homes?.data?.[0]?.attributes || {};
+  const {
+    topmain,
+    brands,
+    categorey,
+    productitems,
+    brandbanner,
+    silderproduct,
+    feedback,
+  } = homes?.data?.[0]?.attributes || {};
 
   return (
     <div>
-      <Intro topmain={topmain} />
-      <Brand />
-      <Products />
-      <Banner />
-      <Seller />
-      <Follow />
+      <Intro {...topmain} />
+      <Brand brands={brands} categorey={categorey} />
+      <Products {...productitems} />
+      <Banner {...brandbanner} />
+      <Seller {...silderproduct} />
+      <Follow {...feedback} />
     </div>
   );
 };

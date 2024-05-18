@@ -21,47 +21,40 @@ import {
   TypographyIcon,
   TypographySale,
 } from "./Product.styled";
-import { useQuery } from "@apollo/client";
 import { api } from "@/service/backend-api";
-import { QUERY } from "@/service/query";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-const Products = () => {
-  const { data } = useQuery(QUERY);
-  const { homes } = data || {};
-  const productitems = homes?.data?.[0]?.attributes || {};
-  const productData = productitems;
-  console.log("productitems", productData);
+const Products = (props: any) => {
+  const productitems = props;
 
   const filterButton =
-    productData?.filterbutton?.[0]?.color?.button?.[0]?.backgroundColor;
-  const filterText = productData?.filterbutton?.[0]?.color?.button?.[0]?.olor;
-  const hoverBg = productData?.Cards?.[0]?.color?.hover?.[0]?.backgroundColor;
-  const hoverText = productData?.Cards?.[0]?.color?.hover?.[0]?.color;
+    productitems?.[0]?.filterbutton?.[0]?.color?.button?.[0]?.backgroundColor;
+  const filterText =
+    productitems?.[0]?.filterbutton?.[0]?.color?.button?.[0]?.olor;
+  const hoverBg =
+    productitems?.[0]?.cards?.[0]?.color?.hover?.[0]?.backgroundColor;
+  const hoverText = productitems?.[0]?.cards?.[0]?.color?.hover?.[0]?.color;
 
-  console.log("filterButton", productData?.Cards?.[0].link);
+  console.log("filterButton", productitems?.[0]?.cards?.[0].link);
 
   return (
     <BoxContainer>
-      <TopTypography variant="h4">
-        {" "}
-        {productData?.productitems?.[0]?.title}
-      </TopTypography>
+      <TopTypography variant="h4"> {productitems?.[0]?.title}</TopTypography>
       <Box sx={{ position: "relative" }}>
         <BoxStyled>
           <StyledLink href={"#"}>
-            <b>{productData?.productitems?.[0]?.navbar?.[0]?.title}</b>
+            <b>{productitems?.[0]?.navbar?.[0]?.title}</b>
           </StyledLink>
           <StyledLink1 href={"#"}>
-            {productData?.productitems?.[0]?.navbar?.[1]?.title}
+            {productitems?.[0]?.navbar?.[1]?.title}
           </StyledLink1>
           <StyledLink1 href={"#"}>
-            {productData?.productitems?.[0]?.navbar?.[2]?.title}
+            {productitems?.[0]?.navbar?.[2]?.title}
           </StyledLink1>
           <StyledLink1 href={"#"}>
-            {productData?.productitems?.[0]?.navbar?.[3]?.title}
+            {productitems?.[0]?.navbar?.[3]?.title}
           </StyledLink1>
           <StyledButton
             variant="contained"
@@ -70,7 +63,7 @@ const Products = () => {
           >
             <FilterAltIcon />
 
-            {productData?.filterbutton?.[0]?.title}
+            {productitems?.[0]?.filterbutton?.[0]?.title}
           </StyledButton>
         </BoxStyled>
         <CommonDiv>
@@ -81,7 +74,7 @@ const Products = () => {
                   <img
                     src={
                       api +
-                      productData?.Cards?.[0]?.cargdimage?.[0]?.image?.data?.[0]
+                      productitems?.[0]?.cardimage?.[0]?.image?.data?.[0]
                         ?.attributes?.url
                     }
                     alt="Brand 1"
@@ -94,7 +87,8 @@ const Products = () => {
                     <SearchIcon />
                   </div>
                   <TypographyIcon href="#" textcolor={hoverText}>
-                    <ShoppingBagBtnIconStyled /> {productData?.Cards?.[0].link}
+                    <ShoppingBagBtnIconStyled />{" "}
+                    {productitems?.[0]?.cards?.[0].link}
                   </TypographyIcon>
                 </DetailDiv>
                 <StyledTypography variant="h6">
@@ -124,7 +118,7 @@ const Products = () => {
                   <img
                     src={
                       api +
-                      productData?.Cards?.[1]?.cargdimage?.[0]?.image?.data?.[0]
+                      productitems?.[0]?.cardimage?.[1]?.image?.data?.[0]
                         ?.attributes?.url
                     }
                     alt="Brand 2"
@@ -143,7 +137,7 @@ const Products = () => {
                   <TypographyIcon href="#" textcolor={hoverText}>
                     <ShoppingBagBtnIconStyled />
 
-                    {productData?.Cards?.[0].link}
+                    {productitems?.[0]?.cards?.[0].link}
                   </TypographyIcon>
                 </DetailDiv>
                 <StyledTypography variant="h6">
@@ -173,7 +167,7 @@ const Products = () => {
                   <img
                     src={
                       api +
-                      productData?.Cards?.[2]?.cargdimage?.[0]?.image?.data?.[0]
+                      productitems?.[0]?.cardimage?.[2]?.image?.data?.[0]
                         ?.attributes?.url
                     }
                     alt="Brand 3"
@@ -190,7 +184,8 @@ const Products = () => {
                     <SearchIcon />
                   </div>
                   <TypographyIcon href="#" textcolor={hoverText}>
-                    <ShoppingBagBtnIconStyled /> {productData?.Cards?.[0].link}
+                    <ShoppingBagBtnIconStyled />{" "}
+                    {productitems?.[0]?.cards?.[0]?.link}
                   </TypographyIcon>
                 </DetailDiv>
                 <StyledTypography variant="h6">
@@ -220,7 +215,7 @@ const Products = () => {
                   <img
                     src={
                       api +
-                      productData?.Cards?.[3]?.cargdimage?.[0]?.image?.data?.[0]
+                      productitems?.[0]?.cardimage?.[3]?.image?.data?.[0]
                         ?.attributes?.url
                     }
                     alt="Brand 4"
@@ -237,7 +232,8 @@ const Products = () => {
                     <SearchIcon />
                   </div>
                   <TypographyIcon href="#" textcolor={hoverText}>
-                    <ShoppingBagBtnIconStyled /> {productData?.Cards?.[0].link}
+                    <ShoppingBagBtnIconStyled />{" "}
+                    {productitems?.[0]?.cards?.[0].link}
                   </TypographyIcon>
                 </DetailDiv>
                 <SaleTypography> SALE</SaleTypography>
@@ -270,7 +266,7 @@ const Products = () => {
                   <img
                     src={
                       api +
-                      productData?.Cards?.[4]?.cargdimage?.[0]?.image?.data?.[0]
+                      productitems?.[0]?.cardimage?.[4]?.image?.data?.[0]
                         ?.attributes?.url
                     }
                     alt="Brand 5"
@@ -283,7 +279,8 @@ const Products = () => {
                     <SearchIcon />
                   </div>
                   <TypographyIcon href="#" textcolor={hoverText}>
-                    <ShoppingBagBtnIconStyled /> {productData?.Cards?.[0].link}
+                    <ShoppingBagBtnIconStyled />{" "}
+                    {productitems?.[0]?.cards?.[0].link}
                   </TypographyIcon>
                 </DetailDiv>
                 <HotTypography> HOT </HotTypography>
@@ -314,7 +311,7 @@ const Products = () => {
                   <img
                     src={
                       api +
-                      productData?.Cards?.[5]?.cargdimage?.[0]?.image?.data?.[0]
+                      productitems?.[0]?.cardimage?.[5]?.image?.data?.[0]
                         ?.attributes?.url
                     }
                     alt="Brand 6"
@@ -331,7 +328,8 @@ const Products = () => {
                     <SearchIcon />
                   </div>
                   <TypographyIcon href="#" textcolor={hoverText}>
-                    <ShoppingBagBtnIconStyled /> {productData?.Cards?.[0].link}
+                    <ShoppingBagBtnIconStyled />{" "}
+                    {productitems?.[0]?.cards?.[0].link}
                   </TypographyIcon>
                 </DetailDiv>
                 <TypographySale> SALE</TypographySale>
@@ -364,7 +362,7 @@ const Products = () => {
                   <img
                     src={
                       api +
-                      productData?.Cards?.[6]?.cargdimage?.[0]?.image?.data?.[0]
+                      productitems?.[0]?.cardimage?.[6]?.image?.data?.[0]
                         ?.attributes?.url
                     }
                     alt="Brand 7"
@@ -381,7 +379,8 @@ const Products = () => {
                     <SearchIcon />
                   </div>
                   <TypographyIcon href="#" textcolor={hoverText}>
-                    <ShoppingBagBtnIconStyled /> {productData?.Cards?.[0].link}
+                    <ShoppingBagBtnIconStyled />{" "}
+                    {productitems?.[0]?.cards?.[0].link}
                   </TypographyIcon>
                 </DetailDiv>
                 <div style={{ position: "relative" }}>
@@ -413,7 +412,7 @@ const Products = () => {
                   <img
                     src={
                       api +
-                      productData?.Cards?.[7]?.cargdimage?.[0]?.image?.data?.[0]
+                      productitems?.[0]?.cardimage?.[7]?.image?.data?.[0]
                         ?.attributes?.url
                     }
                     alt="Brand 8"
@@ -430,7 +429,8 @@ const Products = () => {
                     <SearchIcon />
                   </div>
                   <TypographyIcon href="#" textcolor={hoverText}>
-                    <ShoppingBagBtnIconStyled /> {productData?.Cards?.[0].link}
+                    <ShoppingBagBtnIconStyled />{" "}
+                    {productitems?.[0]?.cards?.[0].link}
                   </TypographyIcon>
                 </DetailDiv>
                 <div style={{ position: "relative" }}>
