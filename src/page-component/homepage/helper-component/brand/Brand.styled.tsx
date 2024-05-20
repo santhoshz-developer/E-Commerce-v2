@@ -36,7 +36,7 @@ export const LadyDiv = styled("div") <{ bgcolor: string }>`
   justify-content: space-between;
   padding: 10px;
   position: relative;
-  margin-top: -55px;
+  margin-top: -50px;
   cursor: pointer;
   @media (min-width: 390px) and (max-width: 767px) {
     position: relative;
@@ -117,7 +117,7 @@ export const CoatDiv = styled("div") <{ bgcolor: string }>`
   padding: 10px;
   width: 250px;
   position: absolute;
-  margin-top: -57px;
+  margin-top: -52px;
   cursor: pointer;
   z-index: 999;
   @media (min-width: 390px) and (max-width: 767px) {
@@ -156,7 +156,7 @@ export const JacketDiv = styled("div") <{ bgcolor: string }>`
   padding: 10px;
   width: 250px;
   position: absolute;
-  margin-top: -57px;
+  margin-top: -52px;
   cursor: pointer;
   z-index: 999;
   @media (min-width: 390px) and (max-width: 767px) {
@@ -318,7 +318,7 @@ export const StyledTypography = styled(Typography)`
 export const SaleTypography = styled(Typography)`
   position: absolute;
   top: 20px;
-  margin-left: 190px;
+  margin-left: 135px;
   background-color: black;
   color: white;
   width: 60px;
