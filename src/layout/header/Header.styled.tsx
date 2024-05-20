@@ -1,6 +1,8 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Typography, styled } from "@mui/material";
 import DehazeIcon from "@mui/icons-material/Dehaze";
-import styled from "@emotion/styled";
+import Link from "next/link";
+
+
 
 
 export const BoxStyled = styled(Box)`
@@ -19,6 +21,7 @@ export const BoxStyled = styled(Box)`
   @media (min-width: 1024px) and (max-width: 1440px) {
   }
 `;
+
 export const AppBarStyled = styled(Box)`
   height: 90px;
   margin: 0 auto;
@@ -27,6 +30,7 @@ export const AppBarStyled = styled(Box)`
     width: 80%;
   }
 `;
+
 export const HeadLineStyled = styled("div")`
   display: flex;
   @media (min-width: 390px) and (max-width: 767px) {
@@ -45,6 +49,7 @@ export const HeadLineStyled = styled("div")`
     left: -100px;
   }
 `;
+
 export const FirstTypography = styled(Typography)`
   font-size: 35px;
   position: relative;
@@ -75,8 +80,9 @@ export const FirstTypography = styled(Typography)`
     left: 350px;
   }
 `;
+
 export const IconBtn = styled(Box)`
-  margin-left: 400px;
+  margin-left: 550px;
   font-size: 28px;
   @media (min-width: 320px) {
     display: none;
@@ -90,9 +96,25 @@ export const IconBtn = styled(Box)`
   @media (min-width: 1240px) {
     display: block;
   }
+
+  .btn-user,
+  .btn-shopping {
+    gap: 8px;
+    &:hover {
+      color: #ff6f61;
+    }
+  }
+
+  .btn-user {
+    margin-right: 20px;
+  }
 `;
+
 export const DehazeIconStyled = styled(DehazeIcon)`
   display: none;
+  position: relative;
+  right: 20px;
+  z-index: 999;
   @media (min-width: 390px) and (max-width: 767px) {
     position: relative;
     left: 170px;
@@ -102,12 +124,15 @@ export const DehazeIconStyled = styled(DehazeIcon)`
     display: none;
   }
 `;
+
 export const LinkStyled = styled(Link)`
   color: black;
   text-decoration: none !important;
   cursor: pointer;
+  margin-right: 20px;
+  margin-top: 20px;
   &:hover {
-    color: #FF6F61;
+    color: #ff6f61;
   }
   @media (min-width: 390px) and (max-width: 767px) {
     position: relative;
@@ -118,6 +143,7 @@ export const LinkStyled = styled(Link)`
     padding-top: 20px;
   }
 `;
+
 export const LinkContainer: any = styled("div")<{ isClick?: boolean }>`
   margin-right: 110px;
   font-family: "Open Sans", sans-serif;
@@ -182,4 +208,4 @@ export const LinkContainer: any = styled("div")<{ isClick?: boolean }>`
       margin-bottom: 11px;
     }
   }
-`
+`;
