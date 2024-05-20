@@ -2,6 +2,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import {
   AppBarStyled,
+  BagButtonStyled,
   BoxStyled,
   DehazeIconStyled,
   FirstTypography,
@@ -9,15 +10,16 @@ import {
   IconBtn,
   LinkContainer,
   LinkStyled,
+  SearchIconStyled,
 } from "./Header.styled";
 import { useState } from "react";
 import { ShoppingBagIcon } from "@/component/icon/ShoppingBagIcon";
 import UserIcon from "@/component/icon/UserIcon";
-import SearchIcon from "@/component/icon/SearchIcon";
 import { NavbarItem } from "../type";
 
 export const Header = (props: any) => {
   const { header, navbar } = props;
+
   const [isClick, setClick] = useState(false);
   const toggleBar = () => {
     setClick(!isClick);
@@ -31,6 +33,10 @@ export const Header = (props: any) => {
             {item.title}
           </LinkStyled>
         ))}
+        <BagButtonStyled variant="text" color="inherit" className="icon-acc1">
+          <ShoppingBagIcon />
+          {header?.[0]?.headerbutton?.[1]?.title}
+        </BagButtonStyled>
       </>
     );
   };
@@ -38,7 +44,7 @@ export const Header = (props: any) => {
   const renderToolbar = () => {
     return (
       <Toolbar>
-        <SearchIcon />
+        <SearchIconStyled />
         <HeadLineStyled>
           <FirstTypography>{header?.[0]?.title}</FirstTypography>
         </HeadLineStyled>
@@ -58,15 +64,7 @@ export const Header = (props: any) => {
   };
 
   const renderLink = () => {
-    return (
-      <LinkContainer isClick={isClick}>
-        {renderLinkList()}
-        <Button variant="text" color="inherit" className="icon-acc1">
-          <ShoppingBagIcon />
-          {header?.[0]?.headerbutton?.[1]?.title}
-        </Button>
-      </LinkContainer>
-    );
+    return <LinkContainer isClick={isClick}>{renderLinkList()}</LinkContainer>;
   };
 
   return (
