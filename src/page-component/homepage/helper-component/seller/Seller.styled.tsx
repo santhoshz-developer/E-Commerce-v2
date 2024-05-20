@@ -1,7 +1,26 @@
 import { ShoppingBagBtnIcon } from "@/component/icon/ShoppingBagIcon";
 import { appColors } from "@/theme/color.Config";
 import { Box, Button, Link, Typography } from "@mui/material";
+
 import styled from "styled-components";
+
+export const RateTypography = styled(Typography)`
+  margin-right: 30px;
+  font-weight: bold;
+`;
+export const SearchIconBox = styled(Box)`
+  position: relative;
+  left: 10px;
+`;
+
+export const ProductTypography = styled(Typography)`
+  color: rgba(0, 0, 0, 0.5);
+`;
+
+export const ImageStyled = styled("img")`
+  width: 95%;
+  margin-bottom: 10px;
+`;
 
 export const BoxContainer = styled("div")`
   margin-left: 230px;
@@ -52,26 +71,6 @@ export const TopTypography = styled(Typography)`
     left: 100px;
     font-weight: 300;
     font-size: 40px;
-  }
-`;
-
-export const BoxStyled = styled(Box)`
-  margin-left: 20px;
-  margin-top: 25px;
-  margin-bottom: 20px;
-  font-size: 15px;
-
-  @media (min-width: 390px) and (max-width: 767px) {
-    left: 10px;
-    margin-top: 25px;
-    position: relative;
-    font-size: 12px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    margin-top: 25px;
-    position: relative;
-    font-size: 20px;
   }
 `;
 
@@ -141,7 +140,7 @@ export const DetailDiv = styled("div")<{ bgcolor: string }>`
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: #fff;
   padding: 10px;
-  width: 21%;
+  width: 237px;
   position: absolute;
   margin-top: -51px;
   display: flex;
@@ -158,32 +157,21 @@ export const DetailDiv = styled("div")<{ bgcolor: string }>`
   }
 `;
 export const TypographyIcon = styled(Link)<{ textcolor: string }>`
-  right: 20px;
+  margin-left: 30%;
   position: relative;
-  font-size: 12px;
-  text-decoration: none;
+  top: 2px;
   color: #fff;
+  text-decoration: none;
   &:hover {
     color: ${({ textcolor }) => textcolor || appColors["black"]};
-  }
-  @media (min-width: 390px) {
-    margin-left: 55%;
-  }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    margin-left: 30%;
   }
   @media (min-width: 1024px) and (max-width: 1199px) {
     margin-left: 30%;
   }
-  @media (min-width: 1200px) and (max-width: 1439px) {
-    margin-left: 43%;
-  }
-  @media (min-width: 1440px) {
-    margin-left: 40%;
-  }
 `;
 
 export const CustomCard = styled("div")`
+  //
   width: 282px;
   &:hover {
     ${DetailDiv} {
@@ -481,43 +469,6 @@ export const SaleTypography = styled(Typography)`
     position: absolute;
     top: 40px;
     right: 175px;
-    background-color: black;
-    color: white;
-    width: 60px;
-    text-align: center;
-  }
-`;
-export const TypographySale = styled(Typography)`
-  position: absolute;
-  top: 40px;
-  left: 863px;
-  background-color: black;
-  color: white;
-  width: 60px;
-  text-align: center;
-
-  @media (min-width: 390px) and (max-width: 767px) {
-    position: absolute;
-    top: 440px;
-    left: 17px;
-    background-color: #ff6f61;
-    color: white;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    position: absolute;
-    top: 40px;
-    left: 320px;
-    background-color: #ff6f61;
-    color: white;
-    width: 60px;
-    text-align: center;
-  }
-
-  @media (min-width: 1024px) and (max-width: 1199px) {
-    position: absolute;
-    top: 40px;
-    left: 775px;
     background-color: black;
     color: white;
     width: 60px;

@@ -1,9 +1,14 @@
 import { appColors } from "@/theme/color.Config";
-import { Box, Button, Link, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import styled from "styled-components";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import SearchIcon from "@mui/icons-material/Search";
 import { ShoppingBagBtnIcon } from "@/component/icon/ShoppingBagIcon";
+import Link from "next/link";
+
+export const GridContainer = styled("div")`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+`;
 
 export const TopTypography = styled(Typography)`
   text-align: center;
@@ -35,6 +40,15 @@ export const ShoppingBagBtnIconStyled = styled(ShoppingBagBtnIcon)`
   font-size: 20px;
   position: relative;
   top: 3px;
+  right: 5px;
+`;
+export const ImageStyled = styled("img")`
+  width: 95%;
+  marginbottom: 10px;
+`;
+export const SearchIconBox = styled(Box)`
+  position: relative;
+  left: 10px;
 `;
 
 export const BoxStyled = styled(Box)`
@@ -84,7 +98,6 @@ export const StyledLink = styled(Link)`
   }
 
   @media (min-width: 1024px) and (max-width: 1199px) {
-    // margin-right: 30px;
     text-decoration: none;
     color: black;
     position: relative;
@@ -126,7 +139,6 @@ export const StyledLink1 = styled(Link)`
   }
 
   @media (min-width: 1024px) and (max-width: 1199px) {
-    // margin-right: 30px;
     text-decoration: none;
     color: rgba(0, 0, 0, 0.5);
     position: relative;
@@ -241,27 +253,13 @@ export const CommonDiv = styled("div")`
   }
 `;
 
-export const FavoriteIconStyle = styled(FavoriteIcon)`
-  font-size: 20px;
-`;
-
-export const SearchIconStyled = styled(SearchIcon)`
-  font-size: 20px;
-`;
-export const ShoppingBagIconStyled = styled(ShoppingBagBtnIcon)`
-  font-size: 20px;
-  position: relative;
-  right: 4px;
-  top: 3px;
-`;
-
 export const DetailDiv = styled("div")<{ bgcolor: string }>`
   visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: #fff;
   padding: 10px;
-  width: 21%;
+  width: 235px;
   position: absolute;
   margin-top: -52px;
   display: flex;
@@ -279,7 +277,7 @@ export const DetailDiv = styled("div")<{ bgcolor: string }>`
 export const TypographyIcon = styled(Link)<{ textcolor: string }>`
   margin-left: 30%;
   position: relative;
-  top:2px;
+  top: 2px;
   color: #fff;
   text-decoration: none;
   &:hover {
@@ -330,10 +328,19 @@ export const ProductContent = styled.div`
     justify-content: space-between;
   }
 `;
+
+export const RateTypography = styled(Typography)`
+  font-weight: bold;
+  margin-right: 20px;
+`;
+export const ProductNameTypography = styled(Typography)`
+  color: rgba(0, 0, 0, 0.5);
+`;
+
 export const StyledTypography = styled(Typography)`
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 21.79px;
   margin-top: 5px;
 
@@ -382,80 +389,10 @@ export const BoxContainer = styled("div")`
   }
 `;
 
-export const FirstDiv = styled("div")`
-  display: flex;
-  position: relative;
-
-  @media (min-width: 390px) and (max-width: 767px) {
-    flex-direction: column;
-    margin-left: 60px;
-    margin-top: 0px;
-    position: relative;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    display: grid;
-    margin-left: 90px;
-    margin-top: 10px;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  @media (min-width: 1024px) and (max-width: 1199px) {
-    margin-left: 0px;
-    margin-top: 10px;
-    width: 1010px;
-    height: 400px;
-  }
-  @media (min-width: 1200px) and (max-width: 1439px) {
-    margin-left: 60px;
-  }
-  @media (min-width: 1440px) {
-    margin-left: 200px;
-  }
-  @media (min-width: 1450px) {
-    margin-left: 0px;
-  }
-`;
-export const SecDiv = styled("div")`
-  display: flex;
-  position: relative;
-
-  @media (min-width: 390px) and (max-width: 767px) {
-    flex-direction: column;
-    margin-left: 60px;
-    margin-top: 30px;
-    position: relative;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    display: grid;
-    margin-left: 90px;
-    margin-top: 30px;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  @media (min-width: 1024px) and (max-width: 1199px) {
-    margin-left: 0px;
-    margin-top: 10px;
-    width: 1010px;
-    height: 400px;
-  }
-  @media (min-width: 1200px) and (max-width: 1439px) {
-    margin-left: 60px;
-  }
-  @media (min-width: 1440px) {
-    margin-left: 200px;
-  }
-  @media (min-width: 1450px) {
-    margin-left: 0px;
-  }
-`;
 export const SaleTypography = styled(Typography)`
-  position: absolute;
-  top: 40px;
-  right: 205px;
+  position: relative;
+
+  bottom: 280px;
   background-color: black;
   color: white;
   width: 60px;
@@ -498,51 +435,10 @@ export const SaleTypography = styled(Typography)`
 `;
 
 export const HotTypography = styled(Typography)`
-  position: absolute;
-  top: 40px;
-  left: 17px;
+  position: relative;
+  bottom: 280px;
   background-color: #ff6f61;
   color: white;
   width: 60px;
   text-align: center;
-`;
-
-export const TypographySale = styled(Typography)`
-  position: absolute;
-  top: 40px;
-  left: 299px;
-  background-color: #ff6f61;
-  color: white;
-  width: 60px;
-  text-align: center;
-
-  @media (min-width: 390px) and (max-width: 767px) {
-    position: absolute;
-    top: 440px;
-    left: 17px;
-    background-color: #ff6f61;
-    color: white;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    position: absolute;
-    top: 40px;
-    left: 320px;
-    background-color: #ff6f61;
-    color: white;
-    width: 60px;
-    text-align: center;
-  }
-
-  @media (min-width: 1024px) and (max-width: 1199px) {
-    position: absolute;
-    top: 40px;
-    left: 269px;
-    background-color: #ff6f61;
-    color: white;
-    width: 60px;
-    text-align: center;
-  }
-  @media (min-width: 1200px) and (max-width: 1440px) {
-  }
 `;

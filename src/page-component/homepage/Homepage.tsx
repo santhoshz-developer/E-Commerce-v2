@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useQuery } from "@apollo/client";
 import { QUERY } from "@/service/query";
 import Brand from "./helper-component/brand/Brand";
