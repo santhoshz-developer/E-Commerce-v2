@@ -1,7 +1,11 @@
 import { appColors } from "@/theme/color.Config";
 import { Box, Breadcrumbs, Button, Typography } from "@mui/material";
-import { Tab, TabPanel } from "react-tabs";
+import { Tab, TabList, TabPanel } from "react-tabs";
 import styled from "styled-components";
+import ListIcon from "@mui/icons-material/List";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import Link from "next/link";
 
 export const SetIcon = styled(Box)`
     color:#fff;
@@ -26,6 +30,21 @@ export const SetIcon = styled(Box)`
     @media(min-width:1450px) and (max-width:1550px){
         width:12%
     }
+`
+export const TypoText = styled(Typography)`
+    width:max-content;
+`
+export const IconList = styled(ListIcon)`
+    position: relative;
+    top: 5px;
+    font-size: 20px;
+    margin-right: 8px;
+`
+export const IconKeyDown = styled(KeyboardArrowDownIcon)`
+    position: relative;
+    top: 5px;
+    font-size: 20px;
+    margin-light: 8px;,
 `
 export const BoxContainer = styled(Box)`
     background:#F4F5F8; 
@@ -54,6 +73,15 @@ export const StyledDiv = styled(Box)`
     @media(min-width:768px) and (max-width:1023px){
         flex-direction:column;
     }
+`
+export const TapListBox = styled(TabList)`
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 60px;
+    list-style: none;
+    outline:none;
+    column-gap:20px;
 `
 export const StyledBox1 = styled(Box)`
     background:#F4F5F8;
@@ -113,6 +141,21 @@ export const StyledBox1 = styled(Box)`
         }
     }
 `
+export const RightTypo = styled(Typography)`
+    color:#6F6F6F;
+    font-size:13px;
+    margin-top:140px;
+    @media(min-width:390px) and (max-width:767px){
+        margin-top:20px;
+    }
+    @media(min-width:768px) and (max-width:1023px){
+        margin-top:30px;
+    }
+`
+export const RightBox = styled(Box)`
+    margin-top:10px;
+    margin-left:30px;
+`
 export const StyledBox = styled(Box)`
     @media(min-width:390px) and (max-width:767px){
           position:relative;
@@ -126,6 +169,11 @@ export const ImageStyled1 = styled("div")`
     border:1px solid #E73C17;
     padding:5px;
     width:158px;
+    img{
+        height:89px;
+        width:109px;
+        margin-left:20px;
+    }
     @media(min-width:390px) and (max-width:767px){
         display:none;
     }
@@ -145,6 +193,10 @@ export const ImageStyled2 = styled("div")`
     width:158px;
     margin-top:35px;
     padding-left:20px;
+    img{
+        height:89px;
+        width:109px;
+    }
     @media(min-width:390px) and (max-width:767px){
         border:1px solid #E73C17;
         position:absolute;
@@ -176,6 +228,10 @@ export const ImageStyled3 = styled("div")`
     width:158px;
     margin-top:35px;
     padding-left:20px;
+    img{
+        height:89px;
+        width:109px;
+    }
     @media(min-width:390px) and (max-width:767px){
         border:2px solid #F0F0F0;
         position:absolute;
@@ -211,6 +267,10 @@ export const ImageStyled4 = styled("div")`
     width:158px;
     margin-top:35px;
     padding-left:20px;
+    img{
+        height:89px;
+        width:109px;
+    }
     @media(min-width:390px) and (max-width:767px){
         border:2px solid #F0F0F0;
         position:absolute;
@@ -241,41 +301,16 @@ export const BrandTypography = styled(Typography)`
     font-weight:300;
     font-size:13px;
     margin-top:5px;
+    b{
+        fontFamily: Inter;
+        fontWeight: 500;
+        color: #191919; 
+     }
     @media(min-width:390px) and (max-width:767px){
         margin-top:200px;
     }
     @media(min-width:768px) and (max-width:1023px){
         margin-top:200px;
-        font-size:15px;
-    }
-    @media(min-width:1440px) and (max-width:1460px){
-        font-size:20px;
-    }
-`
-export const BrandTypography1 = styled(Typography)`
-    font-family:Inter;
-    font-weight:300;
-    font-size:13px;
-    margin-top:5px;
-    @media(min-width:390px) and (max-width:767px){
-        
-    }
-    @media(min-width:768px) and (max-width:1023px){
-        font-size:15px;
-    }
-    @media(min-width:1440px) and (max-width:1460px){
-        font-size:20px;
-    }
-`
-export const BrandTypography2 = styled(Typography)`
-    font-family:Inter;
-    font-weight:300;
-    font-size:13px;
-    margin-top:5px;
-    @media(min-width:390px) and (max-width:767px){
-        
-    }
-    @media(min-width:768px) and (max-width:1023px){
         font-size:15px;
     }
     @media(min-width:1440px) and (max-width:1460px){
@@ -306,6 +341,14 @@ export const LgTypography = styled(Typography)`
         line-height:40px;
     }
 `
+export const StarImg = styled("div")`
+    margin-top:10px;
+    img{
+       height:20px;
+       width:20px;
+       margin-left:5px; 
+    }
+`
 export const TypographyUl = styled("ul")`
     margin-left:20px;
     margin-top:10px;
@@ -327,22 +370,18 @@ export const TypographyLi = styled("li")`
         font-size:17px;
     }
 `
-export const DivCount = styled("div")`
-    display:flex;
-    margin-top:20px;
-`
-export const DivCount1 = styled("div")`
-    display:flex;
-    margin-top:20px;
-    padding-bottom:20px;
-    border-bottom:1px solid #F0F0F0;
-`
+export const DivCount = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 20px;
+  gap:15px;
+`;
 export const CountTypo1 = styled(Typography)`
     font-family:Inter;
     font-weight:300;
     font-size:15px;
-    border:1px solid #E73C17;
-    color:#E73C17;
+    border:1px solid #000;
+    color:#000;
     padding:10px;
     padding-left:25px;
     height:45px;
@@ -354,105 +393,6 @@ export const CountTypo1 = styled(Typography)`
         padding-left:20px;
         padding:10px;
         margin-left:0px;
-    }
-`
-export const CountTypo2 = styled(Typography)`
-    font-family:Inter;
-    font-weight:300;
-    font-size:15px;
-    color:#6F6F6F;
-    padding:10px;
-    padding-left:35px;
-    margin-left:30px;
-    @media(min-width:390px) and (max-width:767px){
-        padding-left:20px;
-        padding:10px;
-        margin-left:25px;
-    }
-    @media(min-width:1024px) and (max-width:1199px){
-        padding-left:20px;
-        padding:10px;
-        margin-left:25px;
-    }
-`
-export const CountTypo3 = styled(Typography)`
-    font-family:Inter;
-    font-weight:300;
-    font-size:15px;
-    color:#6F6F6F;
-    padding:10px;
-    padding-left:35px;
-    margin-left:30px;
-    @media(min-width:390px) and (max-width:767px){
-        padding-left:20px;
-        padding:10px;
-        margin-left:15px;
-    }
-    @media(min-width:1024px) and (max-width:1199px){
-        padding-left:20px;
-        padding:10px;
-        margin-left:25px;
-    }
-`
-export const CountTypo4 = styled(Typography)`
-    font-family:Inter;
-    font-weight:300;
-    font-size:15px;
-    color:#6F6F6F;
-    padding-left:25px;
-    @media(min-width:390px) and (max-width:767px){
-        padding-left:20px;
-        padding:10px;
-    }
-    @media(min-width:768px) and (max-width:1023px){
-        padding-left:20px;
-        padding:10px;
-        position:relative;
-        margin-top:-65px;
-        left:68%;
-    }
-    @media(min-width:1024px) and (max-width:1199px){
-        padding-left:20px;
-        padding:10px;
-        margin-left:0px;
-    }
-`
-export const CountTypo5 = styled(Typography)`
-    font-family:Inter;
-    font-weight:300;
-    font-size:15px;
-    color:#6F6F6F;
-    padding-left:12px;
-    margin-left:68px;
-    @media(min-width:390px) and (max-width:767px){
-        padding-left:20px;
-        padding:10px;
-        margin-left:25px;
-    }
-    @media(min-width:768px) and (max-width:1023px){
-        margin-left:15px;
-    }
-    @media(min-width:1024px) and (max-width:1199px){
-        padding-left:20px;
-        padding:10px;
-        margin-left:25px;
-    }
-`
-export const CountTypo6 = styled(Typography)`
-    font-family:Inter;
-    font-weight:300;
-    font-size:15px;
-    color:#6F6F6F;
-    padding-left:35px;
-    margin-left:43px;
-    @media(min-width:390px) and (max-width:767px){
-        margin-left:15px;
-        padding:10px;
-    }
-    @media(min-width:1024px) and (max-width:1199px){
-        padding-left:20px;
-        padding:10px;
-        margin-left:25px;
     }
 `
 export const DivAmount = styled(Typography)`
@@ -526,7 +466,7 @@ export const ButtonDiv3 = styled("button")`
         width:30px;
     }
 `
-export const ButtonDiv4 = styled("button")<{bgcolor: string; textcolor: string;}>`
+export const ButtonDiv4 = styled("button") <{ bgcolor: string; textcolor: string; }>`
     background: ${({ bgcolor }) => bgcolor || appColors["white"]};
     color: ${({ textcolor }) => textcolor || appColors["black"]};
     border:none;
@@ -588,35 +528,7 @@ export const Typography1 = styled(Tab)`
         font-size:15px;
     }
 `
-export const Typography2 = styled(Tab)`
-    color:#191919;
-    font-family:Inter;
-    font-weight:500;
-    font-size:20px;
-    text-decoration:none;
-    margin-left:50px;
-    // outline:2px solid #E73C17;
-    cursor:pointer;
-    @media(min-width:390px) and (max-width:767px){
-        margin-left:10px;
-        font-size:15px;
-    }
-`
-export const Typography3 = styled(Tab)`
-    color:#191919;
-    font-family:Inter;
-    font-weight:500;
-    font-size:20px;
-    text-decoration:none;
-    margin-left:50px;
-    outline:none;
-    cursor:pointer;
-    // outline:2px solid #E73C17;
-    @media(min-width:390px) and (max-width:767px){
-        margin-left:10px;
-        font-size:15px;
-    }
-`
+
 export const BoxDetails1 = styled(TabPanel)`
     margin-top:50px;
     margin-left:200px;
@@ -630,6 +542,17 @@ export const BoxDetails1 = styled(TabPanel)`
         margin-right:20px;
     }
 `
+export const DescriptionLink = styled(Link)`
+    font-family: Inter;
+    font-weight: 300;
+    color: red;
+    text-decoration: none;
+    display:none;
+    @media(min-width:390px) and (max-width:767px){
+        display:block;
+    }
+`
+
 export const DetailTypo = styled(Typography)`
     font-family:Inter;
     font-weight:300;
@@ -711,6 +634,13 @@ export const BreadcrumbsStyle = styled(Breadcrumbs)`
      @media(min-width:1450px) and (max-width:1550px){
         margin-left:620px;
     }
+`
+
+export const DetailLink = styled(Link)`
+    font-family: Inter;
+    font-size: 18px;
+    text-decoration: none;
+    color: inherit;
 `
 
 //bag relatives
@@ -859,7 +789,7 @@ export const CardTypo3 = styled(Typography)`
         position:relative;
     }
 `
-export const CardButton = styled("button")<{bgcolor: string; textcolor: string;}>`
+export const CardButton = styled("button") <{ bgcolor: string; textcolor: string; }>`
     background: ${({ bgcolor }) => bgcolor || appColors["white"]};
     color: ${({ textcolor }) => textcolor || appColors["black"]};
     font-family:Inter;
@@ -1013,4 +943,12 @@ export const TypographyAmt1 = styled(Typography)`
     @media(min-width:1024px) and (max-width:1199px){
          margin-left:66px;
     }
+`
+export const ShoppingIcon = styled(ShoppingCartOutlinedIcon)`
+    color:#6F6F6F;
+    font-size:15px;
+`
+export const ShoppingIcon1 = styled(ShoppingCartOutlinedIcon)`
+    color:#E73C17;
+    font-size:15px;
 `

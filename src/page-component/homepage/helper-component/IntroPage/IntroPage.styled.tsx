@@ -278,6 +278,10 @@ export const FrameStyled = styled("div")`
   }
 `;
 
+export const BoxInline = styled(Box)`
+   margin:90px 200px 0 220px;
+`
+
 export const FrameRightStyled = styled("div")`
   position: relative;
   bottom: 550px;

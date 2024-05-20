@@ -23,11 +23,12 @@ export const MainDiv = styled("div")`
     // left: 130px;
   }
 `;
+
 export const BoxStyled = styled(Box)`
   position: relative;
-  top: 60px;
+  top:100px;
 `;
-export const LadyDiv = styled("div")<{ bgcolor: string }>`
+export const LadyDiv = styled("div") <{ bgcolor: string }>`
   visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
@@ -35,7 +36,7 @@ export const LadyDiv = styled("div")<{ bgcolor: string }>`
   justify-content: space-between;
   padding: 10px;
   position: relative;
-  margin-top: -48px;
+  margin-top: -55px;
   cursor: pointer;
   @media (min-width: 390px) and (max-width: 767px) {
     position: relative;
@@ -45,14 +46,19 @@ export const LadyDiv = styled("div")<{ bgcolor: string }>`
 
 export const LadyimgDiv = styled("div")`
   margin-right: 15px;
+  margin-left: 15px;
   &:hover {
     ${LadyDiv} {
       visibility: visible;
     }
   }
-  // margin-bottom: 15px;
   img {
     height: 525px !important;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:-30px;
   }
 
   @media (min-width: 390px) and (max-width: 767px) {
@@ -84,7 +90,7 @@ export const LadyimgDiv = styled("div")`
     }
   }
 `;
-export const PantsDiv = styled("div")<{ bgcolor: string }>`
+export const PantsDiv = styled("div") <{ bgcolor: string }>`
   visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
@@ -102,7 +108,7 @@ export const PantsDiv = styled("div")<{ bgcolor: string }>`
     margin-top: -42px;
   }
 `;
-export const CoatDiv = styled("div")<{ bgcolor: string }>`
+export const CoatDiv = styled("div") <{ bgcolor: string }>`
   visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
@@ -111,7 +117,7 @@ export const CoatDiv = styled("div")<{ bgcolor: string }>`
   padding: 10px;
   width: 250px;
   position: absolute;
-  margin-top: -47px;
+  margin-top: -57px;
   cursor: pointer;
   z-index: 999;
   @media (min-width: 390px) and (max-width: 767px) {
@@ -123,7 +129,7 @@ export const CoatDiv = styled("div")<{ bgcolor: string }>`
     margin-top: -70px;
   }
 `;
-export const ShirtDiv = styled("div")<{ bgcolor: string }>`
+export const ShirtDiv = styled("div") <{ bgcolor: string }>`
   visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
@@ -141,7 +147,7 @@ export const ShirtDiv = styled("div")<{ bgcolor: string }>`
     margin-top: -42px;
   }
 `;
-export const JacketDiv = styled("div")<{ bgcolor: string }>`
+export const JacketDiv = styled("div") <{ bgcolor: string }>`
   visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
@@ -150,7 +156,7 @@ export const JacketDiv = styled("div")<{ bgcolor: string }>`
   padding: 10px;
   width: 250px;
   position: absolute;
-  margin-top: -47px;
+  margin-top: -57px;
   cursor: pointer;
   z-index: 999;
   @media (min-width: 390px) and (max-width: 767px) {
@@ -160,6 +166,12 @@ export const JacketDiv = styled("div")<{ bgcolor: string }>`
   }
 `;
 export const HoverDiv = styled("div")`
+img{
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      margin-bottom: 5px;
+    }
   &:hover {
     ${PantsDiv} {
       visibility: visible;
@@ -306,7 +318,7 @@ export const StyledTypography = styled(Typography)`
 export const SaleTypography = styled(Typography)`
   position: absolute;
   top: 20px;
-  margin-left: 128px;
+  margin-left: 190px;
   background-color: black;
   color: white;
   width: 60px;
