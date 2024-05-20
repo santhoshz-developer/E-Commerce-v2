@@ -20,6 +20,7 @@ import {
   ToppDiv,
   TwitterIconStyled,
 } from "./Footer.Styled";
+import { FooterItem } from "../type";
 
 export const Footer = (props: any) => {
   const { footer, bottom } = props;
@@ -94,7 +95,7 @@ export const Footer = (props: any) => {
         >
           {footer?.[1]?.title}
         </CatTypography>
-        {footer?.[1]?.items.map((item: any, index: number) => (
+        {footer?.[1]?.items.map((item: FooterItem, index: number) => (
           <CatTypography1 key={index} sx={{ mb: "5px" }}>
             {item.content}
           </CatTypography1>
@@ -128,7 +129,7 @@ export const Footer = (props: any) => {
             >
               {footer?.[2]?.title}
             </AbTypography>
-            {footer?.[2]?.items.map((item: any, index: number) => (
+            {footer?.[2]?.items.map((item: FooterItem, index: number) => (
               <AbTypography1 key={index} sx={{ mb: "5px" }}>
                 {item.content}
               </AbTypography1>
@@ -168,7 +169,7 @@ export const Footer = (props: any) => {
         >
           {footer?.[3]?.title}
         </CusTypography>
-        {footer?.[3]?.items.map((item: any, index: number) => (
+        {footer?.[3]?.items.map((item: FooterItem, index: number) => (
           <CusTypography1 key={index} sx={{ mb: { sm: "-180px", md: "8px" } }}>
             {item.content}
           </CusTypography1>

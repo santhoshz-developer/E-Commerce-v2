@@ -27,6 +27,7 @@ import {
   TopTypography,
   TypographyIcon,
 } from "./Product.styled";
+import { Card, NavbarItem } from "@/page-component/type";
 
 const Products = (props: any) => {
   const productitems = props;
@@ -40,7 +41,7 @@ const Products = (props: any) => {
     const filterButton = productitems?.[0]?.filterbutton?.[0];
     return (
       <BoxStyled>
-        {navbarItems.map((item: any, index: any) =>
+        {navbarItems.map((item: NavbarItem, index: number) =>
           index === 0 ? (
             <StyledLink key={index} href="#">
               <b>{item.title}</b>
@@ -65,7 +66,7 @@ const Products = (props: any) => {
     );
   };
 
-  const renderCardImage = (cards: any, productData: any, index: number) => {
+  const renderCardImage = (cards: Card, productData: any, index: number) => {
     const cardImages = productData?.cardimage || [];
     return (
       <Link href={`/productDetails/${cards.id || index + 1}` || "#"}>
@@ -77,7 +78,7 @@ const Products = (props: any) => {
     );
   };
 
-  const renderHoverDetails = (card: any) => {
+  const renderHoverDetails = (card: Card) => {
     return (
       <DetailDiv bgcolor={hoverBg}>
         <FavoriteIcon />
@@ -102,7 +103,7 @@ const Products = (props: any) => {
     );
   };
 
-  const renderProductContent = (card:any) => {
+  const renderProductContent = (card:Card) => {
     return (
       <ProductContent>
         <ProductNameTypography variant="body2">
@@ -119,7 +120,7 @@ const Products = (props: any) => {
 
     return (
       <GridContainer>
-        {cards.map((card: any, index: any) => (
+        {cards.map((card: Card, index: number) => (
           <CustomCard key={index}>
             <CardContent>
               {renderCardImage(card, productData, index)}

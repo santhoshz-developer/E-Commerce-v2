@@ -70,9 +70,9 @@ import { useQuery } from "@apollo/client";
 import { Tabs } from "react-tabs";
 import { api } from "@/service/backend-api";
 import { GET_ID_PRODUCT, GET_PRODUCT_HEADER } from "@/service/query";
-
-
-const ProductDetails = ({ productId }: any) => {
+import { ProductDetailsProps } from "../type";
+        
+const ProductDetails = ({ productId }: ProductDetailsProps) => {
   console.log("idck", productId);
 
   const [count, setCount] = useState(1);
@@ -84,8 +84,6 @@ const ProductDetails = ({ productId }: any) => {
     setCount(count - 1);
   };
   const {
-    loading,
-    error,
     data: productQuery,
   } = useQuery(GET_ID_PRODUCT, {
     variables: { id: productId },

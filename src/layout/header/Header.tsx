@@ -14,6 +14,7 @@ import { useState } from "react";
 import { ShoppingBagIcon } from "@/component/icon/ShoppingBagIcon";
 import UserIcon from "@/component/icon/UserIcon";
 import SearchIcon from "@/component/icon/SearchIcon";
+import { NavbarItem } from "../type";
 
 export const Header = (props: any) => {
   const { header, navbar } = props;
@@ -25,7 +26,7 @@ export const Header = (props: any) => {
   const renderLinkList = () => {
     return (
       <>
-        {navbar?.map((item: any, index: any) => (
+        {navbar?.map((item: NavbarItem, index: number) => (
           <LinkStyled key={index} href={item.link || "#"}>
             {item.title}
           </LinkStyled>

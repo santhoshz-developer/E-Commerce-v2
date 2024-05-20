@@ -1,4 +1,4 @@
-import { Box, CardContent, Link, Typography } from "@mui/material";
+import { Box, CardContent, Link} from "@mui/material";
 import {
   BoxContainer,
   CustomCard,
@@ -24,6 +24,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { api } from "@/service/backend-api";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import { Cards, NavbarItem } from "@/page-component/type";
 
 
 const Seller = (props: any) => {
@@ -40,7 +41,7 @@ const Seller = (props: any) => {
   const renderNav = () => {
     return (
       <Box sx={{ marginLeft: "20px", marginTop: "25px" }}>
-        {silderproduct?.[0]?.navbar?.map((item: any, index: any) =>
+        {silderproduct?.[0]?.navbar?.map((item: NavbarItem, index: number) =>
           index === 0 ? (
             <StyledLink key={index} href="#">
               <b>{item.title}</b>
@@ -64,7 +65,7 @@ const Seller = (props: any) => {
     );
   };
 
-  const renderHoverDetails = (card: any) => {
+  const renderHoverDetails = (card: Cards) => {
     return (
       <DetailDiv bgcolor={hoverBg}>
         <FavoriteIcon />
@@ -78,9 +79,9 @@ const Seller = (props: any) => {
     );
   };
 
-  const renderImageLink = (card: any, index: number) => {
+  const renderImageLink = (card: Cards, index: number) => {
     return (
-      <Link href={card.link || index + 1}>
+      <Link href={card.link}  key={index + 1}>
         {silderproduct?.[0]?.cardimage?.[index]?.image?.data?.[0]?.attributes
           ?.url && (
           <ImageStyled
@@ -104,7 +105,7 @@ const Seller = (props: any) => {
     );
   };
 
-  const renderProductContent = (card: any) => {
+  const renderProductContent = (card: Cards) => {
     return (
       <ProductContent>
         <ProductTypography variant="body2">{card.content}</ProductTypography>
@@ -116,7 +117,7 @@ const Seller = (props: any) => {
   const renderImage = () => {
     return (
       <ImgDiv>
-        {silderproduct?.[0]?.cards?.map((card: any, index: any) => (
+        {silderproduct?.[0]?.cards?.map((card: Cards, index: number) => (
           <CustomCard key={index}>
             <CardContent>
               {renderImageLink(card, index)}

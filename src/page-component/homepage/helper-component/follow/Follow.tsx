@@ -12,6 +12,7 @@ import {
   TopDiv,
   TopTypography,
 } from "./Follow.styled";
+import { CardItem } from "@/page-component/type";
 
 export const Follow = (props: any) => {
   const feedback = props;
@@ -19,7 +20,7 @@ export const Follow = (props: any) => {
   const renderImage = () => {
     return (
       <MainDiv>
-        {feedback?.[0]?.cardItems?.map((item: any, index: any) => (
+        {feedback?.[0]?.cardItems?.map((item: CardItem, index: number) => (
           <ImgBox key={index}>
             <ImageStyled
               src={api + item?.brandlogo?.data?.[0]?.attributes?.url}
