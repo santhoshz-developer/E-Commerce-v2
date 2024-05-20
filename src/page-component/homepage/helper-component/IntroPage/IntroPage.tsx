@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Box } from "@mui/material";
 import {
+  BoxInline,
   FrameRightStyled,
   FrameStyled,
   ImageBorder,
@@ -39,7 +40,7 @@ const Intro = (props: any) => {
       <FrameStyled>
         <LeftFrameSvg />
       </FrameStyled>
-      <Box sx={{ margin: "90px 200px 0 220px" }}>
+      <BoxInline>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <LeftColumn>
@@ -62,12 +63,12 @@ const Intro = (props: any) => {
           <Grid item xs={12} sm={6}>
             <RightColumn>
               <ImageBorder>
-                <ImageStyled src={imageUrl} alt="Mountains" />
+                <ImageStyled src={imageUrl} alt="Mountains"  loading="lazy"/>
               </ImageBorder>
             </RightColumn>
           </Grid>
         </Grid>
-      </Box>
+      </BoxInline>
       <FrameRightStyled>
         <RightFrameSvg />
       </FrameRightStyled>

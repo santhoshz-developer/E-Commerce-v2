@@ -21,7 +21,6 @@ import { api } from "@/service/backend-api";
 const Brand = (props: any) => {
   const { brands, categorey } = props;
   const hoverBg = categorey?.[0]?.images?.[0]?.color?.color?.[0]?.background;
-
   return (
     <>
       <StyledTypography variant="h5">{categorey?.[0]?.title}</StyledTypography>
@@ -54,13 +53,6 @@ const Brand = (props: any) => {
                     ?.url
                 }
                 alt="category-1"
-                style={{
-                  width: "100%",
-                  maxWidth: "500px",
-                  height: "500px",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                }}
               />
               <LadyDiv bgcolor={hoverBg}>
                 <Typography>
@@ -80,12 +72,6 @@ const Brand = (props: any) => {
                       ?.attributes?.url
                   }
                   alt={`category`}
-                  style={{
-                    width: "100%",
-                    maxWidth: "250px",
-                    height: "auto",
-                    marginBottom: "5px",
-                  }}
                 />
                 <PantsDiv bgcolor={hoverBg}>
                   <Typography>
@@ -104,14 +90,7 @@ const Brand = (props: any) => {
                       ?.attributes?.url
                   }
                   alt={`category`}
-                  style={{
-                    width: "100%",
-                    maxWidth: "250px",
-                    height: "auto",
-                    marginBottom: "5px",
-                  }}
                 />
-
                 <SaleTypography>SALE</SaleTypography>
                 <CoatDiv bgcolor={hoverBg}>
                   <Typography>
@@ -132,12 +111,6 @@ const Brand = (props: any) => {
                       ?.attributes?.url
                   }
                   alt={`category`}
-                  style={{
-                    width: "100%",
-                    maxWidth: "250px",
-                    height: "auto",
-                    marginBottom: "5px",
-                  }}
                 />
                 <ShirtDiv bgcolor={hoverBg}>
                   <Typography>
@@ -156,11 +129,6 @@ const Brand = (props: any) => {
                       ?.attributes?.url
                   }
                   alt={`category`}
-                  style={{
-                    width: "100%",
-                    maxWidth: "250px",
-                    height: "auto",
-                  }}
                 />
                 <JacketDiv bgcolor={hoverBg}>
                   <Typography>

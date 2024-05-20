@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from "react";
-import ListIcon from "@mui/icons-material/List";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import React, { useState } from "react";
 import {
   Box,
-  Breadcrumbs,
   Card,
   CardContent,
   CardMedia,
-  Link,
-  Typography,
 } from "@mui/material";
 import {
   BoxContainer,
@@ -24,12 +19,6 @@ import {
   TypographyUl,
   TypographyContent,
   CountTypo1,
-  CountTypo3,
-  CountTypo2,
-  CountTypo6,
-  CountTypo5,
-  CountTypo4,
-  DivCount1,
   DivAmount,
   AmtTypo,
   ButtonDiv,
@@ -39,15 +28,11 @@ import {
   ButtonDiv4,
   ButtonDiv5,
   Typography1,
-  Typography3,
-  Typography2,
   BoxDetails1,
   DetailTypo,
   DetailTypo1,
   StyledBox,
   StyledBox1,
-  BrandTypography1,
-  BrandTypography2,
   DetailTypo2,
   DetailTypo3,
   DetailTypo4,
@@ -68,14 +53,25 @@ import {
   TypoProducts,
   TypographyAmt,
   TypographyAmt1,
+  TypoText,
+  IconList,
+  IconKeyDown,
+  DetailLink,
+  RightTypo,
+  RightBox,
+  StarImg,
+  TapListBox,
+  DescriptionLink,
+  ShoppingIcon,
+  ShoppingIcon1,
 } from "./ProductDetails.styled";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+
 import { useQuery } from "@apollo/client";
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { Tabs } from "react-tabs";
 import { api } from "@/service/backend-api";
 import { GET_ID_PRODUCT, GET_PRODUCT_HEADER } from "@/service/query";
 import { ProductDetailsProps } from "../type";
-
+        
 const ProductDetails = ({ productId }: ProductDetailsProps) => {
   console.log("idck", productId);
 
@@ -97,17 +93,6 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
   const headerData = headers?.productheaders?.data?.[0]?.attributes;
 
   const productData = productQuery?.product?.data?.attributes;
-  console.log("headerData", productData);
-
-  // productData?.[0]?.rightdetail?.[0]?.sideimage?.[0]?.image
-  // ?.data?.[0]?.attributes?.url
-
-  console.log(
-    "productData-check",
-    api +
-      productData?.[0]?.rightdetail?.[0]?.sideimage?.[0]?.image?.data?.[0]
-        ?.attributes?.url
-  );
 
   const buttonBg =
     productData?.leftdetail?.[0]?.buy?.[0]?.color?.button?.[0]?.color
@@ -120,85 +105,51 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
       ?.background;
   const cardText =
     productData?.cards?.[0]?.cardbutton?.[0]?.color?.button?.[0]?.color?.text;
-  //new one
+  console.log('img', productData?.rightdetail?.[0]?.sideimage?.[0]?.image
+    ?.data?.[0]?.attributes?.url);
 
-  return (
-    <>
-      <SetIcon>
-        <Typography sx={{ width: "max-content" }}>
-          <ListIcon
-            sx={{
-              position: "relative",
-              top: "5px",
-              fontSize: "20px",
-              marginRight: "8px",
-            }}
-          />
-          {headerData?.categories?.[0]?.title}
-          <KeyboardArrowDownIcon
-            sx={{
-              position: "relative",
-              top: "5px",
-              fontSize: "20px",
-              marginLeft: "8px",
-            }}
-          />
-        </Typography>
-      </SetIcon>
-      <BoxContainer>
-        <TypographyContent variant="h4">
-          {headerData?.header?.[0]?.title}
-        </TypographyContent>
-        <BreadcrumbsStyle>
-          <Link
-            href="/"
-            sx={{
-              fontFamily: "Inter",
-              fontSize: { xs: "13px", sm: "15px", md: "18px" },
-              textDecoration: "none",
-              color: "inherit",
-            }}
-          >
-            {headerData?.header?.[0]?.breadcrum?.[0]?.title}
-          </Link>
-          <Link
-            href="/"
-            sx={{
-              fontFamily: "Inter",
-              fontSize: { xs: "13px", sm: "15px", md: "18px" },
-              textDecoration: "none",
-              color: "inherit",
-            }}
-          >
-            {headerData?.header?.[0]?.breadcrum?.[1]?.title}
-          </Link>
-          <Link
-            href="#"
-            sx={{
-              fontFamily: "Inter",
-              fontSize: { xs: "13px", sm: "15px", md: "18px" },
-              textDecoration: "none",
-              color: "inherit",
-            }}
-          >
-            {headerData?.header?.[0]?.breadcrum?.[2]?.title}
-          </Link>
-        </BreadcrumbsStyle>
-      </BoxContainer>
+  const navbread = () => {
+    return (
+      <>
+        <SetIcon>
+          <TypoText>
+            <IconList />
+            {headerData?.categories?.[0]?.title}
+            <IconKeyDown />
+          </TypoText>
+        </SetIcon>
+        <BoxContainer>
+          <TypographyContent variant="h4">
+            {headerData?.header?.[0]?.title}
+          </TypographyContent>
+          <BreadcrumbsStyle>
+            {headerData?.header?.[0]?.breadcrum?.map((item: any, index: any) => (
+              <DetailLink href="/" key={index}>
+                {item.title}
+              </DetailLink>
+            ))}
+          </BreadcrumbsStyle>
+        </BoxContainer>
+      </>
+    )
+  }
 
-      {/* productData body */}
+
+  const productdetail = () => {
+
+    const sidecards = productData?.rightdetail?.[0]?.sideimage?.[0]?.image?.data || [] ;
+    const Content = productData?.leftdetail?.[0]?.detail || [];
+    
+    return (
       <StyledDiv>
         <StyledBox>
-          <ImageStyled1>
-            <img
-              src={
-                api +
-                productData?.rightdetail?.[0]?.sideimage?.[0]?.image
-                  ?.data?.[0]?.attributes?.url
-              }
-              alt={"No img"}
-              style={{ height: "89px", width: "108px", marginLeft: "20px" }}
-            />
+            <ImageStyled1>
+              {sidecards.map((item: any, index: any) => (
+              <img key={index}
+                src={item?.attributes?.url ? api + item?.attributes?.url : item?.attributes?.url}
+                alt={"No img"}
+              />
+          ))}
           </ImageStyled1>
           <ImageStyled2>
             <img
@@ -206,8 +157,6 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
                 productData?.rightdetail?.[0]?.sideimage?.[1]?.image?.data?.[0]
                   ?.attributes?.url
               }
-              height="89px"
-              width="108px"
             />
           </ImageStyled2>
           <ImageStyled3>
@@ -216,8 +165,6 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
                 productData?.rightdetail?.[0]?.sideimage?.[2]?.image?.data?.[0]
                   ?.attributes?.url
               }
-              height="89px"
-              width="108px"
             />
           </ImageStyled3>
           <ImageStyled4>
@@ -226,8 +173,6 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
                 productData?.rightdetail?.[0]?.sideimage?.[3]?.image?.data?.[0]
                   ?.attributes?.url
               }
-              height="89px"
-              width="108px"
             />
           </ImageStyled4>
         </StyledBox>
@@ -237,136 +182,50 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
               src={
                 productData?.rightdetail?.[0]?.image?.data?.[0]?.attributes?.url
                   ? api +
-                    productData?.rightdetail?.[0]?.image?.data?.[0]?.attributes
-                      ?.url
+                  productData?.rightdetail?.[0]?.image?.data?.[0]?.attributes
+                    ?.url
                   : ""
               }
               alt={"No image"}
             />
           </div>
-          <Typography
-            sx={{
-              color: "#6F6F6F",
-              fontSize: "13px",
-              marginTop: { xs: "20px", sm: "30px", md: "140px" },
-            }}
-          >
+          <RightTypo>
             {productData?.rightdetail?.[0]?.content}
-          </Typography>
+          </RightTypo>
         </StyledBox1>
-        <Box
-          sx={{
-            marginLeft: { xs: "0px", md: "10px", lg: "30px" },
-            marginTop: "10px",
-          }}
-        >
+        <RightBox>
           <BrandTypography>
-            <b
-              style={{
-                fontFamily: "Inter",
-                fontWeight: "500",
-                color: "#191919",
-              }}
-            >
-              {productData?.leftdetail?.[0]?.detail?.[0]?.content1}
+          {Content.map((item:any,index:any) => (
+            <Box key={index}>
+            <b>
+              {item.content1}
             </b>
-            {productData?.leftdetail?.[0]?.detail?.[0]?.content2}
+             {item.content2}
+            </Box>
+          ))}
           </BrandTypography>
-          <BrandTypography1>
-            <b
-              style={{
-                fontFamily: "Inter",
-                fontWeight: "500",
-                color: "#191919",
-              }}
-            >
-              {productData?.leftdetail?.[0]?.detail?.[1]?.content1}
-            </b>
-            {productData?.leftdetail?.[0]?.detail?.[1]?.content2}
-          </BrandTypography1>
-          <BrandTypography2>
-            <b
-              style={{
-                fontFamily: "Inter",
-                fontWeight: "500",
-                color: "#191919",
-              }}
-            >
-              {productData?.leftdetail?.[0]?.detail?.[2]?.content1}
-            </b>
-            {productData?.leftdetail?.[0]?.detail?.[2]?.content2}
-          </BrandTypography2>
           <LgTypography>{productData?.leftdetail?.[0]?.name}</LgTypography>
-          <div style={{ marginTop: "10px" }}>
-            <img src="/img/Star 1.png" alt="star" height="20px" width="20px" />
-            <img
-              src="/img/Star 1.png"
-              alt="star"
-              height="20px"
-              width="20px"
-              style={{ marginLeft: "5px" }}
-            />
-            <img
-              src="/img/Star 1.png"
-              alt="star"
-              height="20px"
-              width="20px"
-              style={{ marginLeft: "5px" }}
-            />
-            <img
-              src="/img/Star 1.png"
-              alt="star"
-              height="20px"
-              width="20px"
-              style={{ marginLeft: "5px" }}
-            />
-            <img
-              src="/img/Star 5.png"
-              alt="star"
-              height="20px"
-              width="20px"
-              style={{ marginLeft: "5px" }}
-            />
-          </div>
+          <StarImg>
+            <img src="/img/Star 1.png" alt="star" />
+            <img src="/img/Star 1.png" alt="star" />
+            <img src="/img/Star 1.png" alt="star" />
+            <img src="/img/Star 1.png" alt="star" />
+            <img src="/img/Star 5.png" alt="star" />
+          </StarImg>
           <TypographyUl>
-            <TypographyLi>
-              {productData?.leftdetail?.[0]?.list?.[0]?.content1}
-            </TypographyLi>
-            <TypographyLi>
-              {productData?.leftdetail?.[0]?.list?.[1]?.content1}
-            </TypographyLi>
-            <TypographyLi>
-              {productData?.leftdetail?.[0]?.list?.[2]?.content1}
-            </TypographyLi>
-            <TypographyLi>
-              {productData?.leftdetail?.[0]?.list?.[3]?.content1}
-            </TypographyLi>
-            <TypographyLi>
-              {productData?.leftdetail?.[0]?.list?.[4]?.content1}
-            </TypographyLi>
+            {productData?.leftdetail?.[0]?.list?.map((item: any, index: any) => (
+              <TypographyLi key={index}>
+                {item.content1}
+              </TypographyLi>
+            ))}
           </TypographyUl>
           <DivCount>
-            <CountTypo1>
-              {productData?.leftdetail?.[0]?.multiplesize?.[0]?.size}
-            </CountTypo1>
-            <CountTypo2>
-              {productData?.leftdetail?.[0]?.multiplesize?.[1]?.size}
-            </CountTypo2>
-            <CountTypo3>
-              {productData?.leftdetail?.[0]?.multiplesize?.[2]?.size}
-            </CountTypo3>
+            {productData?.leftdetail?.[0]?.multiplesize?.map((item: any, index: any) => (
+              <CountTypo1 key={index}>
+                {item.size}
+              </CountTypo1>
+            ))}
           </DivCount>
-          <DivCount1>
-            <CountTypo4>
-              {productData?.leftdetail?.[0]?.multiplesize?.[3]?.size}
-            </CountTypo4>
-            <CountTypo5>
-              {productData?.leftdetail?.[0]?.multiplesize?.[4]?.size}
-            </CountTypo5>
-            <CountTypo6>
-              {productData?.leftdetail?.[0]?.multiplesize?.[5]?.size}
-            </CountTypo6>
-          </DivCount1>
           <DivAmount>{productData?.leftdetail?.[0]?.taxname}</DivAmount>
           <AmtTypo>{productData?.leftdetail?.[0]?.prize2}</AmtTypo>
           <ButtonDiv>
@@ -380,28 +239,22 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
               {productData?.leftdetail?.[0]?.buy?.[1]?.title}
             </ButtonDiv5>
           </ButtonDiv>
-        </Box>
+        </RightBox>
       </StyledDiv>
+    )
+  }
+
+  const producttabs = () => {
+    const link = productData?.description?.[0]?.links || [];
+    return (
       <Tabs>
-        <TabList
-          style={{
-            display: "flex",
-            textAlign: "center",
-            justifyContent: "center",
-            marginTop: "60px",
-            listStyle: "none",
-          }}
-        >
-          <Typography1>
-            {productData?.description?.[0]?.links?.[0]?.link}
-          </Typography1>
-          <Typography2>
-            {productData?.description?.[0]?.links?.[1]?.link}
-          </Typography2>
-          <Typography3>
-            {productData?.description?.[0]?.links?.[2]?.link}
-          </Typography3>
-        </TabList>
+        <TapListBox>
+          {link.map((item:any,index:any) => (
+            <Typography1 key={index}>
+              {item.link}
+            </Typography1>
+          ))}
+        </TapListBox>
         <BoxDetails1>
           <DetailTypo>{productData?.description?.[0]?.description} </DetailTypo>
           <DetailTypo1>
@@ -409,70 +262,36 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
           </DetailTypo1>
           <DetailTypo2>
             {productData?.description?.[0]?.description2}
-            <Link
-              href="#"
-              sx={{
-                fontFamily: "Inter",
-                fontWeight: "300",
-                color: "red",
-                textDecoration: "none",
-                visibility: { xs: "visible", md: "hidden" },
-              }}
-            >
+            <DescriptionLink href="#">
               {productData?.description?.[0]?.text}
-            </Link>
+            </DescriptionLink>
           </DetailTypo2>
           <DetailTypo3>
             {productData?.description?.[0]?.description3}
           </DetailTypo3>
           <DetailTypo4>
             {productData?.description?.[0]?.description4}
-            <Link
-              href="#"
-              style={{
-                fontFamily: "Inter",
-                fontWeight: "300",
-                color: "red",
-                textDecoration: "none",
-              }}
-            >
+            <DescriptionLink href="#">
               {productData?.description?.[0]?.text}
-            </Link>
+            </DescriptionLink>
           </DetailTypo4>
         </BoxDetails1>
         <BoxDetails1>
           <DetailTypo>{productData?.description?.[0]?.description} </DetailTypo>
           <DetailTypo2>
             {productData?.description?.[0]?.description2}
-            <Link
-              href="#"
-              sx={{
-                fontFamily: "Inter",
-                fontWeight: "300",
-                color: "red",
-                textDecoration: "none",
-                visibility: { xs: "visible", md: "hidden" },
-              }}
-            >
+            <DescriptionLink href="#">
               {productData?.description?.[0]?.text}
-            </Link>
+            </DescriptionLink>
           </DetailTypo2>
           <DetailTypo3>
             {productData?.description?.[0]?.description3}
           </DetailTypo3>
           <DetailTypo4>
             {productData?.description?.[0]?.description4}
-            <Link
-              href="#"
-              style={{
-                fontFamily: "Inter",
-                fontWeight: "300",
-                color: "red",
-                textDecoration: "none",
-              }}
-            >
+            <DescriptionLink href="#">
               {productData?.description?.[0]?.text}
-            </Link>
+            </DescriptionLink>
           </DetailTypo4>
         </BoxDetails1>
         <BoxDetails1>
@@ -482,41 +301,25 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
           </DetailTypo1>
           <DetailTypo2>
             {productData?.description?.[0]?.description2}
-            <Link
-              href="#"
-              sx={{
-                fontFamily: "Inter",
-                fontWeight: "300",
-                color: "red",
-                textDecoration: "none",
-                visibility: { xs: "visible", md: "hidden" },
-              }}
-            >
+            <DescriptionLink href="#">
               {productData?.description?.[0]?.text}
-            </Link>
+            </DescriptionLink>
           </DetailTypo2>
           <DetailTypo4>
             {productData?.description?.[0]?.description4}
-            <Link
-              href="#"
-              style={{
-                fontFamily: "Inter",
-                fontWeight: "300",
-                color: "red",
-                textDecoration: "none",
-              }}
-            >
+            <DescriptionLink href="#">
               {productData?.description?.[0]?.text}
-            </Link>
+            </DescriptionLink>
           </DetailTypo4>
         </BoxDetails1>
       </Tabs>
+    )
+  }
 
-      {/* Bag Relatated */}
-
+  const productrelated = () => {
+    return (
       <BoxStyled>
         <TypoProducts variant="h4">{productData?.title}</TypoProducts>
-
         <CarouselBox>
           <Card
             sx={{
@@ -545,9 +348,7 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
             />
             <CardContent>
               <CardButton bgcolor={cardButton} textcolor={cardText}>
-                <ShoppingCartOutlinedIcon
-                  sx={{ color: "#6F6F6F", fontSize: "15px" }}
-                />
+                <ShoppingIcon />
                 {productData?.cards?.[0]?.cardbutton?.[0].title}
               </CardButton>
             </CardContent>
@@ -582,9 +383,7 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
             />
             <CardContent>
               <CardButton bgcolor={cardButton} textcolor={cardText}>
-                <ShoppingCartOutlinedIcon
-                  sx={{ color: "#6F6F6F", fontSize: "15px" }}
-                />
+                <ShoppingIcon />
                 {productData?.cards?.[1]?.cardbutton?.[0].title}
               </CardButton>
             </CardContent>
@@ -619,9 +418,7 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
             />
             <CardContent>
               <CardButton bgcolor={cardButton} textcolor={cardText}>
-                <ShoppingCartOutlinedIcon
-                  sx={{ color: "#6F6F6F", fontSize: "15px" }}
-                />
+                <ShoppingIcon />
                 {productData?.cards?.[2]?.cardbutton?.[0].title}
               </CardButton>
             </CardContent>
@@ -656,9 +453,7 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
             />
             <CardContent>
               <CardButton1>
-                <ShoppingCartOutlinedIcon
-                  sx={{ color: "#E73C17", fontSize: "15px" }}
-                />
+                <ShoppingIcon1 />
                 {productData?.cards?.[3]?.cardbutton?.[0].title}
               </CardButton1>
             </CardContent>
@@ -667,6 +462,17 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
           </Card>
         </CarouselBox>
       </BoxStyled>
+    )
+  }
+
+  return (
+    <>
+      {navbread()}
+      {/* productData body */}
+      {productdetail()}
+      {producttabs()}
+      {/* Bag Relatated */}
+      {productrelated()}
     </>
   );
 };
