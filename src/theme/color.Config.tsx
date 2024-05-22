@@ -5,4 +5,12 @@ export const appColors = {
     accentB: "#F5E8CA",
     accentC: "#E4C282",
     accentD: "#D39C3A",
+    red:"red",
+    grey:"#F4F5F8",
+    darkgrey:"#6F6F6F",
+    lightgrey:"#F1F1F1",
+    green:"#12A05C",
+    darkyellow:"#FF9900",
+    purple:"#7F7CF6",
+    orange:"#E73C17",
   };
