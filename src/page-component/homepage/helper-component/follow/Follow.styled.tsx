@@ -1,5 +1,4 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
-import styled from "styled-components";
+import { Box, Button, TextField, Typography, styled } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 export const HoverContent = styled("div")`
@@ -23,10 +22,6 @@ export const ImgBox = styled("div")`
   position: relative;
   display: inline-block;
 
-  &:hover ${HoverContent} {
-    display: flex;
-    visibility: visible;
-  }
 `;
 
 export const InstagramIconStyled = styled(InstagramIcon)`
@@ -40,22 +35,20 @@ export const TopDiv = styled("div")`
   position: relative;
   top: 60px;
   height: 640px;
-  @media (min-width: 390px) and (max-width: 767px) {
-    background-color: rgba(30, 40, 50, 0.05);
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     position: relative;
-    top: -270px;
+    top: 20px;
     height: 1900px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    background-color: rgba(30, 40, 50, 0.05);
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     position: relative;
     top: 60px;
     height: 1300px;
   }
 
-  @media (min-width: 1024px) and (max-width: 1440 px) {
-    background-color: rgba(30, 40, 50, 0.05);
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     position: relative;
     top: 60px;
   }
@@ -74,19 +67,16 @@ export const TopTypography = styled(Typography)`
   text-align: center;
   font-weight: 600;
   font-size: 45px;
-  @media (min-width: 390px) and (max-width: 767px) {
-    text-align: center;
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     position: relative;
     left: 0px;
-    font-weight: 600;
     font-size: 15px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    text-align: center;
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     position: relative;
     left: 0px;
-    font-weight: 300;
     font-size: 33px;
   }
 `;
@@ -97,7 +87,7 @@ export const MainDiv = styled("div")`
   margin-top: 70px;
   cursor: pointer;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     flex-direction: column;
     margin-left: 70px;
     margin-top: 40px;
@@ -110,7 +100,7 @@ export const MainDiv = styled("div")`
     }
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     display: grid;
     margin-left: 50px;
     margin-top: 40px;
@@ -122,7 +112,7 @@ export const MainDiv = styled("div")`
       width: 300px !important;
     }
   }
-  @media (min-width: 1024px) and (max-width: 1440px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     display: flex;
     justify-content: center;
     margin-top: 40px;
@@ -146,24 +136,12 @@ export const StyledButton = styled(Button)`
     color: #ff6f61;
   }
 
-  @media (min-width: 390px) and (max-width: 767px) {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-color: black;
-    border-radius: none;
-    color: black;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     margin-top: 34px;
     margin-left: 50px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-color: black;
-    border-radius: none;
-    color: black;
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     margin-top: 34px;
     margin-left: 50px;
   }
@@ -175,34 +153,23 @@ export const StyledText = styled(TextField)`
   margin-top: 22px;
   margin-left: 480px;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     width: 180px;
-    height: 32px;
-    margin-top: 22px;
     margin-left: 40px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    width: 473px;
-    height: 32px;
-    margin-top: 22px;
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     margin-left: 80px;
   }
 
-  @media (min-width: 1024px) and (max-width: 1199px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     width: 400px;
     height: 32px;
     margin-top: 22px;
     margin-left: 240px;
   }
-  @media (min-width: 1200px) and (max-width: 1439px) {
-    margin-left: 320px;
-  }
-  @media (min-width: 1440px) {
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} {
     margin-left: 420px;
-  }
-  @media (min-width: 1450px) {
-    margin-left: 480px;
   }
 `;
 
@@ -212,19 +179,15 @@ export const ContentTypography = styled(Typography)`
   font-weight: 600;
   font-size: 38px;
 
-  @media (min-width: 390px) and (max-width: 767px) {
-    text-align: center;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     position: relative;
     left: 0px;
-    font-weight: 600;
     font-size: 20px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    text-align: center;
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     position: relative;
     left: 0px;
-    font-weight: 600;
     font-size: 40px;
   }
 `;

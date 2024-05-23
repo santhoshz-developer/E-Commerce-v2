@@ -170,7 +170,7 @@ export const Footer = (props: any) => {
           {footer?.[3]?.title}
         </CusTypography>
         {footer?.[3]?.items.map((item: FooterItem, index: number) => (
-          <CusTypography1 key={index} sx={{ mb: { sm: "-180px", md: "8px" } }}>
+          <CusTypography1 key={index} sx={{ mb: {  md: "8px" } }}>
             {item.content}
           </CusTypography1>
         ))}

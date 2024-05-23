@@ -1,25 +1,34 @@
-import { Box, Button, Typography, styled } from "@mui/material";
+import { Box, Button, Typography, styled} from "@mui/material";
 import DehazeIcon from "@mui/icons-material/Dehaze";
 import Link from "next/link";
 import SearchIcon from "@/component/icon/SearchIcon";
+
 
 export const BoxStyled = styled(Box)(({ theme }) => ({
   backgroundColor: "rgba(30, 40, 50, 0.05)",
   height: 120,
   margin: "0 auto",
   width: "100%",
-  [theme.breakpoints.down("sm")]: {
+  
+  [theme.breakpoints.down('sm')]: {
     height: 60,
-    backgroundColor: "rgba(30, 40, 50, 0.05)",
   },
-  [theme.breakpoints.up("sm")]: {
-    height: 130,
-    backgroundColor: "rgba(30, 40, 50, 0.05)",
+  
+  [theme.breakpoints.between('sm','md')]: {
+    height: 120,
     zIndex: 999,
+    width: "100%",
+
   },
-  [theme.breakpoints.up("md")]: {
-    height: 130,
-    backgroundColor: "rgba(30, 40, 50, 0.05)",
+  
+  [theme.breakpoints.between('md','lg')]: {
+    height: 140,
+    zIndex: 999,
+    width: "100%",
+  },
+  
+  [theme.breakpoints.between('lg','xl')]: {
+    height: 140,
     zIndex: 999,
   },
 }));
@@ -29,87 +38,126 @@ export const SearchIconStyled = styled(SearchIcon)(({ theme }) => ({
     position: "relative",
     right: 30,
   },
-  [theme.breakpoints.only("md")]: {},
+  [theme.breakpoints.between('lg','xl')]: {
+    position: "relative",
+    left: 0,
+  },
 }));
 
 export const AppBarStyled = styled(Box)(({ theme }) => ({
   height: 90,
   margin: "0 auto",
-  width: "72%",
+  width: "80%",
   [theme.breakpoints.down("sm")]: {
     width: "80%",
   },
-  [theme.breakpoints.up("sm")]: {
-    width: "90%",
+  [theme.breakpoints.between('sm','md')]: {
+    width: "80%",
+  },
+  [theme.breakpoints.between('md','lg')]: {
+    width: "80%",
+  },
+  [theme.breakpoints.between('lg','xl')]: {
+    width: "80%",
   },
 }));
 
 export const HeadLineStyled = styled("div")(({ theme }) => ({
   display: "flex",
-  [theme.breakpoints.down("sm")]: {
-    fontSize: 17,
-    position: "relative",
-    bottom: 0,
-  },
-  [theme.breakpoints.up("sm")]: {
-    fontSize: 14,
-    position: "relative",
-    left: 80,
-  },
-  [theme.breakpoints.only("lg")]: {
-    fontSize: 16,
-    position: "relative",
-    left: -100,
-  },
+  // [theme.breakpoints.down("sm")]: {
+  //   fontSize: 17,
+  //   position: "relative",
+  //   bottom: 0,
+  // },
+  // [theme.breakpoints.down("md")]: {
+  //   fontSize: 16,
+  //   position: "relative",
+  //   left: -100,
+  // },
+  // [theme.breakpoints.only("lg")]: {
+  //   fontSize: 16,
+  //   position: "relative",
+  //   left: -100,
+  // },
+  // [theme.breakpoints.down("xl")]: {
+  //   fontSize: 36,
+  //   position: "relative",
+  //   left: 100,
+  // },
 }));
 
 export const FirstTypography = styled(Typography)(({ theme }) => ({
   fontSize: 35,
   position: "relative",
   left: 350,
-  [theme.breakpoints.up("xs")]: {
-    fontSize: 16,
+  [theme.breakpoints.down("sm")]: {
+    fontSize: 20,
     position: "relative",
     top: 0,
-    left: 60,
-    fontWeight: 100,
+    left: 40,
+    fontWeight: 100,  
   },
-  [theme.breakpoints.up("md")]: {
-    fontSize: 27,
+  [theme.breakpoints.between('sm', 'md')]: {
+    fontSize: "28px",
+    position: "absolute",
+    left: '150px',
+    fontWeight: 600,
+    top: 0,
+    marginTop: "10px",
+  },
+  [theme.breakpoints.between('md','lg')]: {
+    fontSize: 30,
+    position: "absolute",
+    left: 270,
+    top: 0,
+    marginTop: "10px",
+    fontWeight: 600,
+  },
+  [theme.breakpoints.between('lg','xl')]: {
+    fontSize: 28,
     position: "relative",
-    left: 440,
+    left: 400,
+    fontWeight: 600,
+    
   },
   
  
 }));
 
 export const IconBtn = styled(Box)(({ theme }) => ({
-  marginLeft: 550,
+  marginLeft: "650px",
   fontSize: 28,
   [theme.breakpoints.down("sm")]: {
     display: "none",
   },
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.between('sm', 'md')]: {
     display: "flex",
     position: "relative",
-    right: 250,
     zIndex: 999,
+    right: '340px',
   },
-  [theme.breakpoints.up("md")]: {
+  [theme.breakpoints.between('md', 'lg')]: {
     display: "flex",
     position: "relative",
-    left: 360,
     zIndex: 999,
+    right: '160px',
+  },
+  [theme.breakpoints.between('lg','xl')]: {
+    display: "flex",
+    position: "relative",
+    right: '-20px',
   },
   ".btn-user, .btn-shopping": {
     gap: 8,
     "&:hover": {
       color: "#ff6f61",
     },
+  
   },
   ".btn-user": {
     marginRight: 20,
   },
+  
 }));
 
 export const DehazeIconStyled = styled(DehazeIcon)(({ theme }) => ({

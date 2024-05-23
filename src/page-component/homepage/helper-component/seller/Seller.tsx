@@ -73,7 +73,8 @@ const Seller = (props: any) => {
           <SearchIcon />
         </SearchIconBox>
         <TypographyIcon href="#" textcolor={hoverText}>
-          <ShoppingBagBtnIconStyled /> {card.link}
+          <ShoppingBagBtnIconStyled /> 
+          {card.link}
         </TypographyIcon>
       </DetailDiv>
     );

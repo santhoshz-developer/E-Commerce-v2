@@ -3,14 +3,13 @@ import { Button, Typography, styled } from "@mui/material";
 
 export const BoxContainer = styled("div")`
   overflow: hidden;
-
   position: realtive;
   margin-top: 90px;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     position: relative;
     left: 0px;
-    bottom: 280px;
+    bottom: 0px;
   }
 `;
 export const ImageZara = styled("img")`
@@ -38,13 +37,13 @@ export const TextPara = styled(Typography)`
   font-family: serif;
   width: 430px;
   height: 187px;
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     font-size: 10px;
     padding: 5px;
     width: 150px;
     height: 70px;
   }
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} { 
     font-size: 18px;
     padding-right: 15px;
     width: 350px;
@@ -69,7 +68,7 @@ export const StyledButton = styled(Button)<{
   &:hover {
     background-color: #ff6f61;
   }
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     font-size: 10px;
     font-weight: 20;
     width: 90px;
@@ -77,7 +76,7 @@ export const StyledButton = styled(Button)<{
     margin: 20px;
     left: -14px;
   }
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} { 
     font-size: 15px;
     width: 150px;
     height: 30px;
@@ -90,7 +89,8 @@ export const ContentWrapper = styled("div")`
   top: 240px;
   left: 1020px;
   padding: 10px 20px;
-  @media (min-width: 390px) and (max-width: 767px) {
+  
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     position: absolute;
     top: 40px;
     left: 220px;
@@ -102,17 +102,17 @@ export const ContentWrapper = styled("div")`
       width: 40px;
     }
   }
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} { 
     position: absolute;
     top: 40px !important;
     left: 420px !important;
   }
-  @media (min-width: 1024px) and (max-width: 1199px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} { 
     position: absolute;
     top: 40px !important;
     left: 620px !important;
   }
-  @media (min-width: 1200px) and (max-width: 1439px) {
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
     position: absolute;
     top: 140px !important;
     left: 850px !important;

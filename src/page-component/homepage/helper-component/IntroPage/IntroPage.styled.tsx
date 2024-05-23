@@ -1,26 +1,25 @@
 import { appColors } from "@/theme/color.Config";
-import { Box, Button, Typography } from "@mui/material";
-import styled from "@emotion/styled";
+import { Box, Button, Typography, styled} from "@mui/material";
+
 
 export const MainDiv = styled("div")`
   background-color: rgba(30, 40, 50, 0.05);
-
-  @media (min-width: 390px) and (max-width: 767px) {
-    background-color: rgba(30, 40, 50, 0.05);
-    height: 1100px;
-    top: -280px;
+  
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    height: 1020px;
     position: relative;
     zindex: 999;
+    width: 100%;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    background-color: rgba(30, 40, 50, 0.05);
-    top: -80px;
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     position: relative;
+    width: 100%;
+    
   }
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
-    background-color: rgba(30, 40, 50, 0.05);
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
+ 
   }
 `;
 export const RightColumn = styled("div")`
@@ -28,21 +27,18 @@ export const RightColumn = styled("div")`
   left: 50px;
   position: relative;
 
-  @media (min-width: 390px) and (max-width: 767px) {
-    left: -30px;
-    position: relative;
-    top: 400px;
-    width: 500px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    left: -30px;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     position: relative;
     top: 100px;
-    width: 500px;
   }
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
+    left: -70px;
+    position: relative;
+    top: 50px;
+  }
+
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     position: relative;
     top: 20px;
     width: 500px;
@@ -55,24 +51,24 @@ export const LeftColumn = styled("div")`
   left: -34px;
   bottom: 60px;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     position: relative;
     zindex: 999;
     left: -190px;
-    top: 95px;
     height: 25px;
-    width: 380px;
+    width: 350px;
+    bottom: 150px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     position: relative;
-    left: -140px;
-    top: 95px;
+    left: -160px;
+    top: 50px;
     height: 25px;
-    width: 300px;
+    width: 250px;
   }
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     position: relative;
     left: -100px;
   }
@@ -89,7 +85,7 @@ export const ImageStyled = styled("img")`
   right: 10px;
   object-fit: cover;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     z-index: 1;
     width: 100%;
     height: 350px !important;
@@ -100,10 +96,18 @@ export const ImageStyled = styled("img")`
     width: 250px !important;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
+    z-index: 1;
+    width: 100%;
+    height: 350px !important;
+    border-radius: 120px 0px 120px 0px;
+    position: relative;
+    bottom: 17px;
+    left: -10px;
+    width: 230px !important;
   }
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     z-index: 1;
     width: 100%;
     height: 400px !important;
@@ -125,27 +129,27 @@ export const ImageBorder = styled(Box)`
   bottom: 140px;
   border: 2px solid rgba(0, 0, 0, 0.25);
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     border: 2px solid rgba(0, 0, 0, 0.25);
     width: 255px !important;
     height: 350px !important;
     border-radius: 120px 0px 120px 0px;
     position: relative;
     top: 40px;
-    left: -200px;
+    left: -250px;
     border: 2px solid rgba(0, 0, 0, 0.25);
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     border: 2px solid rgba(0, 0, 0, 0.25);
-    width: 255px !important;
-    height: 450px !important;
+    width: 235px !important;
+    height: 350px !important;
     border-radius: 120px 0px 120px 0px;
     position: relative;
     border: 2px solid rgba(0, 0, 0, 0.25);
   }
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     border: 2px solid rgba(0, 0, 0, 0.25);
     width: 290px !important;
     height: 400px !important;
@@ -161,7 +165,7 @@ export const TypographyStyled = styled(Typography)`
   font-family: 'Roboto', sans-serif;
   bottom: 25px;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
   position: relative;
   font-weight: 300;
   font-size: 50px;
@@ -169,7 +173,7 @@ export const TypographyStyled = styled(Typography)`
   bottom: 25px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     position: relative;
     font-weight: 300;
     font-size: 40px;
@@ -188,7 +192,7 @@ export const TypographyContent = styled(Typography)`
   line-height: 50px;
   position: relative;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     font-size: 15px;
     font-family: roboto;
     display: flex;
@@ -198,7 +202,7 @@ export const TypographyContent = styled(Typography)`
     left: 0px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     font-size: 15px;
     font-family: roboto;
     position: relative;
@@ -227,13 +231,12 @@ export const StyledButton = styled(Button)<{
     background-color: #ff6f61;
   }
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     margin-top: 40px;
     left: 5px;
     background: ${({ bgcolor }) => bgcolor || appColors["white"]};
     color: ${({ textcolor }) => textcolor || appColors["black"]};
     gap: 10px;
-    width: 150px;
     position: relative;
     zindex: 999;
     font-size: 1rem;
@@ -243,13 +246,12 @@ export const StyledButton = styled(Button)<{
     }
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     margin-top: 5px;
     left: 10px;
     background: ${({ bgcolor }) => bgcolor || appColors["white"]};
     color: ${({ textcolor }) => textcolor || appColors["black"]};
     gap: 10px;
-    width: 150px;
     position: relative;
     font-size: 1rem;
 
@@ -257,7 +259,7 @@ export const StyledButton = styled(Button)<{
       background-color: #ff6f61;
     }
   }
-  @media (min-width: 1024px) and (max-width: 1199px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     left: 0;
   }
 `;
@@ -265,13 +267,13 @@ export const FrameStyled = styled("div")`
   position: relative;
   top: 430px;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     position: relative;
-    top: 550px;
+    top: 300px;
     left: -10px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     position: relative;
     bottom: 350px;
     left: -10px;
@@ -287,15 +289,17 @@ export const FrameRightStyled = styled("div")`
   bottom: 550px;
   float: right;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     position: relative;
-    top: 30px;
-    left: 60px;
+    top: 35px;
+    float: left;
+    left: 175px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+   ${({ theme }) => theme.breakpoints.between('sm','md')} {
     position: relative;
-    bottom: 500px;
-    left: 60px;
+    bottom: 440px;
+    float: right;
+    left: 0px;
   }
 `;

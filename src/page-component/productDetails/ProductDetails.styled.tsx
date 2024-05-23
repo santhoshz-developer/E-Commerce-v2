@@ -428,6 +428,7 @@ export const CountTypo = styled(Typography)`
     color: ${appColors.black};
     height: 35px;
 `
+
 export const DivAmount = styled(Typography)(({ theme }) => ({
     color: appColors.black,
     fontFamily: "Inter",
