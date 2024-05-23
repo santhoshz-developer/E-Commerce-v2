@@ -1,79 +1,81 @@
 import React, { useState } from "react";
 import {
   Box,
-  Card,
   CardContent,
-  CardMedia,
 } from "@mui/material";
+import { Tabs } from '@mui/base/Tabs';
 import {
   BoxContainer,
   BrandTypography,
   DivCount,
-  ImageStyled1,
-  ImageStyled2,
-  ImageStyled3,
-  ImageStyled4,
   LgTypography,
   StyledDiv,
   TypographyLi,
   TypographyUl,
   TypographyContent,
-  CountTypo1,
   DivAmount,
   AmtTypo,
   ButtonDiv,
-  ButtonDiv1,
-  ButtonDiv2,
-  ButtonDiv3,
-  ButtonDiv4,
-  ButtonDiv5,
-  Typography1,
-  BoxDetails1,
   DetailTypo,
-  DetailTypo1,
   StyledBox,
-  StyledBox1,
-  DetailTypo2,
-  DetailTypo3,
-  DetailTypo4,
-  SetIcon,
   BreadcrumbsStyle,
-  BoxStyled,
   CardButton,
-  CardButton1,
   CardDiv,
-  CardTypo,
-  CardTypo1,
-  CardTypo2,
-  CardTypo3,
   CarouselBox,
   StyleTypo,
-  StyleTypo1,
-  StyleTypo2,
   TypoProducts,
   TypographyAmt,
-  TypographyAmt1,
-  TypoText,
   IconList,
   IconKeyDown,
   DetailLink,
-  RightTypo,
   RightBox,
   StarImg,
   TapListBox,
   DescriptionLink,
   ShoppingIcon,
-  ShoppingIcon1,
+  CardMui,
+  MediaCard,
+  Navall,
+  Navchild,
+  ImageBag,
+  StyledBoxMain,
+  CountTypo,
+  ButtonCart,
+  ButtonBuy,
+  ButtonCount,
+  BagBack,
+  BagFront,
+  BagInside,
+  ButtonAdd,
+  ButtonLess,
+  TypoHead,
+  DescrptionSub,
+  DescrptionSec,
+  DescrptionTrd,
+  DescrptionFrth,
+  CardCart,
+  CardStock,
+  CardNew,
+  CardPer,
+  CardHot,
+  CardOffer,
+  ButtonStock,
+  DetailBag,
+  DetailName,
+  CardAmt,
+  ShoppingIconRed,
+  DownTypo,
+  BoxPanel,
 } from "./ProductDetails.styled";
-
+import { TabPanel } from '@mui/base/TabPanel';
+import { Tab } from '@mui/base/Tab';
+import { TabsList } from '@mui/base/TabsList';
 import { useQuery } from "@apollo/client";
-import { Tabs } from "react-tabs";
 import { api } from "@/service/backend-api";
 import { GET_ID_PRODUCT, GET_PRODUCT_HEADER } from "@/service/query";
 import { ProductDetailsProps } from "../type";
-        
+
 const ProductDetails = ({ productId }: ProductDetailsProps) => {
-  console.log("idck", productId);
 
   const [count, setCount] = useState(1);
 
@@ -111,13 +113,13 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
   const navbread = () => {
     return (
       <>
-        <SetIcon>
-          <TypoText>
+        <Navall>
+          <Navchild>
             <IconList />
             {headerData?.categories?.[0]?.title}
             <IconKeyDown />
-          </TypoText>
-        </SetIcon>
+          </Navchild>
+        </Navall>
         <BoxContainer>
           <TypographyContent variant="h4">
             {headerData?.header?.[0]?.title}
@@ -137,46 +139,46 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
 
   const productdetail = () => {
 
-    const sidecards = productData?.rightdetail?.[0]?.sideimage?.[0]?.image?.data || [] ;
+    const sidecards = productData?.rightdetail?.[0]?.sideimage?.[0]?.image?.data || [];
     const Content = productData?.leftdetail?.[0]?.detail || [];
-    
+
     return (
       <StyledDiv>
         <StyledBox>
-            <ImageStyled1>
-              {sidecards.map((item: any, index: any) => (
+          <ImageBag>
+            {sidecards.map((item: any, index: any) => (
               <img key={index}
                 src={item?.attributes?.url ? api + item?.attributes?.url : item?.attributes?.url}
                 alt={"No img"}
               />
-          ))}
-          </ImageStyled1>
-          <ImageStyled2>
+            ))}
+          </ImageBag>
+          <BagFront>
             <img
               src={
                 productData?.rightdetail?.[0]?.sideimage?.[1]?.image?.data?.[0]
                   ?.attributes?.url
               }
             />
-          </ImageStyled2>
-          <ImageStyled3>
+          </BagFront>
+          <BagBack>
             <img
               src={
                 productData?.rightdetail?.[0]?.sideimage?.[2]?.image?.data?.[0]
                   ?.attributes?.url
               }
             />
-          </ImageStyled3>
-          <ImageStyled4>
+          </BagBack>
+          <BagInside>
             <img
               src={
                 productData?.rightdetail?.[0]?.sideimage?.[3]?.image?.data?.[0]
                   ?.attributes?.url
               }
             />
-          </ImageStyled4>
+          </BagInside>
         </StyledBox>
-        <StyledBox1>
+        <StyledBoxMain>
           <div>
             <img
               src={
@@ -189,20 +191,20 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
               alt={"No image"}
             />
           </div>
-          <RightTypo>
+          <DownTypo>
             {productData?.rightdetail?.[0]?.content}
-          </RightTypo>
-        </StyledBox1>
+          </DownTypo>
+        </StyledBoxMain>
         <RightBox>
           <BrandTypography>
-          {Content.map((item:any,index:any) => (
-            <Box key={index}>
-            <b>
-              {item.content1}
-            </b>
-             {item.content2}
-            </Box>
-          ))}
+            {Content.map((item: any, index: any) => (
+              <Box key={index}>
+                <b>
+                  {item.content1}
+                </b>
+                {item.content2}
+              </Box>
+            ))}
           </BrandTypography>
           <LgTypography>{productData?.leftdetail?.[0]?.name}</LgTypography>
           <StarImg>
@@ -221,23 +223,23 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
           </TypographyUl>
           <DivCount>
             {productData?.leftdetail?.[0]?.multiplesize?.map((item: any, index: any) => (
-              <CountTypo1 key={index}>
+              <CountTypo key={index}>
                 {item.size}
-              </CountTypo1>
+              </CountTypo>
             ))}
           </DivCount>
           <DivAmount>{productData?.leftdetail?.[0]?.taxname}</DivAmount>
           <AmtTypo>{productData?.leftdetail?.[0]?.prize2}</AmtTypo>
           <ButtonDiv>
-            <ButtonDiv1 onClick={decrement}>-</ButtonDiv1>
-            <ButtonDiv2>{count}</ButtonDiv2>
-            <ButtonDiv3 onClick={increment}>+</ButtonDiv3>
-            <ButtonDiv4 bgcolor={buttonBg} textcolor={buttonText}>
+            <ButtonLess onClick={decrement}>-</ButtonLess>
+            <ButtonCount>{count}</ButtonCount>
+            <ButtonAdd onClick={increment}>+</ButtonAdd>
+            <ButtonBuy bgcolor={buttonBg} textcolor={buttonText}>
               {productData?.leftdetail?.[0]?.buy?.[0]?.title}
-            </ButtonDiv4>
-            <ButtonDiv5>
+            </ButtonBuy>
+            <ButtonCart>
               {productData?.leftdetail?.[0]?.buy?.[1]?.title}
-            </ButtonDiv5>
+            </ButtonCart>
           </ButtonDiv>
         </RightBox>
       </StyledDiv>
@@ -245,105 +247,91 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
   }
 
   const producttabs = () => {
-    const link = productData?.description?.[0]?.links || [];
+    const description = productData?.description || [];
+
     return (
-      <Tabs>
+      <Tabs defaultValue={1}>
         <TapListBox>
-          {link.map((item:any,index:any) => (
-            <Typography1 key={index}>
-              {item.link}
-            </Typography1>
-          ))}
+          <TypoHead value={1}>{productData?.description?.[0]?.links?.[0]?.link}</TypoHead>
+          <TypoHead value={2}>{productData?.description?.[0]?.links?.[1]?.link}</TypoHead>
+          <TypoHead value={3}>{productData?.description?.[0]?.links?.[2]?.link}</TypoHead>
         </TapListBox>
-        <BoxDetails1>
-          <DetailTypo>{productData?.description?.[0]?.description} </DetailTypo>
-          <DetailTypo1>
-            {productData?.description?.[0]?.description1}
-          </DetailTypo1>
-          <DetailTypo2>
-            {productData?.description?.[0]?.description2}
-            <DescriptionLink href="#">
-              {productData?.description?.[0]?.text}
-            </DescriptionLink>
-          </DetailTypo2>
-          <DetailTypo3>
-            {productData?.description?.[0]?.description3}
-          </DetailTypo3>
-          <DetailTypo4>
-            {productData?.description?.[0]?.description4}
-            <DescriptionLink href="#">
-              {productData?.description?.[0]?.text}
-            </DescriptionLink>
-          </DetailTypo4>
-        </BoxDetails1>
-        <BoxDetails1>
-          <DetailTypo>{productData?.description?.[0]?.description} </DetailTypo>
-          <DetailTypo2>
-            {productData?.description?.[0]?.description2}
-            <DescriptionLink href="#">
-              {productData?.description?.[0]?.text}
-            </DescriptionLink>
-          </DetailTypo2>
-          <DetailTypo3>
-            {productData?.description?.[0]?.description3}
-          </DetailTypo3>
-          <DetailTypo4>
-            {productData?.description?.[0]?.description4}
-            <DescriptionLink href="#">
-              {productData?.description?.[0]?.text}
-            </DescriptionLink>
-          </DetailTypo4>
-        </BoxDetails1>
-        <BoxDetails1>
+        <BoxPanel value={1}>
           <DetailTypo>{productData?.description?.[0]?.description}</DetailTypo>
-          <DetailTypo1>
+          <DescrptionSub>
             {productData?.description?.[0]?.description1}
-          </DetailTypo1>
-          <DetailTypo2>
+          </DescrptionSub>
+          <DescrptionSec>
             {productData?.description?.[0]?.description2}
             <DescriptionLink href="#">
               {productData?.description?.[0]?.text}
             </DescriptionLink>
-          </DetailTypo2>
-          <DetailTypo4>
+          </DescrptionSec>
+          <DescrptionTrd>
+            {productData?.description?.[0]?.description3}
+          </DescrptionTrd>
+          <DescrptionFrth>
             {productData?.description?.[0]?.description4}
             <DescriptionLink href="#">
               {productData?.description?.[0]?.text}
             </DescriptionLink>
-          </DetailTypo4>
-        </BoxDetails1>
+          </DescrptionFrth>
+        </BoxPanel>
+        <BoxPanel value={2}>
+          <DetailTypo>{productData?.description?.[0]?.description}</DetailTypo>
+          <DescrptionSec>
+            {productData?.description?.[0]?.description2}
+            <DescriptionLink href="#">
+              {productData?.description?.[0]?.text}
+            </DescriptionLink>
+          </DescrptionSec>
+          <DescrptionTrd>
+            {productData?.description?.[0]?.description3}
+          </DescrptionTrd>
+          <DescrptionFrth>
+            {productData?.description?.[0]?.description4}
+            <DescriptionLink href="#">
+              {productData?.description?.[0]?.text}
+            </DescriptionLink>
+          </DescrptionFrth>
+        </BoxPanel>
+        <BoxPanel value={3}>
+          <DetailTypo>{productData?.description?.[0]?.description}</DetailTypo>
+          <DescrptionSub>
+            {productData?.description?.[0]?.description1}
+          </DescrptionSub>
+          <DescrptionSec>
+            {productData?.description?.[0]?.description2}
+            <DescriptionLink href="#">
+              {productData?.description?.[0]?.text}
+            </DescriptionLink>
+          </DescrptionSec>
+          <DescrptionFrth>
+            {productData?.description?.[0]?.description4}
+            <DescriptionLink href="#">
+              {productData?.description?.[0]?.text}
+            </DescriptionLink>
+          </DescrptionFrth>
+        </BoxPanel>
       </Tabs>
     )
   }
 
   const productrelated = () => {
     return (
-      <BoxStyled>
+      <Box>
         <TypoProducts variant="h4">{productData?.title}</TypoProducts>
         <CarouselBox>
-          <Card
-            sx={{
-              width: { xs: "232px", md: "300px" },
-              height: { xs: "310px", sm: "361px" },
-              background: "#F1F1F1",
-              boxShadow: "none",
-            }}
-          >
+          <CardMui>
             <CardDiv>
-              <CardTypo>{productData?.cards?.[0]?.text}</CardTypo>
+              <CardNew>{productData?.cards?.[0]?.text}</CardNew>
               <img
                 src={
                   productData?.cards?.[0]?.subimage?.data?.[0]?.attributes?.url
                 }
               />
             </CardDiv>
-            <CardMedia
-              sx={{
-                height: { xs: "136px", sm: "170px", md: "200px" },
-                width: { xs: "132px", sm: "190px", md: "200px" },
-                marginLeft: { xs: "20px", sm: "12px", md: "10px", lg: "40px" },
-                marginTop: { xs: "20px", md: "10px" },
-              }}
+            <MediaCard
               image={productData?.cards?.[0]?.image?.data?.[0]?.attributes?.url}
             />
             <CardContent>
@@ -354,17 +342,10 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
             </CardContent>
             <StyleTypo>{productData?.cards?.[0]?.content}</StyleTypo>
             <TypographyAmt>{productData?.cards?.[0]?.prize1}</TypographyAmt>
-          </Card>
-          <Card
-            sx={{
-              width: { xs: "232px", md: "300px" },
-              height: { xs: "310px", sm: "361px" },
-              background: "#F1F1F1",
-              boxShadow: "none",
-            }}
-          >
+          </CardMui>
+          <CardMui>
             <CardDiv>
-              <CardTypo1>{productData?.cards?.[1]?.text}</CardTypo1>
+              <CardPer>{productData?.cards?.[1]?.text}</CardPer>
               <img
                 src={
                   productData?.cards?.[1]?.subimage?.data?.[0]?.attributes?.url
@@ -372,13 +353,7 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
                 alt="No img"
               />
             </CardDiv>
-            <CardMedia
-              sx={{
-                height: { xs: "136px", sm: "170px", md: "200px" },
-                width: { xs: "132px", sm: "190px", md: "200px" },
-                marginLeft: { xs: "20px", sm: "12px", md: "10px", lg: "40px" },
-                marginTop: { xs: "20px", md: "10px" },
-              }}
+            <MediaCard
               image={productData?.cards?.[1]?.image?.data?.[0]?.attributes?.url}
             />
             <CardContent>
@@ -389,31 +364,17 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
             </CardContent>
             <StyleTypo>{productData?.cards?.[1]?.content}</StyleTypo>
             <TypographyAmt>{productData?.cards?.[1]?.prize1}</TypographyAmt>
-          </Card>
-          <Card
-            sx={{
-              width: { sm: "232px", md: "300px" },
-              height: { xs: "310px", sm: "361px" },
-              background: "#F1F1F1",
-              boxShadow: "none",
-              display: { xs: "none", sm: "block" },
-            }}
-          >
+          </CardMui>
+          <CardCart>
             <CardDiv>
-              <CardTypo2>{productData?.cards?.[2]?.text}</CardTypo2>
+              <CardHot>{productData?.cards?.[2]?.text}</CardHot>
               <img
                 src={
                   productData?.cards?.[2]?.subimage?.data?.[0]?.attributes?.url
                 }
               />
             </CardDiv>
-            <CardMedia
-              sx={{
-                height: { xs: "136px", sm: "170px", md: "200px" },
-                width: { xs: "132px", sm: "190px", md: "200px" },
-                marginLeft: { xs: "20px", sm: "12px", md: "10px", lg: "40px" },
-                marginTop: { xs: "20px", md: "10px" },
-              }}
+            <MediaCard
               image={productData?.cards?.[2]?.image?.data?.[0]?.attributes?.url}
             />
             <CardContent>
@@ -422,46 +383,32 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
                 {productData?.cards?.[2]?.cardbutton?.[0].title}
               </CardButton>
             </CardContent>
-            <StyleTypo1>{productData?.cards?.[2]?.content}</StyleTypo1>
-            <TypographyAmt1>{productData?.cards?.[2]?.prize1}</TypographyAmt1>
-          </Card>
-          <Card
-            sx={{
-              width: "300px",
-              height: "361px",
-              background: "#F1F1F1",
-              boxShadow: "none",
-              display: { xs: "none", md: "block" },
-            }}
-          >
+            <DetailBag>{productData?.cards?.[2]?.content}</DetailBag>
+            <CardAmt>{productData?.cards?.[2]?.prize1}</CardAmt>
+          </CardCart>
+          <CardStock>
             <CardDiv>
-              <CardTypo3>{productData?.cards?.[3]?.text}</CardTypo3>
+              <CardOffer>{productData?.cards?.[3]?.text}</CardOffer>
               <img
                 src={
                   productData?.cards?.[3]?.subimage?.data?.[0]?.attributes?.url
                 }
               />
             </CardDiv>
-            <CardMedia
-              sx={{
-                height: "200px",
-                width: "200px",
-                marginLeft: { xs: "20px", sm: "6px", md: "10px", lg: "40px" },
-                marginTop: "10px",
-              }}
+            <MediaCard
               image={productData?.cards?.[3]?.image?.data?.[0]?.attributes?.url}
             />
             <CardContent>
-              <CardButton1>
-                <ShoppingIcon1 />
+              <ButtonStock>
+                <ShoppingIconRed />
                 {productData?.cards?.[3]?.cardbutton?.[0].title}
-              </CardButton1>
+              </ButtonStock>
             </CardContent>
-            <StyleTypo2>{productData?.cards?.[3]?.content}</StyleTypo2>
-            <TypographyAmt1>{productData?.cards?.[3]?.prize1}</TypographyAmt1>
-          </Card>
+            <DetailName>{productData?.cards?.[3]?.content}</DetailName>
+            <CardAmt>{productData?.cards?.[3]?.prize1}</CardAmt>
+          </CardStock>
         </CarouselBox>
-      </BoxStyled>
+      </Box>
     )
   }
 
