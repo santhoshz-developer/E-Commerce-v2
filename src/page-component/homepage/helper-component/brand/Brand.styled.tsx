@@ -1,35 +1,42 @@
 import { appColors } from "@/theme/color.Config";
-import { Box, Typography } from "@mui/material";
-import styled from "styled-components";
+import { Box, Typography, styled} from "@mui/material";
+
 
 export const MainDiv = styled("div")`
-  overflow: hidden;
+  // overflow: hidden;
   height: 690px;
   position: relative;
-  left: 130px;
-  @media (min-width: 390px) and (max-width: 767px) {
+  left: 0px;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     position: relative;
     left: 0px;
-    bottom: 250px;
+    height: 100%;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     position: relative;
-    // left: 130px;
+    height: 100%;
   }
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
-    // position:relative;
-    // left: 130px;
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
+    position:relative;
+    height: 100%;
+  }
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} {
+    position:relative;
+    left: 0px;
   }
 `;
 
 export const BoxStyled = styled(Box)`
   position: relative;
   top:100px;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+
+  }
 `;
 export const LadyDiv = styled("div") <{ bgcolor: string }>`
-  visibility: hidden;
+  // visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: #fff;
@@ -38,20 +45,29 @@ export const LadyDiv = styled("div") <{ bgcolor: string }>`
   position: relative;
   margin-top: -50px;
   cursor: pointer;
-  @media (min-width: 390px) and (max-width: 767px) {
+  z-index: 999;
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     position: relative;
-    top: -30px;
+    margin-top: -72px;
+    justify-content: space-between;
+    padding: 5px;
+    width: 300px;
+  }
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
+    padding: 15px;
+    margin-top: -62px;
+  }
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} {
+    margin-top: -52px;
   }
 `;
 
 export const LadyimgDiv = styled("div")`
   margin-right: 15px;
-  margin-left: 15px;
-  &:hover {
-    ${LadyDiv} {
-      visibility: visible;
-    }
-  }
+  position: relative;
+  left: 100px;
+
   img {
     height: 525px !important;
     width: 100%;
@@ -61,9 +77,10 @@ export const LadyimgDiv = styled("div")`
     margin-top:-30px;
   }
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    position: relative;
+    left: 0px;
     margin-left: 40px;
-
     img {
       height: 400px !important;
       width: 300px !important;
@@ -71,27 +88,41 @@ export const LadyimgDiv = styled("div")`
     }
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    margin-left: 40px;
-
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
+    position: relative;
+    left: 100px;
+    margin-top: 40px;
     img {
       height: 50% !important;
       width: auto !important;
     }
   }
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
-    left: -400px;
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     position: realtive;
-
+    left: 0px;
+    margin-left: auto;
+    margin-top: 50px;
     img {
       height: 100% !important;
       width: 100% !important;
+      
+    }
+  }
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} {
+    position: realtive;
+    left: 0px;
+    margin-left: 200px;
+    margin-top: 50px;
+    img {
+      height: 100% !important;
+      width: 100% !important;
+      
     }
   }
 `;
 export const PantsDiv = styled("div") <{ bgcolor: string }>`
-  visibility: hidden;
+  // visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: #fff;
@@ -102,14 +133,29 @@ export const PantsDiv = styled("div") <{ bgcolor: string }>`
   margin-top: -52px;
   cursor: pointer;
   z-index: 999;
-  @media (min-width: 390px) and (max-width: 767px) {
-    width: 175px;
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+
+    width: 300px;
     padding: 5px;
-    margin-top: -42px;
+    margin-top: -45px;
+  }
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
+    width: 300px;
+    padding: 5px;
+    margin-top: -40px;
+  }
+  ${({ theme }) => theme.breakpoints.between('md','lg')} { 
+    width: 300px;
+    padding: 10px;
+    margin-top: -50px;
+  }
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
+    margin-top: -55px;
   }
 `;
 export const CoatDiv = styled("div") <{ bgcolor: string }>`
-  visibility: hidden;
+  // visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: #fff;
@@ -120,17 +166,29 @@ export const CoatDiv = styled("div") <{ bgcolor: string }>`
   margin-top: -52px;
   cursor: pointer;
   z-index: 999;
-  @media (min-width: 390px) and (max-width: 767px) {
-    width: 175px;
+
+ ${({ theme }) => theme.breakpoints.down('sm')} {
+  position: relative;
+    width: 300px;
     padding: 5px;
-    margin-top: -60px;
+    margin-top: -68px;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    margin-top: -70px;
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
+    width: 300px;
+    padding: 5px;
+    margin-top: -64px;
+  }
+  ${({ theme }) => theme.breakpoints.between('md','lg')} { 
+    width: 300px;
+    padding: 10px;
+    margin-top: -74px;
+  }
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
+    margin-top: -55px; 
   }
 `;
 export const ShirtDiv = styled("div") <{ bgcolor: string }>`
-  visibility: hidden;
+  // visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: #fff;
@@ -141,14 +199,28 @@ export const ShirtDiv = styled("div") <{ bgcolor: string }>`
   margin-top: -52px;
   cursor: pointer;
   z-index: 999;
-  @media (min-width: 390px) and (max-width: 767px) {
-    width: 175px;
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    width: 300px;
     padding: 5px;
-    margin-top: -42px;
+    margin-top: -45px;
+  }
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
+    width: 300px;
+    padding: 5px;
+    margin-top: -40px;
+  }
+  ${({ theme }) => theme.breakpoints.between('md','lg')} { 
+    width: 300px;
+    padding: 10px;
+    margin-top: -50px;
+  }
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
+    margin-top: -56px; 
   }
 `;
 export const JacketDiv = styled("div") <{ bgcolor: string }>`
-  visibility: hidden;
+  // visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: #fff;
@@ -159,10 +231,24 @@ export const JacketDiv = styled("div") <{ bgcolor: string }>`
   margin-top: -52px;
   cursor: pointer;
   z-index: 999;
-  @media (min-width: 390px) and (max-width: 767px) {
-    width: 175px;
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    width: 300px;
     padding: 5px;
     margin-top: -37px;
+  }
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
+    width: 300px;
+    padding: 5px;
+    margin-top: -37px;
+  }
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
+    width: 300px;
+    padding: 10px;
+    margin-top: -50px;
+  }
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
+    margin-top: -55px; 
   }
 `;
 export const HoverDiv = styled("div")`
@@ -172,50 +258,57 @@ img{
       height: auto;
       margin-bottom: 5px;
     }
-  &:hover {
-    ${PantsDiv} {
-      visibility: visible;
-    }
-    ${ShirtDiv} {
-      visibility: visible;
-    }
-    ${CoatDiv} {
-      visibility: visible;
-    }
-    ${JacketDiv} {
-      visibility: visible;
-    }
-  }
-  @media (min-width: 390px) and (max-width: 767px) {
+ 
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    position:  relative;
+    left: 7px;
     img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
       object-fit: contain;
-      margin-top: -20px;
+      margin-top: 30px;
+      
     }
   }
-  @media (min-width: 1200px) and (max-width: 1440px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     img {
-      height: 270px !important;
+      height: auto;
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 0px;
+    }
+  }
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
+    img {
+      height: auto;
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 0px;
     }
   }
 `;
-export const LogoDiv = styled.div`
+
+export const LogoDiv = styled('div')`
   display: flex;
   justify-content: center;
   position: relative;
   top: 57px;
+  left: 100px;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    position: relative;
+    left: 0px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     display: flex;
-    justify-content: center;
     position: relative;
     top: 57px;
-    // right: 50px;
+    left: 100px;
 
     img {
       height: 50px !important;
@@ -223,13 +316,23 @@ export const LogoDiv = styled.div`
     }
   }
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     display: flex;
     justify-content: center;
     position: relative;
     top: 57px;
-    right: 50px;
-
+    left: 100px;
+    img {
+      height: 50px !important;
+      width: 50% !important;
+    }
+  }
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 57px;
+    left: 80px;
     img {
       height: 50px !important;
       width: 50% !important;
@@ -243,26 +346,49 @@ export const ImageStyled = styled("img")`
   margin: 0 10px;
 `;
 export const StyledDiv = styled("div")`
-  margin-left: 10px;
-  @media (min-width: 390px) and (max-width: 767px) {
-    padding: 10px;
-    display: flex;
-    gap: 10px;
+   position: relative;
+   left: 100px;
+   gap:10px;
+   margin-left: 20px;
+   margin-bottom: 10px;
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    margin-left: 10px;
+    position: relative;
+    left: 0px;
+     img {
+          height: 100% !important;
+          width: auto !important;
+         }
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     display: flex;
-    gap: 20px;
+    gap: 35px;
+    position: relative;
+    left: 100px;
+    margin-top: 30px;
+    img {
+      height: 100% !important;
+      width: auto !important;
+    }
+  }
+
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
+    gap: 40px;
+    display: flex;
+    left: 100px;
+    position: relative;
     margin-top: 20px;
     img {
       height: 100% !important;
       width: auto !important;
     }
   }
-  @media (min-width: 1024px) and (max-width: 1199px) {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} {
+    position: relative;
+    left: 0px;
+    margin-top: 40px;
     img {
       height: 100% !important;
       width: auto !important;
@@ -273,62 +399,55 @@ export const StyledDiv = styled("div")`
 export const StyledTypography = styled(Typography)`
   transform: rotate(-90deg);
   position: absolute;
-  top: 200px;
-  right: 355px;
+  left: 20px;
   color: black;
-  margin-top: 670px;
+  margin-top: 380px;
   font-weight: 400;
   font-family: roboto;
-
   font-size: 23px;
 
-  @media (min-width: 390px) and (max-width: 767px) {
-    left: -160px;
-    top: 230px;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    left: -130px;
+    margin-top: 670px;
     font-size: 18px;
     font-family: roboto;
     font-weight: 400;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    left: -390px;
-    top: 219px;
-    font-size: 28px;
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
+    left: -130px;
+    font-size: 25px;
+    position: absolute;
+    margin-top: 420px;
+    font-family: roboto;
+    font-weight: 400;
   }
 
-  @media (min-width: 1024px) and (max-width: 1199px) {
-    position: relative;
-    left: -390px;
-    top: 100px;
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
+    margin-top: 430px;
+    left: 10px;
     font-size: 28px;
   }
-  @media (min-width: 1200px) and (max-width: 1439px) {
-    left: -650px;
-    top: -20px;
-  }
-  @media (min-width: 1440px) {
-    top: -120px;
-    left: -650px;
-  }
-  @media (min-width: 1450px) {
-    top: -180px;
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} {
+    left: -70px;
+    margin-top: 420px;
+    font-size: 27px;
+
   }
 `;
 
 export const SaleTypography = styled(Typography)`
   position: absolute;
   top: 20px;
-  margin-left: 135px;
   background-color: black;
   color: white;
   width: 60px;
   text-align: center;
   z-index: 1;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     position: relative;
-    top: 40px;
-    left: -185px;
+    top: 60px;
     background-color: black;
     color: white;
     width: 50px;
@@ -337,25 +456,22 @@ export const SaleTypography = styled(Typography)`
     z-index: 1;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     position: relative;
-    top: 40px;
-    left: -270px;
+    top: 50px;
+    left: -335px;
     background-color: black;
     color: white;
     width: 60px;
     text-align: center;
     z-index: 1;
   }
-  @media (min-width: 1024px) and (max-width: 1199px) {
+
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     position: relative;
     top: 40px;
-    left: -270px;
+    left: -340px;
   }
-  @media (min-width: 1440px) {
-    left: 61.3%;
-  }
-  @media (min-width: 1449px) {
-    left: 59.5%;
-  }
+
+
 `;

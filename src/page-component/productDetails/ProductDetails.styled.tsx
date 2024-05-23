@@ -1,11 +1,11 @@
 import { appColors } from "@/theme/color.Config";
-import { Box, Breadcrumbs, Button, Typography } from "@mui/material";
+import { Box, Breadcrumbs, Button, Typography, } from "@mui/material";
 import { Tab, TabList, TabPanel } from "react-tabs";
-import styled from "styled-components";
 import ListIcon from "@mui/icons-material/List";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Link from "next/link";
+import styled from "styled-components";
 
 export const SetIcon = styled(Box)`
     color:#fff;
@@ -370,7 +370,7 @@ export const TypographyLi = styled("li")`
         font-size:17px;
     }
 `
-export const DivCount = styled.div`
+export const DivCount = styled("div")`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-top: 20px;

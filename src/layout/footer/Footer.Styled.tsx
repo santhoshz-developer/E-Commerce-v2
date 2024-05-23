@@ -3,44 +3,40 @@ import { InstraGramIcon } from "@/component/icon/InstrgramIcon";
 import { LinkedInIcon } from "@/component/icon/LinkedInIcon";
 import { TwitterIcon } from "@/component/icon/TwitterIcon";
 import { appColors } from "@/theme/color.Config";
-
-import { Box, Button, Typography } from "@mui/material";
-import { styled } from "@mui/system";
+import { Box, Button, Typography, styled } from "@mui/material";
 
 export const ToppDiv = styled("div")`
 
-  @media (min-width: 390px) and (max-width: 767px) {
-    top: -390px;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    top: -150px;
     position: relative;
     height: 0;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     height: 0;
   }
 
-  @media (min-width: 1024px) and (max-width: 1200px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} { 
     height: 0;
   }
-  @media (min-width: 1440px) {
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
     height: 0;
-  }
-  @media (min-width: 1450px) {
-    height: 98vh;
   }
 `;
 
 export const StyledBox = styled(Box)`
   display: flex;
   position: relative;
-  top: 200px;
-  @media (min-width: 390px) and (max-width: 767px) {
+  top: 150px;
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     flex-direction: column;
     left: -100px;
     position: relative;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     display: flex;
     position: relative;
     left: -80px;
@@ -50,16 +46,21 @@ export const StyledBox = styled(Box)`
     height: 600px;
   }
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} { 
     display: flex;
     position: relative;
     top: 80px;
+  }
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
+    display: flex;
+    position: relative;
+    top: 130px;
   }
 `;
 export const DivWrapper = styled("div")`
   cursor: pointer;
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} { 
     cursor: pointer;
     display: flex;
     gap: 5px;
@@ -68,29 +69,35 @@ export const DivWrapper = styled("div")`
 
 export const CatTypography = styled(Typography)`
 line-height: 30px;
-@media (min-width: 390px) and (max-width: 767px) {
+
+${({ theme }) => theme.breakpoints.down('sm')} {
   left: -50px;
   position: relative;
 
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+${({ theme }) => theme.breakpoints.between('sm','md')} {
   display: flex;
   position: relative;
   left: 400px;
-  bottom: 230px; 
+  bottom: 260px; 
   width: 100%
   font-size: 25px;
 }
 
-@media (min-width: 1024px) and (max-width: 1440px) {
+${({ theme }) => theme.breakpoints.between('md','lg')} { 
   display: flex;
   position: relative;
-  left: 120px;
+  left: 190px;
   top: 10px;
   width: 100%
   font-size: 25px;
-  
+}
+${({ theme }) => theme.breakpoints.between('lg','xl')} { 
+  display: flex;
+  position: relative;
+  left: 130px;
+  top: 10px;
 }
   
 `;
@@ -102,54 +109,69 @@ cursor:pointer;
 &:hover{
    color:#FF6F61;
 }
-@media (min-width: 390px) and (max-width: 767px) {
+
+${({ theme }) => theme.breakpoints.down('sm')} {
   left: -50px;
   position: relative;
 
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+${({ theme }) => theme.breakpoints.between('sm','md')} {
   display: flex;
   position: relative;
   left: 400px;
-  bottom: 230px; 
+  bottom: 260px; 
   width: 100%
   font-size: 25px;
   
 }
 
-@media (min-width: 1024px) and (max-width: 1440px) {
+${({ theme }) => theme.breakpoints.between('md','lg')} { 
   display: flex;
   position: relative;
-  left: 120px;
+  left: 190px;
   top: 10px;
   width: 100%
-  font-size: 25px;
+  font-size: 30px;
   
 }
+${({ theme }) => theme.breakpoints.between('lg','xl')} { 
+  display: flex;
+  position: relative;
+  left: 130px;
+  top: 10px;
+  width: 100%
+  font-size: 30px;
   
+}
 `;
 
 export const AbTypography = styled(Typography)`
   line-height: 30px;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     left: -180px;
     position: relative;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     position: relative;
     left: -180px;
     width: 100%;
     bottom: 150px;
   }
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} { 
     position: relative;
-    left: 50px;
+    left: 180px;
     width: 100%;
     top: 8px;
+  }
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
+    position: relative;
+    left: 120px;
+    width: 100%;
+    top: 6px;
   }
 `;
 export const AbTypography1 = styled(Typography)`
@@ -161,21 +183,27 @@ export const AbTypography1 = styled(Typography)`
     color: #ff6f61;
   }
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     left: -180px;
     position: relative;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     position: relative;
     left: -180px;
     width: 100%;
     bottom: 150px;
   }
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     position: relative;
-    left: 50px;
+    left: 180px;
+    width: 100%;
+    top: 8px;
+  }
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} {
+    position: relative;
+    left: 120px;
     width: 100%;
     top: 8px;
   }
@@ -183,22 +211,23 @@ export const AbTypography1 = styled(Typography)`
 
 export const CusTypography = styled(Typography)`
 line-height: 28px;
-@media (min-width: 390px) and (max-width: 767px) {
+
+${({ theme }) => theme.breakpoints.down('sm')} {
   left: -50px;
   position: relative;
 
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+${({ theme }) => theme.breakpoints.between('sm','md')} {
   display: flex;
   position: absolute;
   left: 550px;
-  bottom: 350px; 
+  bottom: 330px; 
   width: 100%
   font-size: 25px;
 }
 
-@media (min-width: 1024px) and (max-width: 1199px) {
+${({ theme }) => theme.breakpoints.between('md','lg')} {
   display: flex;
   position: relative;
   right: 50px;
@@ -206,18 +235,15 @@ line-height: 28px;
   width: 100%
   font-size: 25px;
 }
-@media(min-width:1200px){
+${({ theme }) => theme.breakpoints.between('lg','xl')} {
     display: flex;
     position: relative;
-    right: 50px;
-    top: 32px;
+    right: 0px;
+    top: 28px;
     width: 100%
     font-size: 25px;
 }
-@media(min-width:1450px){
-    top:10px;
-}
-  
+
 `;
 export const CusTypography1 = styled(Typography)`
 line-height: 28px;
@@ -227,23 +253,23 @@ cursor:pointer;
 &:hover{
   color:#FF6F61;
 }
-@media (min-width: 390px) and (max-width: 767px) {
+${({ theme }) => theme.breakpoints.down('sm')} {
   left: -50px;
   position: relative;
   margin-top:10px;
 
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+${({ theme }) => theme.breakpoints.between('sm','md')} {
   display: flex;
-  position: absolute;
-  left: 550px;
-  bottom: 350px; 
+  position: relative;
+  left: 360px;
+  bottom: 320px; 
   width: 100%
   font-size: 25px;
 }
 
-@media (min-width: 1024px) and (max-width: 1199px) {
+${({ theme }) => theme.breakpoints.between('md','lg')} {
   display: flex;
   position: relative;
   right: 50px;
@@ -251,17 +277,15 @@ cursor:pointer;
   width: 100%
   font-size: 25px;
 }
-@media(min-width:1200px){
+${({ theme }) => theme.breakpoints.between('lg','xl')} {
   display: flex;
   position: relative;
-  right: 50px;
+  right: 0px;
   top: 32px;
   width: 100%
   font-size: 25px;
 }
-@media(min-width:1450px){
-    top:10px;
-} 
+
 `;
 export const BottomContainer = styled(Box)<{
   bgcolor: string;
@@ -271,60 +295,52 @@ export const BottomContainer = styled(Box)<{
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: ${({ textcolor }) => textcolor || appColors["black"]};
   display: flex;
-  height: 52px;
+  height: 62px;
   position: relative;
   top: 160px;
 
-  @media (min-width: 390px) and (max-width: 767px) {
-    border: 1px solid black;
-    background: ${({ bgcolor }) => bgcolor || appColors["white"]};
-    color: ${({ textcolor }) => textcolor || appColors["black"]};
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     display: flex;
-    height: 52px;
     margin-top: 30px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    border: 1px solid black;
-    background: ${({ bgcolor }) => bgcolor || appColors["white"]};
-    color: ${({ textcolor }) => textcolor || appColors["black"]};
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     display: flex;
     height: 52px;
     position: relative;
     top: 250px;
   }
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
-    border: 1px solid black;
-    background: ${({ bgcolor }) => bgcolor || appColors["white"]};
-    color: ${({ textcolor }) => textcolor || appColors["black"]};
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     display: flex;
     height: 52px;
     position: relative;
     top: 185px;
   }
-  @media (min-width: 1445px) {
-    top: 293px;
-  }
+
 `;
 
 export const TopicDiv = styled("div")`
-  margin-top: 16px;
+  margin-top: 12px;
   margin-left: 150px;
-
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     margin-top: 12px;
     margin-left: 5px;
     font-size: 13px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     margin-top: 12px;
     margin-left: 50px;
     font-size: 13px;
   }
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
+    margin-top: 12px;
+    margin-left: 130px;
+    font-size: 13px;
+  }
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} {
     margin-top: 12px;
     margin-left: 130px;
     font-size: 13px;
@@ -335,7 +351,7 @@ export const LogDiv = styled("div")`
   margin-top: 14px;
   margin-left: 290px;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     margin-top: 10px;
     margin-left: 3px;
 
@@ -345,22 +361,17 @@ export const LogDiv = styled("div")`
     }
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     margin-top: 10px;
     margin-left: 100px;
   }
-  @media (min-width: 1024px) and (max-width: 1199px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     margin-top: 10px;
     margin-left: 120px;
   }
-  @media (min-width: 1200px) and (max-width: 1439px) {
-    margin-left: 250px;
-  }
+
   @media (min-width: 1440px) {
     margin-left: 400px;
-  }
-  @media (min-width: 1450px) {
-    margin-left: 290px;
   }
 `;
 
@@ -368,27 +379,24 @@ export const StyledButton = styled(Button)`
   margin-left: 390px;
   color: white;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     margin-left: 0px;
-    color: white;
     font-size: 13px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} {
     margin-left: 100px;
     color: white;
     font-size: 13px;
   }
 
-  @media (min-width: 1024px) and (max-width: 1199px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     margin-left: 200px;
     color: white;
     font-size: 13px;
   }
-  @media (min-width: 1200px) {
-    margin-left: 340px;
-  }
-  @media (min-width: 1440px) {
+
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} {
     margin-left: 400px;
   }
 `;

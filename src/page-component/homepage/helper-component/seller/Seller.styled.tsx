@@ -1,8 +1,6 @@
 import { ShoppingBagBtnIcon } from "@/component/icon/ShoppingBagIcon";
 import { appColors } from "@/theme/color.Config";
-import { Box, Button, Link, Typography } from "@mui/material";
-
-import styled from "styled-components";
+import { Box, Button, Link, Typography, styled } from "@mui/material";
 
 export const RateTypography = styled(Typography)`
   margin-right: 30px;
@@ -20,28 +18,34 @@ export const ProductTypography = styled(Typography)`
 export const ImageStyled = styled("img")`
   width: 95%;
   margin-bottom: 10px;
+
 `;
 
 export const BoxContainer = styled("div")`
-  margin-left: 230px;
+  margin-left: 200px;
   margin-top: 130px;
   width: 69%;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     margin-left: 2px;
     width: 69%;
     position: relative;
-    bottom: 330px;
+    margin-top:50px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} { 
     margin-left: 2px;
+    margin-top:50px;
     width: 69%;
   }
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} { 
     margin-left: 2px;
     width: 100%;
+  }
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
+    margin-left: 170px;
+    width: 69%;
   }
 `;
 
@@ -57,19 +61,18 @@ export const TopTypography = styled(Typography)`
   position: relative;
   font-weight: 600;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     text-align: center;
     position: relative;
     left: 53px;
-    font-weight: 300;
+    font-weight: 600;
     font-size: 35px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    text-align: center;
+  ${({ theme }) => theme.breakpoints.between('sm','md')} { 
     position: relative;
     left: 100px;
-    font-weight: 300;
+    font-weight: 600;
     font-size: 40px;
   }
 `;
@@ -81,61 +84,50 @@ export const RowDiv = styled("div")`
   top: 20px;
   justify-content: space-between;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} { 
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
 
-  @media (min-width: 1024px) and (max-width: 1440px) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
 `;
 export const ImgDiv = styled("div")`
   display: flex;
   position: relative;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     flex-direction: column;
-    margin-left: 40px;
+    margin-left: 60px;
     margin-top: 0px;
     position: relative;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} { 
     display: grid;
-    margin-left: 70px;
+    margin-left: 100px;
     margin-top: 10px;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
-  @media (min-width: 1024px) and (max-width: 1199px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} { 
     margin-left: 0px;
     margin-top: 10px;
     width: 1010px;
     height: 400px;
   }
-  @media (min-width: 1200px) and (max-width: 1439px) {
-    margin-left: 50px;
-  }
-  @media (min-width: 1440px) {
-    margin-left: 150px;
-  }
-  @media (min-width: 1450px) {
-    margin-left: -40px;
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} {
+    // margin-left: 50px;
   }
 `;
 export const DetailDiv = styled("div")<{ bgcolor: string }>`
-  visibility: hidden;
+  // visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: #fff;
@@ -145,16 +137,12 @@ export const DetailDiv = styled("div")<{ bgcolor: string }>`
   margin-top: -51px;
   display: flex;
   cursor: pointer;
-  @media (min-width: 390px) and (max-width: 767px) {
-    width: 85%;
-    margin-top: -45px;
-  }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    width: 40.5%;
-  }
-  @media (min-width: 1024px) and (max-width: 1199px) {
+
+  ${({ theme }) => theme.breakpoints.between('md','lg')} { 
     width: 20.5%;
-  }
+    padding: 5px;
+    font-size:13px;
+   }
 `;
 export const TypographyIcon = styled(Link)<{ textcolor: string }>`
   margin-left: 30%;
@@ -165,42 +153,27 @@ export const TypographyIcon = styled(Link)<{ textcolor: string }>`
   &:hover {
     color: ${({ textcolor }) => textcolor || appColors["black"]};
   }
-  @media (min-width: 1024px) and (max-width: 1199px) {
-    margin-left: 30%;
-  }
 `;
 
 export const CustomCard = styled("div")`
-  //
   width: 282px;
-  &:hover {
-    ${DetailDiv} {
-      visibility: visible;
-    }
-  }
-
-  @media (min-width: 390px) and (max-width: 767px) {
+ 
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     width: 282px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    width: 282px;
-  }
 `;
 
 export const ProductContent = styled("div")`
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
-  @media (min-width: 390px) and (max-width: 767px) {
+
+ ${({ theme }) => theme.breakpoints.down('sm')} {
     display: flex;
     justify-content: space-between;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    display: flex;
-    justify-content: space-between;
-  }
 `;
 export const StyledTypography = styled(Typography)`
   font-family: "Open Sans", sans-serif;
@@ -209,26 +182,14 @@ export const StyledTypography = styled(Typography)`
   line-height: 21.79px;
   margin-top: 5px;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
+    margin-top: 10px;
     font-size: 15px;
     line-height: 20px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 21.79px;
-  }
-
-  @media (min-width: 1024px) and (max-width: 1440px) {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 21.79px;
-  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -237,39 +198,30 @@ export const StyledLink = styled(Link)`
   color: black;
   cursor: pointer;
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     margin-right: 5px;
+    margin-left: 5px;
     text-decoration: none;
     color: black;
     cursor: pointer;
+    font-size: 12px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} { 
     margin-right: 10px;
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
+    margin-left: 50px;
   }
 
-  @media (min-width: 1024px) and (max-width: 1199px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     margin-right: 30px;
-    text-decoration: none;
-    color: black;
     position: relative;
-    cursor: pointer;
+    
   }
-  @media (min-width: 1200px) and (max-width: 1439px) {
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
     position: relative;
-    left: 50px;
+    margin-left: 50px;
   }
-  @media (min-width: 1440px) {
-    position: relative;
-    left: 150px;
-  }
-  @media (min-width: 1450px) {
-    position: relative;
-    left: -40px;
-  }
+
 `;
 export const StyledLink1 = styled(Link)`
   margin-right: 10px;
@@ -281,39 +233,28 @@ export const StyledLink1 = styled(Link)`
     color: #ff6f61;
   }
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     margin-right: 5px;
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
+    font-size: 12px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  ${({ theme }) => theme.breakpoints.between('sm','md')} { 
     margin-right: 10px;
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
+    margin-left: 20px;
   }
 
-  @media (min-width: 1024px) and (max-width: 1199px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
     margin-right: 30px;
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.5);
+    margin-left: 20px;
     position: relative;
     cursor: pointer;
   }
-  @media (min-width: 1200px) and (max-width: 1439px) {
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
     position: relative;
-    left: 50px;
+    margin-left: 30px;
   }
-  @media (min-width: 1440px) {
-    position: relative;
-    left: 150px;
-  }
-  @media (min-width: 1450px) {
-    position: relative;
-    left: -40px;
-  }
+
 `;
 export const StyledButton = styled(Button)<{
   bgcolor: string;
@@ -323,108 +264,56 @@ export const StyledButton = styled(Button)<{
   float: right;
   height: 25px;
   position: relative;
-  bottom: 10px;
-  left: 70px;
+  bottom: 0px;
+  left: 60px;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: ${({ textcolor }) => textcolor || appColors["black"]};
   &:hover {
     background-color: #ff6f61;
   }
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     margin-right: 0px;
     float: right;
-    height: 21px;
+    height: 20px;
     position: relative;
     bottom: 18px;
-    font-size: 9px;
-    left: 100px;
-    width: 82px;
-    gap: 10px;
-    background: ${({ bgcolor }) => bgcolor || appColors["white"]};
-    color: ${({ textcolor }) => textcolor || appColors["black"]};
-    &:hover {
-      background-color: #ff6f61;
-    }
+    font-size: 8px;
+    left: 60px;
+    width: 70px;
+    gap: 5px;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    margin-right: 0px;
-    float: right;
+  ${({ theme }) => theme.breakpoints.between('sm','md')} { 
     height: 29px;
     position: relative;
     bottom: 25px;
     font-size: 18px;
-    left: 200px;
-    top: 0px;
+    left: 140px;
     gap: 10px;
-    background: ${({ bgcolor }) => bgcolor || appColors["white"]};
-    color: ${({ textcolor }) => textcolor || appColors["black"]};
-    &:hover {
-      background-color: #ff6f61;
-    }
   }
 
-  @media (min-width: 1024px) and (max-width: 1199px) {
+  ${({ theme }) => theme.breakpoints.between('md','lg')} { 
     float: right;
     height: 29px;
     position: relative;
     font-size: 12px;
     right: 22px;
     top: 0px;
-    left: -20px;
+    left: -35px;
     gap: 10px;
-    background: ${({ bgcolor }) => bgcolor || appColors["white"]};
-    color: ${({ textcolor }) => textcolor || appColors["black"]};
-    &:hover {
-      background-color: #ff6f61;
-    }
   }
-  @media (min-width: 1200px) and (max-width: 1439px) {
+  ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
     float: right;
     height: 29px;
     font-size: 12px;
     position: relative;
-    left: -90px;
+    left: 90px;
     right: 22px;
     top: 0px;
     gap: 10px;
-    background: ${({ bgcolor }) => bgcolor || appColors["white"]};
-    color: ${({ textcolor }) => textcolor || appColors["black"]};
-    &:hover {
-      background-color: #ff6f61;
-    }
   }
-  @media (min-width: 1440px) {
-    float: right;
-    height: 29px;
-    font-size: 12px;
-    position: relative;
-    left: -170px;
-    right: 22px;
-    top: 0px;
-    gap: 10px;
-    background: ${({ bgcolor }) => bgcolor || appColors["white"]};
-    color: ${({ textcolor }) => textcolor || appColors["black"]};
-    &:hover {
-      background-color: #ff6f61;
-    }
-  }
-  @media (min-width: 1450px) {
-    float: right;
-    height: 29px;
-    font-size: 12px;
-    position: relative;
-    left: 30px;
-    right: 22px;
-    top: 0px;
-    gap: 10px;
-    background: ${({ bgcolor }) => bgcolor || appColors["white"]};
-    color: ${({ textcolor }) => textcolor || appColors["black"]};
-    &:hover {
-      background-color: #ff6f61;
-    }
-  }
+
 `;
 
 export const HotTypography = styled(Typography)`
@@ -444,8 +333,13 @@ export const SaleTypography = styled(Typography)`
   color: white;
   width: 60px;
   text-align: center;
+  ${({ theme }) => theme.breakpoints.between('md','lg')} {
+  position: absolute;
+  top: 40px;
+  right: 175px;
+  }
 
-  @media (min-width: 390px) and (max-width: 767px) {
+  ${({ theme }) => theme.breakpoints.down('sm')} {
     position: absolute;
     top: 40px;
     right: 206px;
@@ -455,23 +349,4 @@ export const SaleTypography = styled(Typography)`
     text-align: center;
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    position: absolute;
-    top: 40px;
-    right: 205px;
-    background-color: black;
-    color: white;
-    width: 60px;
-    text-align: center;
-  }
-
-  @media (min-width: 1024px) and (max-width: 1199px) {
-    position: absolute;
-    top: 40px;
-    right: 175px;
-    background-color: black;
-    color: white;
-    width: 60px;
-    text-align: center;
-  }
 `;
