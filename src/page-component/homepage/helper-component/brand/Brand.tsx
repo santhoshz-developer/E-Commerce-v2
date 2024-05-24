@@ -47,7 +47,7 @@ const Brand = (props: any) => {
           }
           alt="category-1"
         />
-        <LadyDiv bgcolor={hoverBg}>
+        <LadyDiv bgcolor={hoverBg} className="hover-lady">
           <Typography>{categorey?.[0]?.images?.[0]?.productname}</Typography>
           <Typography>{categorey?.[0]?.images?.[0]?.productcount}</Typography>
         </LadyDiv>
@@ -77,7 +77,7 @@ const Brand = (props: any) => {
                 }
                 alt={`category`}
               />
-              <PantsDiv bgcolor={hoverBg}>
+              <PantsDiv bgcolor={hoverBg} className="hover-brand">
                 <Typography>
                   {categorey?.[0]?.images?.[1]?.productname}
                 </Typography>
@@ -96,7 +96,7 @@ const Brand = (props: any) => {
                 alt={`category`}
               />
               <SaleTypography>SALE</SaleTypography>
-              <CoatDiv bgcolor={hoverBg}>
+              <CoatDiv bgcolor={hoverBg} className="hover-brand">
                 <Typography>
                   {categorey?.[0]?.images?.[2]?.productname}
                 </Typography>
@@ -116,7 +116,7 @@ const Brand = (props: any) => {
                 }
                 alt={`category`}
               />
-              <ShirtDiv bgcolor={hoverBg}>
+              <ShirtDiv bgcolor={hoverBg} className="hover-brand">
                 <Typography>
                   {categorey?.[0]?.images?.[3]?.productname}
                 </Typography>
@@ -134,7 +134,7 @@ const Brand = (props: any) => {
                 }
                 alt={`category`}
               />
-              <JacketDiv bgcolor={hoverBg}>
+              <JacketDiv bgcolor={hoverBg} className="hover-brand">
                 <Typography>
                   {categorey?.[0]?.images?.[4]?.productname}
                 </Typography>

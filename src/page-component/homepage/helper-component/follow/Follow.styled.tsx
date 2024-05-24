@@ -4,30 +4,78 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 export const HoverContent = styled("div")`
   display: none;
   visibility: hidden;
-  position: absolute;
-  font-size: 30px;
   color: #fff;
   background-color: black;
   opacity: 0.5;
+  font-size: 30px;
+  position: absolute;
   width: 200px;
   height: 200px;
   padding-top: 60px;
   padding-left: 60px;
-  top: 50%;
+  top: 49%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    position: absolute;
+    opacity: 0.5;
+    width: 252px;
+    height: 250px;
+    padding-top: 90px;
+    padding-left: 90px;
+    top: 49%;
+    left: 40%;
+  }
+  ${({ theme }) => theme.breakpoints.between("sm", "md")} {
+    position: absolute;
+    opacity: 0.5;
+    width: 300px;
+    height: 298px;
+    padding-top: 110px;
+    padding-left: 120px;
+    top: 49%;
+    left: 45%;
+  }
+  ${({ theme }) => theme.breakpoints.between("md", "lg")} {
+    position: absolute;
+    opacity: 0.5;
+    width: 150px;
+    height: 150px;
+    padding-top: 50px;
+    padding-left: 40px;
+    top: 49%;
+    left: 50%;
+  }
+ 
 `;
 
 export const ImgBox = styled("div")`
   position: relative;
   display: inline-block;
-
+  &:hover .hover-content {
+    display: flex;
+    visibility: visible;
+  }
 `;
 
 export const InstagramIconStyled = styled(InstagramIcon)`
   position: relative;
   left: 10px;
   font-size: 50px;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    position: relative;
+    left: 10px;
+    font-size: 60px;
+  }
+    ${({ theme }) => theme.breakpoints.between("sm","md")} {
+      position: relative;
+      left: 0 px;
+      font-size: 70px;
+    }
+    ${({ theme }) => theme.breakpoints.between("md", "lg")} { 
+      font-size: 40px;
+    }
 `;
 
 export const TopDiv = styled("div")`
@@ -36,19 +84,19 @@ export const TopDiv = styled("div")`
   top: 60px;
   height: 640px;
 
-  ${({ theme }) => theme.breakpoints.down('sm')} {
+  ${({ theme }) => theme.breakpoints.down("sm")} {
     position: relative;
     top: 20px;
     height: 1900px;
   }
 
-  ${({ theme }) => theme.breakpoints.between('sm','md')} {
+  ${({ theme }) => theme.breakpoints.between("sm", "md")} {
     position: relative;
     top: 60px;
     height: 1300px;
   }
 
-  ${({ theme }) => theme.breakpoints.between('md','lg')} {
+  ${({ theme }) => theme.breakpoints.between("md", "lg")} {
     position: relative;
     top: 60px;
   }
@@ -68,13 +116,13 @@ export const TopTypography = styled(Typography)`
   font-weight: 600;
   font-size: 45px;
 
-  ${({ theme }) => theme.breakpoints.down('sm')} {
+  ${({ theme }) => theme.breakpoints.down("sm")} {
     position: relative;
     left: 0px;
     font-size: 15px;
   }
 
-  ${({ theme }) => theme.breakpoints.between('sm','md')} {
+  ${({ theme }) => theme.breakpoints.between("sm", "md")} {
     position: relative;
     left: 0px;
     font-size: 33px;
@@ -87,7 +135,7 @@ export const MainDiv = styled("div")`
   margin-top: 70px;
   cursor: pointer;
 
-  ${({ theme }) => theme.breakpoints.down('sm')} {
+  ${({ theme }) => theme.breakpoints.down("sm")} {
     flex-direction: column;
     margin-left: 70px;
     margin-top: 40px;
@@ -100,7 +148,7 @@ export const MainDiv = styled("div")`
     }
   }
 
-  ${({ theme }) => theme.breakpoints.between('sm','md')} {
+  ${({ theme }) => theme.breakpoints.between("sm", "md")} {
     display: grid;
     margin-left: 50px;
     margin-top: 40px;
@@ -112,7 +160,7 @@ export const MainDiv = styled("div")`
       width: 300px !important;
     }
   }
-  ${({ theme }) => theme.breakpoints.between('md','lg')} {
+  ${({ theme }) => theme.breakpoints.between("md", "lg")} {
     display: flex;
     justify-content: center;
     margin-top: 40px;
@@ -136,12 +184,12 @@ export const StyledButton = styled(Button)`
     color: #ff6f61;
   }
 
-  ${({ theme }) => theme.breakpoints.down('sm')} {
+  ${({ theme }) => theme.breakpoints.down("sm")} {
     margin-top: 34px;
     margin-left: 50px;
   }
 
-  ${({ theme }) => theme.breakpoints.between('sm','md')} {
+  ${({ theme }) => theme.breakpoints.between("sm", "md")} {
     margin-top: 34px;
     margin-left: 50px;
   }
@@ -153,22 +201,22 @@ export const StyledText = styled(TextField)`
   margin-top: 22px;
   margin-left: 480px;
 
-  ${({ theme }) => theme.breakpoints.down('sm')} {
+  ${({ theme }) => theme.breakpoints.down("sm")} {
     width: 180px;
     margin-left: 40px;
   }
 
-  ${({ theme }) => theme.breakpoints.between('sm','md')} {
+  ${({ theme }) => theme.breakpoints.between("sm", "md")} {
     margin-left: 80px;
   }
 
-  ${({ theme }) => theme.breakpoints.between('md','lg')} {
+  ${({ theme }) => theme.breakpoints.between("md", "lg")} {
     width: 400px;
     height: 32px;
     margin-top: 22px;
     margin-left: 240px;
   }
-  ${({ theme }) => theme.breakpoints.between('lg','xl')} {
+  ${({ theme }) => theme.breakpoints.between("lg", "xl")} {
     margin-left: 420px;
   }
 `;
@@ -179,13 +227,13 @@ export const ContentTypography = styled(Typography)`
   font-weight: 600;
   font-size: 38px;
 
-  ${({ theme }) => theme.breakpoints.down('sm')} {
+  ${({ theme }) => theme.breakpoints.down("sm")} {
     position: relative;
     left: 0px;
     font-size: 20px;
   }
 
-  ${({ theme }) => theme.breakpoints.between('sm','md')} {
+  ${({ theme }) => theme.breakpoints.between("sm", "md")} {
     position: relative;
     left: 0px;
     font-size: 40px;

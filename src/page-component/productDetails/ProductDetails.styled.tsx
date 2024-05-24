@@ -736,7 +736,7 @@ export const CarouselBox = styled(Box)`
         margin-top:50px;
         margin-left:15px;
         margin-right:15px;
-        height: 130vh;
+        height: 50vh;
     }
     ${({ theme }) => theme.breakpoints.up("lg")}{
         text-align:center;

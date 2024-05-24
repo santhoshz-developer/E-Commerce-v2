@@ -127,14 +127,14 @@ export const ImgDiv = styled("div")`
   }
 `;
 export const DetailDiv = styled("div")<{ bgcolor: string }>`
-  // visibility: hidden;
+  visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: #fff;
   padding: 10px;
   width: 237px;
   position: absolute;
-  margin-top: -51px;
+  margin-top: -67px;
   display: flex;
   cursor: pointer;
 
@@ -157,7 +157,9 @@ export const TypographyIcon = styled(Link)<{ textcolor: string }>`
 
 export const CustomCard = styled("div")`
   width: 282px;
- 
+  &:hover .hover-cards{
+    visibility: visible;
+  }
   ${({ theme }) => theme.breakpoints.down('sm')} {
     width: 282px;
   }

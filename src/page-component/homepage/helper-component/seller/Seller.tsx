@@ -25,6 +25,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { api } from "@/service/backend-api";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import { Cards, NavbarItem } from "@/page-component/type";
+import { useState } from "react";
 
 
 const Seller = (props: any) => {
@@ -67,7 +68,7 @@ const Seller = (props: any) => {
 
   const renderHoverDetails = (card: Cards) => {
     return (
-      <DetailDiv bgcolor={hoverBg}>
+      <DetailDiv bgcolor={hoverBg} className="hover-cards">
         <FavoriteIcon />
         <SearchIconBox>
           <SearchIcon />

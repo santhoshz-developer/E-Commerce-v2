@@ -36,7 +36,7 @@ export const BoxStyled = styled(Box)`
   }
 `;
 export const LadyDiv = styled("div") <{ bgcolor: string }>`
-  // visibility: hidden;
+  visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: #fff;
@@ -76,7 +76,9 @@ export const LadyimgDiv = styled("div")`
     margin-right: auto;
     margin-top:-30px;
   }
-
+  &:hover .hover-lady {
+    visibility: visible;
+  }
   ${({ theme }) => theme.breakpoints.down('sm')} {
     position: relative;
     left: 0px;
@@ -122,7 +124,7 @@ export const LadyimgDiv = styled("div")`
   }
 `;
 export const PantsDiv = styled("div") <{ bgcolor: string }>`
-  // visibility: hidden;
+  visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: #fff;
@@ -130,7 +132,7 @@ export const PantsDiv = styled("div") <{ bgcolor: string }>`
   padding: 10px;
   width: 250px;
   position: absolute;
-  margin-top: -52px;
+  margin-top: -56px;
   cursor: pointer;
   z-index: 999;
 
@@ -151,11 +153,11 @@ export const PantsDiv = styled("div") <{ bgcolor: string }>`
     margin-top: -50px;
   }
   ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
-    margin-top: -55px;
+    margin-top: -65px;
   }
 `;
 export const CoatDiv = styled("div") <{ bgcolor: string }>`
-  // visibility: hidden;
+  visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: #fff;
@@ -163,7 +165,7 @@ export const CoatDiv = styled("div") <{ bgcolor: string }>`
   padding: 10px;
   width: 250px;
   position: absolute;
-  margin-top: -52px;
+  margin-top: -55px;
   cursor: pointer;
   z-index: 999;
 
@@ -184,11 +186,11 @@ export const CoatDiv = styled("div") <{ bgcolor: string }>`
     margin-top: -74px;
   }
   ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
-    margin-top: -55px; 
+    margin-top: -65px; 
   }
 `;
 export const ShirtDiv = styled("div") <{ bgcolor: string }>`
-  // visibility: hidden;
+  visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: #fff;
@@ -196,7 +198,7 @@ export const ShirtDiv = styled("div") <{ bgcolor: string }>`
   padding: 10px;
   width: 250px;
   position: absolute;
-  margin-top: -52px;
+  margin-top: -56px;
   cursor: pointer;
   z-index: 999;
 
@@ -216,11 +218,11 @@ export const ShirtDiv = styled("div") <{ bgcolor: string }>`
     margin-top: -50px;
   }
   ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
-    margin-top: -56px; 
+    margin-top: -66px; 
   }
 `;
 export const JacketDiv = styled("div") <{ bgcolor: string }>`
-  // visibility: hidden;
+  visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: #fff;
@@ -228,7 +230,7 @@ export const JacketDiv = styled("div") <{ bgcolor: string }>`
   padding: 10px;
   width: 250px;
   position: absolute;
-  margin-top: -52px;
+  margin-top: -55px;
   cursor: pointer;
   z-index: 999;
 
@@ -248,7 +250,7 @@ export const JacketDiv = styled("div") <{ bgcolor: string }>`
     margin-top: -50px;
   }
   ${({ theme }) => theme.breakpoints.between('lg','xl')} { 
-    margin-top: -55px; 
+    margin-top: -65px; 
   }
 `;
 export const HoverDiv = styled("div")`
@@ -256,7 +258,10 @@ img{
       width: 100%;
       max-width: 250px;
       height: auto;
-      margin-bottom: 5px;
+      margin-bottom: 15px;
+    }
+    &:hover .hover-brand {
+      visibility: visible;
     }
  
   ${({ theme }) => theme.breakpoints.down('sm')} {

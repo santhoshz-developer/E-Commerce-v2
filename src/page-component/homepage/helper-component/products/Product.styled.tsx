@@ -267,16 +267,17 @@ export const CommonDiv = styled("div")`
 `;
 
 export const DetailDiv = styled("div")<{ bgcolor: string }>`
-  // visibility: hidden;
+  visibility: hidden;
   display: flex;
   background: ${({ bgcolor }) => bgcolor || appColors["white"]};
   color: #fff;
   padding: 10px;
-  width: 235px;
+  width: 237px;
   position: absolute;
-  margin-top: -52px;
+  margin-top: -57px;
   display: flex;
   cursor: pointer;
+
   // @media (min-width: 390px) and (max-width: 767px) {
   //   width: 85%;
   // }
@@ -301,6 +302,9 @@ export const TypographyIcon = styled(Link)<{ textcolor: string }>`
 
 export const CustomCard = styled("div")`
   width: 282px;
+  &:hover .hover-card {
+    visibility: visible;
+  }
 `;
 
 export const ProductContent = styled("div")`

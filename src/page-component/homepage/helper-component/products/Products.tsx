@@ -80,7 +80,7 @@ const Products = (props: any) => {
 
   const renderHoverDetails = (card: Card) => {
     return (
-      <DetailDiv bgcolor={hoverBg}>
+      <DetailDiv bgcolor={hoverBg}  className="hover-card">
         <FavoriteIcon />
         <SearchIconBox>
           <SearchIcon />
