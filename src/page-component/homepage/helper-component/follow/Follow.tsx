@@ -13,10 +13,10 @@ import {
   TopTypography,
 } from "./Follow.styled";
 import { CardItem } from "@/page-component/type";
+import { useState } from "react";
 
 export const Follow = (props: any) => {
   const feedback = props;
-
   const renderImage = () => {
     return (
       <MainDiv>
@@ -26,9 +26,9 @@ export const Follow = (props: any) => {
               src={api + item?.brandlogo?.data?.[0]?.attributes?.url}
               alt={`Brand ${index + 1}`}
             />
-            <HoverContent>
-              <InstagramIconStyled />
-            </HoverContent>
+              <HoverContent className="hover-content">
+                <InstagramIconStyled />
+              </HoverContent>
           </ImgBox>
         ))}
       </MainDiv>

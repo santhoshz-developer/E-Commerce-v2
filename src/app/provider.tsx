@@ -4,7 +4,6 @@ import React from "react";
 
 import { ApolloProvider } from "@apollo/client";
 import createApolloClient from "@/service/apollo-clients";
-// import { theme } from "@/theme/BreakPoints";
 import { createMuiTheme } from "@mui/material";
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -20,9 +19,6 @@ const AppProviders = ({ children }: { children: React.ReactNode }) => {
             <CssBaseline />
             {children}
           </ThemeProvider>
-        {/* <ThemeProvider theme={theme}>
-          {children}
-          </ThemeProvider> */}
       </ApolloProvider>
     </>
   );
