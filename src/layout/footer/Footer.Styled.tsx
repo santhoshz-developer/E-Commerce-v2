@@ -39,7 +39,7 @@ export const StyledBox = styled(Box)`
   ${({ theme }) => theme.breakpoints.between('sm','md')} {
     display: flex;
     position: relative;
-    left: -80px;
+    left: -90px;
     top: 180px;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;

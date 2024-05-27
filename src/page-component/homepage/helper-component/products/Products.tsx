@@ -132,6 +132,7 @@ const Products = (props: any) => {
           </CustomCard>
         ))}
       </GridContainer>
+      
     );
   };
 
@@ -141,6 +142,7 @@ const Products = (props: any) => {
       {ProductNavbar()}
       <CommonDiv>{ProductFirstRow()}</CommonDiv>
     </BoxContainer>
+   
   );
 };
 

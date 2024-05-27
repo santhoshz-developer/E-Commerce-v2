@@ -22,7 +22,7 @@ export const GridContainer = styled("div")`
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     position: relative;
-    right: 140px;
+    // right: 140px;
   }
   ${({ theme }) => theme.breakpoints.between('md','lg')} { 
     position: relative;
@@ -54,7 +54,7 @@ export const TopTypography = styled(Typography)`
   ${({ theme }) => theme.breakpoints.between('sm','md')} { 
     text-align: center;
     position: relative;
-    right: 100px;
+    right: 50px;
   }
 
   ${({ theme }) => theme.breakpoints.between('md','lg')} { 
@@ -96,7 +96,7 @@ export const BoxStyled = styled(Box)`
     margin-top: 25px;
     position: relative;
     font-size: 20px;
-    right: 140px;
+    right: 70px;
   }
 
   ${({ theme }) => theme.breakpoints.between('md','lg')} { 
@@ -113,37 +113,6 @@ export const StyledLink = styled(Link)`
   color: black;
   cursor: pointer;
 
-  // ${({ theme }) => theme.breakpoints.down('sm')} {
-  //   margin-right: 5px;
-  //   margin-top: 10px;
-  //   position: relative;
-  //   text-decoration: none;
-  //   color: black;
-  //   cursor: pointer;
-  // }
-
-  // @media (min-width: 768px) and (max-width: 1023px) {
-  //   margin-right: 10px;
-  //   text-decoration: none;
-  //   color: black;
-  //   cursor: pointer;
-  // }
-
-  // @media (min-width: 1024px) and (max-width: 1199px) {
-  //   text-decoration: none;
-  //   color: black;
-  //   position: relative;
-  //   cursor: pointer;
-  //   left: -200px;
-  // }
-  // @media (min-width: 1200px) and (max-width: 1439px) {
-  //   position: relative;
-  //   left: -140px;
-  // }
-  // @media (min-width: 1440px) and (max-width: 1449) {
-  //   position: relative;
-  //   left: -100px;
-  // }
 `;
 
 export const StyledLink1 = styled(Link)`
@@ -156,35 +125,6 @@ export const StyledLink1 = styled(Link)`
     color: #ff6f61;
   }
 
-  // ${({ theme }) => theme.breakpoints.down('sm')} {
-  //   margin-right: 5px;
-  //   text-decoration: none;
-  //   color: red;
-  //   margin-top: 5px;
-  // }
-
-  // @media (min-width: 768px) and (max-width: 1023px) {
-  //   margin-right: 10px;
-  //   text-decoration: none;
-  //   color: rgba(0, 0, 0, 0.5);
-  //   cursor: pointer;
-  // }
-
-  // @media (min-width: 1024px) and (max-width: 1199px) {
-  //   text-decoration: none;
-  //   color: rgba(0, 0, 0, 0.5);
-  //   position: relative;
-  //   cursor: pointer;
-  //   left: -200px;
-  // }
-  // @media (min-width: 1200px) and (max-width: 1439px) {
-  //   position: relative;
-  //   left: -140px;
-  // }
-  // @media (min-width: 1440px) and (max-width: 1449) {
-  //   position: relative;
-  //   left: -100px;
-  // }
 `;
 export const StyledButton = styled(Button)<{
   bgcolor: string;
@@ -216,36 +156,6 @@ export const StyledButton = styled(Button)<{
     gap: 5px;
  
   }
-
-  // @media (min-width: 768px) and (max-width: 1023px) {
-  //   margin-right: 0px;
-  //   float: right;
-  //   height: 29px;
-  //   position: relative;
-  //   bottom: 0px;
-  //   font-size: 18px;
-  //   left: 200px;
-  //   gap: 10px;
-  // }
-
-  // @media (min-width: 1024px) and (max-width: 1199px) {
-  //   float: right;
-  //   height: 29px;
-  //   position: relative;
-  //   bottom: 0px;
-  //   font-size: 15px;
-  //   left: -40px;
-  //   gap: 10px;
-  // }
-  // @media (min-width: 1200px) and (max-width: 1440px) {
-  //   float: right;
-  //   height: 29px;
-  //   position: relative;
-  //   bottom: 0px;
-  //   font-size: 15px;
-  //   left: -50px;
-  //   gap: 10px;
-  // }
 `;
 
 export const CommonDiv = styled("div")`
@@ -253,17 +163,6 @@ export const CommonDiv = styled("div")`
   flex-wrap: wrap;
   justify-content: space-between;
 
-  @media (min-width: 390px) and (max-width: 767px) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  // @media (min-width: 768px) and (max-width: 1023px) {
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   justify-content: space-between;
-  // }
 `;
 
 export const DetailDiv = styled("div")<{ bgcolor: string }>`
@@ -278,15 +177,6 @@ export const DetailDiv = styled("div")<{ bgcolor: string }>`
   display: flex;
   cursor: pointer;
 
-  // @media (min-width: 390px) and (max-width: 767px) {
-  //   width: 85%;
-  // }
-  // @media (min-width: 768px) and (max-width: 1023px) {
-  //   width: 40%;
-  // }
-  // @media (min-width: 1024px) and (max-width: 1199px) {
-  //   width: 20.5%;
-  // }
 `;
 export const TypographyIcon = styled(Link)<{ textcolor: string }>`
   margin-left: 30%;
@@ -312,20 +202,6 @@ export const ProductContent = styled("div")`
   justify-content: space-between;
   margin-top: 15px;
 
-  // @media (min-width: 390px) and (max-width: 767px) {
-  //   display: flex;
-  //   justify-content: space-between;
-  // }
-
-  // @media (min-width: 768px) and (max-width: 1023px) {
-  //   display: flex;
-  //   justify-content: space-between;
-  // }
-
-  // @media (min-width: 1024px) and (max-width: 1440px) {
-  //   display: flex;
-  //   justify-content: space-between;
-  // }
 `;
 
 export const RateTypography = styled(Typography)`
@@ -336,33 +212,13 @@ export const ProductNameTypography = styled(Typography)`
   color: rgba(0, 0, 0, 0.5);
 `;
 
-export const StyledTypography = styled(Typography)`
+  export const StyledTypography = styled(Typography)`
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   font-size: 14px;
   line-height: 21.79px;
   margin-top: 5px;
 
-  // @media (min-width: 390px) and (max-width: 767px) {
-  //   font-family: "Open Sans", sans-serif;
-  //   font-weight: 600;
-  //   font-size: 15px;
-  //   line-height: 20px;
-  // }
-
-  // @media (min-width: 768px) and (max-width: 1023px) {
-  //   font-family: "Open Sans", sans-serif;
-  //   font-weight: 600;
-  //   font-size: 16px;
-  //   line-height: 21.79px;
-  // }
-
-  // @media (min-width: 1024px) and (max-width: 1440px) {
-  //   font-family: "Open Sans", sans-serif;
-  //   font-weight: 600;
-  //   font-size: 14px;
-  //   line-height: 21.79px;
-  // }
 `;
 export const BoxContainer = styled("div")`
   margin-left: 250px;
@@ -376,16 +232,12 @@ export const BoxContainer = styled("div")`
     position: relative;
   }
 
-  // @media (min-width: 768px) and (max-width: 1023px) {
-  //   margin-left: 2px;
-  //   width: 69%;
-  // }
+  ${({ theme }) => theme.breakpoints.between('sm','md')} { 
+    margin-left: 170px;
+    width: 69%;
+    margin-top: 150px;
+  }
 
-  // @media (min-width: 1024px) and (max-width: 1440px) {
-  //   margin-left: 20px;
-  //   margin-top: 130px;
-  //   width: 80%;
-  // }
 `;
 
 export const SaleTypography = styled(Typography)`
