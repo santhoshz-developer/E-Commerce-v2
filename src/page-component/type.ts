@@ -77,5 +77,5 @@ export interface NavbarItem {
   }
   //ProductDetails.ts
 export interface ProductDetailsProps {
-    productId: string | number;
+    productId: any;
   }
